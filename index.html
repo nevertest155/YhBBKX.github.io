@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YhBBKX - 极致优化 By Never155</title>
+    <!-- ====== YhBBKX 网站图标配置 ====== -->
+    <!-- 主图标：浏览器标签页显示 -->
+    <link rel="icon" 
+          href="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png" 
+          type="image/png">
+
+    <!-- Apple设备主屏幕图标 -->
+    <link rel="apple-touch-icon" 
+          href="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png">
+
+    <!-- 备用传统图标（为老旧浏览器） -->
+    <link rel="shortcut icon" 
+          href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABYSURBVHjaYvz//z8DxQAkSAqgijyDCAa4GBiAPAbU5AwEAo5UBYDZAEI4IIg8BdHQwICBtIIgEc/wD+UwxABdCtAbCQkFEg0l2gCslkIiCjU5DBwAAG28E5KzpPRAAAAAAElFTkSuQmCC" 
+          type="image/x-icon">
+
+    <!-- 主题颜色（匹配你的网站主题） -->
+    <meta name="theme-color" content="#67C8FF">
+
+    <!-- 确保图标缓存正确 -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ====== 智能预加载系统 ====== -->
+<script src="smart-preloader.js" defer></script>
+
     <style>
         /* ====== 全局样式 ====== */
         * {
@@ -949,7 +973,7 @@
     <!-- 侧边抽屉 -->
     <div class="drawer" id="drawer">
         <div class="drawer-header">
-            <div class="drawer-title">菜单</div>
+            <div class="drawer-title" data-i18n="menu-title">菜单</div>
             <button class="icon-button" id="closeBtn">
                 <span class="material-icons-outlined">close</span>
             </button>
@@ -969,8 +993,8 @@
                 </div>
                 <div class="section-content" id="downloadContent">
                     <a href="https://www.123912.com/s/xzqLTd-9iOw" target="_blank" class="nav-item" id="download26">
-                        <span class="material-icons-outlined">rocket_launch</span>
-                        <span class="nav-item-label">YhBBKX 26.1 贺新春</span>
+                        <span class="material-icons-outlined">system_update_alt</span>
+                        <span class="nav-item-label" data-i18n="download-26">26.1 贺新春</span>
                         <span class="nav-item-badge" data-i18n="latest">即将到来</span>
                     </a>
                     <a href="https://www.123912.com/s/xzqLTd-AiOw" target="_blank" class="nav-item" id="downloadHistory">
@@ -989,20 +1013,30 @@
                 <div class="section-content" id="moreContent">
                     <div class="nav-item" data-page="playGuide">
                         <span class="material-icons-outlined">sports_esports</span>
-                        <span class="nav-item-label">游玩须知</span>
+                        <span class="nav-item-label" data-i18n="play-guide">游玩须知</span>
                     </div>
                     <div class="nav-item" data-page="downloadHelp">
                         <span class="material-icons-outlined">help_center</span>
-                        <span class="nav-item-label">关于123下载帮助</span>
+                        <span class="nav-item-label" data-i18n="download-help">关于123下载帮助</span>
                     </div>
                     <div class="nav-item" data-page="nevNews">
                         <span class="material-icons-outlined">newspaper</span>
-                        <span class="nav-item-label">Nev新闻</span>
+                        <span class="nav-item-label" data-i18n="nev-news">Nev新闻</span>
                     </div>
                     <div class="nav-item" data-page="someThings">
-                        <span class="material-icons-outlined">topic</span>
-                        <span class="nav-item-label">一些事</span>
+                        <span class="material-icons-outlined">question_answer</span>
+                        <span class="nav-item-label" data-i18n="some-things">一些事</span>
                     </div>
+                    <!-- 新增的Better Minecraft条目 -->
+                    <a href="https://obedient-heron-1h6kp0.mysxl.cn/" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <span class="material-icons-outlined">line_style</span>
+                        <span class="nav-item-label" data-i18n="better-minecraft">Better Minecraft</span>
+                    </a>
+                    <!-- 新增的原版优化整合包条目 -->
+                    <a href="https://cysunk.mlzi.top/vanilla_optimizations/" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <span class="material-icons-outlined">polymer</span>
+                        <span class="nav-item-label" data-i18n="vanilla-optimization">原版优化整合包</span>
+                    </a>
                     <div class="nav-item" data-page="aboutSite">
                         <span class="material-icons-outlined">info</span>
                         <span class="nav-item-label" data-i18n="menu-about">关于本站</span>
@@ -1012,8 +1046,8 @@
         </div>
         <div class="drawer-footer">
             <select class="md3-select" id="langSelect">
-                <option value="zh" selected>让我们说中文</option>
-                <option value="en">Oh,ENGLISH！</option>
+                <option value="zh" selected data-i18n="language-chinese">让我们说中文</option>
+                <option value="en" data-i18n="language-english">Oh,ENGLISH！</option>
             </select>
             <div class="theme-toggle">
                 <span class="toggle-label" data-i18n="theme-label">深色模式</span>
@@ -1057,7 +1091,7 @@
                     <p class="card-desc" data-i18n="feature-1-desc">只优化需要的，没必要的我们不考虑</p>
                 </div>
                 <div class="feature-card">
-                    <div class="card-icon material-icons-outlined">category</div>
+                    <div class="card-icon material-icons-outlined">dashboard</div>
                     <h3 class="card-title" data-i18n="feature-2-title">辅助性拉满的材质</h3>
                     <p class="card-desc" data-i18n="feature-2-desc">虽然不是非常有特色、护眼，但是材质这一块 @Molo4981 会不断庞大这个材质库</p>
                 </div>
@@ -1067,100 +1101,99 @@
                     <p class="card-desc" data-i18n="feature-3-desc">实现可修改的更美观实用的JsonUI版OreUI，极度舒适！</p>
                 </div>
                 <div class="feature-card">
-                    <div class="card-icon material-icons-outlined">folder_open</div>
+                    <div class="card-icon material-icons-outlined">android</div>
                     <h3 class="card-title" data-i18n="feature-4-title">Apk优化</h3>
                     <p class="card-desc" data-i18n="feature-4-desc">比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！</p>
                 </div>
             </section>
             
             <div class="footer">
-                <div class="footer-line">By Never155</div>
-                <div class="footer-line">GitHub nevertest155</div>
-                <div class="footer-line">3934107969</div>
-                <div class="footer-line">Never155/186 Molo4981</div>
-                <div class="footer-line">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version">网站版本：26.1 贺新春</div>
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
             </div>
         </div>
 
         <!-- 游玩须知页面 -->
         <div class="page-container" id="playGuidePage">
             <section class="content-page">
-                <h1 class="content-title">游玩须知</h1>
-                <div class="content-body">您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155</div>
+                <h1 class="content-title" data-i18n="play-guide-title">游玩须知</h1>
+                <div class="content-body" data-i18n="play-guide-content">您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155</div>
             </section>
             <div class="footer">
-                <div class="footer-line">By Never155</div>
-                <div class="footer-line">GitHub nevertest155</div>
-                <div class="footer-line">3934107969</div>
-                <div class="footer-line">Never155/186 Molo4981</div>
-                <div class="footer-line">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version">网站版本：26.1 贺新春</div>
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
             </div>
         </div>
 
         <!-- 关于123下载帮助页面 -->
         <div class="page-container" id="downloadHelpPage">
             <section class="content-page">
-                <h1 class="content-title">关于123下载帮助</h1>
-                <div class="content-body">请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））</div>
+                <h1 class="content-title" data-i18n="download-help-title">关于123下载帮助</h1>
+                <div class="content-body" data-i18n="download-help-content">请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））</div>
             </section>
             <div class="footer">
-                <div class="footer-line">By Never155</div>
-                <div class="footer-line">GitHub nevertest155</div>
-                <div class="footer-line">3934107969</div>
-                <div class="footer-line">Never155/186 Molo4981</div>
-                <div class="footer-line">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version">网站版本：26.1 贺新春</div>
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
             </div>
         </div>
 
         <!-- Nev新闻页面 -->
         <div class="page-container" id="nevNewsPage">
             <section class="content-page">
-                <h1 class="content-title">Nev新闻</h1>
-                <div class="content-body">（1）26.1 贺新春版本即将到来！   （2）部署于Github Page 的YhBBKX全新静态网站已上线！！！</div>
+                <h1 class="content-title" data-i18n="nev-news-title">Nev新闻</h1>
+                <div class="content-body" data-i18n="nev-news-content">（1）26.1 贺新春版本即将到来！   （2）部署于Github Page 的YhBBKX全新静态网站已上线！！！</div>
             </section>
             <div class="footer">
-                <div class="footer-line">By Never155</div>
-                <div class="footer-line">GitHub nevertest155</div>
-                <div class="footer-line">3934107969</div>
-                <div class="footer-line">Never155/186 Molo4981</div>
-                <div class="footer-line">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version">网站版本：26.1 贺新春</div>
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
             </div>
         </div>
 
         <!-- 一些事页面 -->
         <div class="page-container" id="someThingsPage">
             <section class="content-page">
-                <h1 class="content-title">一些事</h1>
-                <div class="content-body">求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！</div>
+                <h1 class="content-title" data-i18n="some-things-title">一些事</h1>
+                <div class="content-body" data-i18n="some-things-content">求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！</div>
             </section>
             <div class="footer">
-                <div class="footer-line">By Never155</div>
-                <div class="footer-line">GitHub nevertest155</div>
-                <div class="footer-line">3934107969</div>
-                <div class="footer-line">Never155/186 Molo4981</div>
-                <div class="footer-line">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version">网站版本：26.1 贺新春</div>
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
             </div>
         </div>
 
         <!-- 关于本站页面 -->
         <div class="page-container" id="aboutSitePage">
             <section class="content-page">
-                <h1 class="content-title">关于本站</h1>
-                <div class="content-body">（此站为官方授权网站）网站版本：26.1 贺新春 最后一次编辑：2025年1月11日 9：07 此站为部署于Github Page 上的静态网站，仓库见：https://github.com/nevertest155/
-                YhBBKX.github.io/tree/main</div>
+                <h1 class="content-title" data-i18n="menu-about-title">关于本站</h1>
+                <div class="content-body" data-i18n="about-site-content">（此站为官方授权网站）网站版本：26.1 贺新春 最后一次编辑：2025年1月11日 9：07 此站为部署于Github Page 上的静态网站，仓库见：https://github.com/nevertest155/YhBBKX.github.io/tree/main</div>
             </section>
             <div class="footer">
-                <div class="footer-line">By Never155</div>
-                <div class="footer-line">GitHub nevertest155</div>
-                <div class="footer-line">3934107969</div>
-                <div class="footer-line">Never155/186 Molo4981</div>
-                <div class="footer-line">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version">网站版本：26.1 贺新春</div>
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
             </div>
         </div>
     </main>
@@ -1170,6 +1203,7 @@
         const i18n = {
             zh: {
                 "app-name": "YhBBKX",
+                "menu-title": "菜单",
                 "menu-home": "首页",
                 "menu-download": "获取",
                 "menu-more": "更多",
@@ -1188,10 +1222,36 @@
                 "feature-3-title": "MoreUI美学，捅破 天 花 板 ！",
                 "feature-3-desc": "实现可修改的更美观实用的JsonUI版OreUI，极度舒适！",
                 "feature-4-title": "Apk优化",
-                "feature-4-desc": "比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！"
+                "feature-4-desc": "比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！",
+                "play-guide": "游玩须知",
+                "download-help": "关于123下载帮助",
+                "nev-news": "Nev新闻",
+                "some-things": "一些事",
+                "better-minecraft": "Better Minecraft",
+                "vanilla-optimization": "原版优化整合包",
+                "language-chinese": "让我们说中文",
+                "language-english": "Oh,ENGLISH！",
+                "footer-by": "By Never155",
+                "footer-github": "GitHub nevertest155",
+                "footer-contact": "3934107969",
+                "footer-team": "Never155/186 Molo4981",
+                "footer-copyright": "© 2026 Never155 保留所有权利",
+                "website-version": "网站版本：26.1 贺新春",
+                "download-26": "26.1 贺新春",
+                "play-guide-title": "游玩须知",
+                "play-guide-content": "您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155",
+                "download-help-title": "关于123下载帮助",
+                "download-help-content": "请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））",
+                "nev-news-title": "Nev新闻",
+                "nev-news-content": "（1）26.1 贺新春版本即将到来！   （2）部署于Github Page 的YhBBKX全新静态网站已上线！！！",
+                "some-things-title": "一些事",
+                "some-things-content": "求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！",
+                "menu-about-title": "关于本站",
+                "about-site-content": "（此站为官方授权网站）网站版本：26.1 贺新春 最后一次编辑：2025年1月11日 9：07 此站为部署于Github Page 上的静态网站，仓库见：https://github.com/nevertest155/YhBBKX.github.io/tree/main"
             },
             en: {
                 "app-name": "YhBBKX",
+                "menu-title": "Menu",
                 "menu-home": "Home",
                 "menu-download": "Get",
                 "menu-more": "More",
@@ -1210,7 +1270,32 @@
                 "feature-3-title": "MoreUI aesthetics,breaking THROUGH THE CEILING!",
                 "feature-3-desc": "A more aesthetically pleasing and user-friendly JSON UI version of OreUI, offering an extremely comfortable user experience!",
                 "feature-4-title": "Apk optimization",
-                "feature-4-desc": "Smaller than the original, no hidden accessories (except for the new version's pre-assembled bag), rest assured, completely free!"
+                "feature-4-desc": "Smaller than the original, no hidden accessories (except for the new version's pre-assembled bag), rest assured, completely free!",
+                "play-guide": "Play Guide",
+                "download-help": "About 123 Download Help",
+                "nev-news": "Nev News",
+                "some-things": "Some Things",
+                "better-minecraft": "Better Minecraft",
+                "vanilla-optimization": "Vanilla Optimization Pack",
+                "language-chinese": "Let's speak Chinese",
+                "language-english": "Oh,ENGLISH!",
+                "footer-by": "By Never155",
+                "footer-github": "GitHub nevertest155",
+                "footer-contact": "3934107969",
+                "footer-team": "Never155/186 Molo4981",
+                "footer-copyright": "© 2026 Never155 All rights reserved",
+                "website-version": "Website Version: 26.1 Chinese New Year",
+                "download-26": "26.1 Chinese New Year",
+                "play-guide-title": "Play Guide",
+                "play-guide-content": "By obtaining the APK installation package, you agree to our agreement: 1. The original author of the YhBBKX APK installation package is @Never155. 2. The original author of the YhBBKX APK installation package on Github is @nevertest155. 3. The YhBBKX APK installation package is not open source on Github. 4. We respect your safety and privacy; the APK has no security issues and is completely free. 5. You can modify our APK package at will, but if bugs appear in modified packages or unmodified packages with other UIs added, the original author has the right not to fix the bugs and not to respond. 6. You can freely repost the original author's self-created music in APK packages from version 26.1 and above, but you must provide the original author's name and download link (must use 123 Pan). 7. You can promote YhBBKX, but you must provide the official download link (specific link, please refer to Bilibili @Never155's pinned post). Promotion of any modified packages is prohibited! 8. It is strongly recommended to support the official version first, then download our package (although @Never155 hasn't purchased the official version either... it's okay to download and play without the official version, but... uh). 9. The original package of this package is the MC version library. 10. More agreements can be found in the APK. If you do not agree with the above agreements, please do not download our package. If others violate, please inform Bilibili @Never155.",
+                "download-help-title": "About 123 Download Help",
+                "download-help-content": "Please download and install 123 Cloud Disk to get a monthly free 20GB ultra-fast download traffic package for more convenient and faster downloads each time. Please join group 737134435 to get the card key (completely free card key! But you need to download the acquisition tool, please ask the group owner for the installation package from Friday evening to Sunday. Or follow Bilibili Never155 and send a private message to get it (slower)).",
+                "nev-news-title": "Nev News",
+                "nev-news-content": "(1) Version 26.1 Chinese New Year is coming soon! (2) The new static website of YhBBKX deployed on Github Page is now online!!!",
+                "some-things-title": "Some Things",
+                "some-things-content": "Please ask others (like Bilibili @林台-范奥运) to pay attention to this small project too! After all, it's free!",
+                "menu-about-title": "About this static website",
+                "about-site-content": "(This site is an officially authorized website) Website version: 26.1 Chinese New Year Last edited: January 11, 2025, 9:07 This site is a static website deployed on Github Page. Repository: https://github.com/nevertest155/YhBBKX.github.io/tree/main"
             }
         };
 
@@ -1410,6 +1495,11 @@
             
             // 预加载图片
             preloadImages();
+            
+            // 启动智能预加载系统
+setTimeout(() => {
+    window.YhBBKXPreloader.startPreloading();
+}, 100); // 延迟100ms启动，确保DOM已加载
             
             // 监听页面加载完成
             window.addEventListener('load', () => {
