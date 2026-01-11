@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YhBBKX - 极致优化 By Never155</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ====== 全局样式 ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        /* ====== MD3E 颜色系统 ====== */
+        :root {
+            /* 主色调 - 淡蓝色 (#67C8FF) */
+            --primary: #67C8FF;
+            --primary-container: #D4EEFF;
+            --on-primary: #000000;
+            --on-primary-container: #002533;
+            
+            /* 辅助色调 */
+            --secondary: #FF8A65;
+            --secondary-container: #FFCCBC;
+            --on-secondary: #3E2723;
+            --on-secondary-container: #BF360C;
+            
+            /* 表面颜色 */
+            --surface: #FEFBFF;
+            --surface-container: #F3F5F7;
+            --surface-container-high: #E8EBEE;
+            --surface-container-lowest: #FFFFFF;
+            
+            /* 文本颜色 */
+            --on-surface: #1A1C1E;
+            --on-surface-variant: #44474E;
+            --outline: #74777F;
+            --outline-variant: #C4C6D0;
+            
+            /* 阴影 */
+            --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-2: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+            --shadow-3: 0 6px 12px 4px rgba(0, 0, 0, 0.12);
+            --shadow-4: 0 12px 24px 6px rgba(0, 0, 0, 0.1);
+            
+            /* 圆角 */
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
+            
+            /* 动画曲线 */
+            --transition-emphasized: cubic-bezier(0.2, 0, 0, 1);
+            --transition-decelerate: cubic-bezier(0, 0, 0, 1);
+            --transition-accelerate: cubic-bezier(0.3, 0, 1, 1);
+            
+            /* 间距 */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+        }
+
+        /* ====== 深色模式 ====== */
+        :root[data-theme="dark"] {
+            --primary: #A8D6FF;
+            --primary-container: #004A6A;
+            --on-primary: #003549;
+            --on-primary-container: #D4EEFF;
+            
+            --secondary: #FFAB91;
+            --secondary-container: #8D4E3B;
+            --on-secondary: #FFECDF;
+            --on-secondary-container: #FFCCBC;
+            
+            --surface: #1A1C1E;
+            --surface-container: #232528;
+            --surface-container-high: #2D2F33;
+            --surface-container-lowest: #0F1012;
+            
+            --on-surface: #E2E2E5;
+            --on-surface-variant: #C4C6D0;
+            --outline: #8D9199;
+            --outline-variant: #44474E;
+        }
+
+        body {
+            background-color: var(--surface);
+            color: var(--on-surface);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.4s var(--transition-emphasized), color 0.4s var(--transition-emphasized);
+        }
+
+        /* ====== 禁止滚动类 ====== */
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        /* ====== 顶部应用栏 ====== */
+        .top-app-bar {
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-md);
+            height: 64px;
+            background-color: var(--surface-container-lowest);
+            box-shadow: var(--shadow-1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--outline-variant);
+        }
+
+        .app-bar-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--primary);
+            flex: 1;
+        }
+
+        .app-bar-title img {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
+        /* ====== 返回按钮 ====== */
+        .back-button {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            border: none;
+            background: none;
+            color: var(--on-surface);
+            cursor: pointer;
+            margin-right: var(--spacing-sm);
+            transition: background-color 0.2s var(--transition-emphasized);
+        }
+
+        .back-button:hover {
+            background-color: var(--surface-container);
+        }
+
+        .back-button .material-icons-outlined {
+            font-size: 24px;
+        }
+
+        .back-button.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ====== 页面标题 ====== */
+        .page-title {
+            display: none;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--on-surface);
+            margin-left: var(--spacing-sm);
+        }
+
+        .page-title.active {
+            display: block;
+        }
+
+        /* ====== 图标按钮 ====== */
+        .icon-button {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            color: var(--on-surface);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+
+        .icon-button::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-full);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+
+        .icon-button:hover::after {
+            opacity: 0.08;
+        }
+
+        .icon-button:active::after {
+            opacity: 0.12;
+        }
+
+        .icon-button .material-icons-outlined {
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        /* ====== 侧边抽屉 ====== */
+        .drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100vh;
+            background-color: var(--surface-container-lowest);
+            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            transition: left 0.4s var(--transition-decelerate);
+            border-right: 1px solid var(--outline-variant);
+            will-change: left;
+        }
+
+        .drawer.open {
+            left: 0;
+        }
+
+        .drawer-header {
+            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+            border-bottom: 1px solid var(--outline-variant);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .drawer-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #8BD4FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .drawer-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            overflow-y: auto;
+        }
+
+        /* ====== 导航项 ====== */
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-lg);
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            gap: var(--spacing-md);
+            min-height: 56px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-lg);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+
+        .nav-item:hover::after {
+            opacity: 0.08;
+        }
+
+        .nav-item:active::after {
+            opacity: 0.12;
+        }
+
+        .nav-item.active {
+            background-color: var(--primary-container);
+            color: var(--on-primary-container);
+        }
+
+        .nav-item.active::after {
+            display: none;
+        }
+
+        .nav-item .material-icons-outlined {
+            font-size: 22px;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .nav-item-label {
+            font-size: 15px;
+            font-weight: 500;
+            z-index: 1;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .nav-item-badge {
+            background-color: var(--secondary);
+            color: var(--on-secondary);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* ====== 可折叠菜单 ====== */
+        .menu-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-lg);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+
+        .section-header:hover::after {
+            opacity: 0.08;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--on-surface);
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .section-toggle {
+            color: var(--on-surface-variant);
+            font-size: 20px;
+            transition: transform 0.3s var(--transition-emphasized);
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .section-toggle.active {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--transition-decelerate);
+            padding-left: var(--spacing-md);
+        }
+
+        .section-content.open {
+            max-height: 2000px;
+        }
+
+        /* ====== 遮罩层 ====== */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s var(--transition-decelerate);
+            will-change: opacity;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* ====== 页面容器 ====== */
+        .page-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s var(--transition-emphasized), transform 0.3s var(--transition-emphasized);
+            min-height: calc(100vh - 64px);
+        }
+
+        .page-container.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ====== 英雄区 ====== */
+        .hero {
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--surface-container), var(--surface-container-high));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: var(--spacing-xl);
+            border-radius: var(--radius-2xl);
+            background-color: var(--primary-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: var(--radius-xl);
+            position: relative;
+            z-index: 1;
+            background-color: var(--surface-container-lowest);
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary), #8BD4FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--on-surface-variant);
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            font-size: 17px;
+            color: var(--on-surface-variant);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.7;
+        }
+
+        /* ====== 按钮组 ====== */
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .md3-btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-full);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-emphasized);
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            min-height: 56px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .md3-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: currentColor;
+            opacity: 0;
+            border-radius: var(--radius-full);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+
+        .btn-filled {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            box-shadow: var(--shadow-2);
+        }
+
+        .btn-filled:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-3);
+        }
+
+        .btn-filled:active {
+            transform: translateY(-2px);
+        }
+
+        .btn-filled:hover::after {
+            opacity: 0.1;
+        }
+
+        .btn-filled:active::after {
+            opacity: 0.15;
+        }
+
+        .btn-outlined {
+            background-color: transparent;
+            border: 2px solid var(--outline-variant);
+            color: var(--on-surface);
+        }
+
+        .btn-outlined:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .btn-outlined:hover::after {
+            opacity: 0.08;
+        }
+
+        /* ====== 功能卡片 ====== */
+        .features {
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .feature-card {
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-2);
+            transition: all 0.4s var(--transition-emphasized);
+            border: 1px solid var(--outline-variant);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-4);
+            border-color: transparent;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background-color: var(--primary-container);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--on-primary-container);
+            font-size: 28px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-desc {
+            font-size: 15px;
+            color: var(--on-surface-variant);
+            line-height: 1.7;
+        }
+
+        /* ====== 内容页面 ====== */
+        .content-page {
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--on-surface);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .content-body {
+            font-size: 17px;
+            color: var(--on-surface-variant);
+            line-height: 1.8;
+            background-color: var(--surface-container);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--outline-variant);
+        }
+
+        /* ====== 抽屉页脚 ====== */
+        .drawer-footer {
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--outline-variant);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        /* ====== 选择框 ====== */
+        .md3-select {
+            width: 100%;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            background-color: var(--surface-container);
+            border: 2px solid var(--outline-variant);
+            color: var(--on-surface);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s var(--transition-emphasized);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            padding-right: 48px;
+        }
+
+        .md3-select:hover {
+            border-color: var(--primary);
+        }
+
+        .md3-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(103, 200, 255, 0.2);
+        }
+
+        /* ====== 主题开关 ====== */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-lg);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+
+        .theme-toggle:hover::after {
+            opacity: 0.08;
+        }
+
+        .toggle-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--on-surface);
+            z-index: 1;
+        }
+
+        .md3e-switch {
+            width: 52px;
+            height: 32px;
+            appearance: none;
+            background-color: var(--outline-variant);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .md3e-switch:hover {
+            background-color: var(--outline);
+        }
+
+        .md3e-switch:checked {
+            background-color: var(--primary);
+        }
+
+        .md3e-switch::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--radius-full);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .md3e-switch:checked::before {
+            transform: translateX(20px);
+        }
+
+        /* ====== 页脚 ====== */
+        .footer {
+            background-color: var(--surface-container);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+            border-top: 1px solid var(--outline-variant);
+            text-align: center;
+            color: var(--on-surface-variant);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-line {
+            margin-bottom: var(--spacing-xs);
+            opacity: 0.8;
+        }
+
+        .footer-version {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: var(--spacing-sm);
+        }
+
+        /* ====== PC端支持 ====== */
+        @media (min-width: 1024px) {
+            body {
+                padding-left: 320px;
+            }
+            
+            .drawer {
+                left: 0;
+                box-shadow: none;
+                transition: none;
+            }
+            
+            .top-app-bar {
+                padding-left: calc(320px + var(--spacing-md));
+            }
+            
+            .overlay {
+                display: none;
+            }
+            
+            .icon-button#menuBtn {
+                display: none;
+            }
+            
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero {
+                padding: var(--spacing-2xl) var(--spacing-2xl);
+            }
+            
+            .content-page {
+                padding: var(--spacing-2xl);
+            }
+        }
+
+        /* ====== 响应式设计 ====== */
+        @media (max-width: 600px) {
+            .top-app-bar {
+                height: 56px;
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .hero-logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .features, .content-page {
+                padding: var(--spacing-xl) var(--spacing-md);
+                grid-template-columns: 1fr;
+            }
+            
+            .drawer {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .md3-btn {
+                width: 100%;
+            }
+            
+            .content-title {
+                font-size: 28px;
+            }
+        }
+
+        /* ====== 大屏幕响应式 ====== */
+        @media (min-width: 1440px) {
+            .features {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* ====== 滚动条样式 ====== */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: var(--surface-container);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--primary-container);
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部应用栏 -->
+    <header class="top-app-bar">
+        <button class="back-button" id="backBtn">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <div class="app-bar-title">
+            <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft Yh for Beta_Beta11.29（1.21.130.28）.apk_icon.png" 
+                 alt="Logo"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzY3QzhGRiIvPgo8dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Ikdvb2dsZSBTYW5zIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSI+WUg8L3RleHQ+Cjwvc3ZnPg=='">
+        </div>
+        <span class="page-title" id="pageTitle"></span>
+        <button class="icon-button" id="menuBtn">
+            <span class="material-icons-outlined">menu</span>
+        </button>
+    </header>
+
+    <!-- 侧边抽屉 -->
+    <div class="drawer" id="drawer">
+        <div class="drawer-header">
+            <div class="drawer-title">菜单</div>
+            <button class="icon-button" id="closeBtn">
+                <span class="material-icons-outlined">close</span>
+            </button>
+        </div>
+        <div class="drawer-content">
+            <!-- 首页 -->
+            <div class="nav-item active" id="homeNav">
+                <span class="material-icons-outlined">home</span>
+                <span class="nav-item-label" data-i18n="menu-home">首页</span>
+            </div>
+            
+            <!-- 获取分类 -->
+            <div class="menu-section">
+                <div class="section-header" id="downloadSection">
+                    <div class="section-title" data-i18n="menu-download">获取</div>
+                    <span class="material-icons-outlined section-toggle">expand_more</span>
+                </div>
+                <div class="section-content" id="downloadContent">
+                    <a href="https://www.123912.com/s/xzqLTd-9iOw" target="_blank" class="nav-item" id="download26">
+                        <span class="material-icons-outlined">rocket_launch</span>
+                        <span class="nav-item-label">YhBBKX 26.1 贺新春</span>
+                        <span class="nav-item-badge" data-i18n="latest">即将到来</span>
+                    </a>
+                    <a href="https://www.123912.com/s/xzqLTd-AiOw" target="_blank" class="nav-item" id="downloadHistory">
+                        <span class="material-icons-outlined">history</span>
+                        <span class="nav-item-label" data-i18n="history-versions">历史版本</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 更多分类 -->
+            <div class="menu-section">
+                <div class="section-header" id="moreSection">
+                    <div class="section-title" data-i18n="menu-more">更多</div>
+                    <span class="material-icons-outlined section-toggle">expand_more</span>
+                </div>
+                <div class="section-content" id="moreContent">
+                    <div class="nav-item" data-page="playGuide">
+                        <span class="material-icons-outlined">sports_esports</span>
+                        <span class="nav-item-label">游玩须知</span>
+                    </div>
+                    <div class="nav-item" data-page="downloadHelp">
+                        <span class="material-icons-outlined">help_center</span>
+                        <span class="nav-item-label">关于123下载帮助</span>
+                    </div>
+                    <div class="nav-item" data-page="nevNews">
+                        <span class="material-icons-outlined">newspaper</span>
+                        <span class="nav-item-label">Nev新闻</span>
+                    </div>
+                    <div class="nav-item" data-page="someThings">
+                        <span class="material-icons-outlined">topic</span>
+                        <span class="nav-item-label">一些事</span>
+                    </div>
+                    <div class="nav-item" data-page="aboutSite">
+                        <span class="material-icons-outlined">info</span>
+                        <span class="nav-item-label" data-i18n="menu-about">关于本站</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="drawer-footer">
+            <select class="md3-select" id="langSelect">
+                <option value="zh" selected>让我们说中文</option>
+                <option value="en">Oh,ENGLISH！</option>
+            </select>
+            <div class="theme-toggle">
+                <span class="toggle-label" data-i18n="theme-label">深色模式</span>
+                <input type="checkbox" class="md3e-switch" id="themeSwitch">
+            </div>
+        </div>
+    </div>
+
+    <!-- 遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 主内容区域 -->
+    <main id="mainContent">
+        <!-- 首页 -->
+        <div class="page-container active" id="homePage">
+            <section class="hero">
+                <div class="hero-logo">
+                    <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft Yh for Beta_Beta11.29（1.21.130.28）.apk_icon.png" 
+                         alt="YhBBKX Logo"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDE2MCAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiByeD0iMjQiIGZpbGw9IiM2N0M4RkYiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHb29nbGUgU2FucyIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5ZSDwvdGV4dD4KPC9zdmc+'">
+                </div>
+                <h1 class="hero-title" data-i18n="app-name">YhBBKX</h1>
+                <h2 class="hero-subtitle" data-i18n="hero-subtitle">在Android端MC基岩版Apk的极致优化</h2>
+                <p class="hero-desc" data-i18n="hero-desc">更好的UI美学、更好的材质……顶尖的Apk区优化，且完全免费！</p>
+                <div class="btn-group">
+                    <a href="https://www.123912.com/s/xzqLTd-AiOw" class="md3-btn btn-filled" target="_blank" rel="noopener">
+                        <span class="material-icons-outlined">download</span>
+                        <span data-i18n="btn-download">立即获取</span>
+                    </a>
+                    <a href="https://m.bilibili.com/space/3546840507091375?plat_id=1&share_from=space&share_medium=android_i&share_plat=android&share_session_id=d0b46bd4-f256-4280-83da-3350fe5f622f&share_source=COPY&share_tag=s_i&timestamp=1768036194&unique_k=BrRAwF0" class="md3-btn btn-outlined" target="_blank" rel="noopener">
+                        <span class="material-icons-outlined">person</span>
+                        <span data-i18n="btn-author">关于作者</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">design_services</div>
+                    <h3 class="card-title" data-i18n="feature-1-title">专治痛点的优化</h3>
+                    <p class="card-desc" data-i18n="feature-1-desc">只优化需要的，没必要的我们不考虑</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">category</div>
+                    <h3 class="card-title" data-i18n="feature-2-title">辅助性拉满的材质</h3>
+                    <p class="card-desc" data-i18n="feature-2-desc">虽然不是非常有特色、护眼，但是材质这一块 @Molo4981 会不断庞大这个材质库</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">palette</div>
+                    <h3 class="card-title" data-i18n="feature-3-title">MoreUI美学，捅破 天 花 板 ！</h3>
+                    <p class="card-desc" data-i18n="feature-3-desc">实现可修改的更美观实用的JsonUI版OreUI，极度舒适！</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">folder_open</div>
+                    <h3 class="card-title" data-i18n="feature-4-title">Apk优化</h3>
+                    <p class="card-desc" data-i18n="feature-4-desc">比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！</p>
+                </div>
+            </section>
+            
+            <div class="footer">
+                <div class="footer-line">By Never155</div>
+                <div class="footer-line">GitHub nevertest155</div>
+                <div class="footer-line">3934107969</div>
+                <div class="footer-line">Never155/186 Molo4981</div>
+                <div class="footer-line">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <!-- 游玩须知页面 -->
+        <div class="page-container" id="playGuidePage">
+            <section class="content-page">
+                <h1 class="content-title">游玩须知</h1>
+                <div class="content-body">您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line">By Never155</div>
+                <div class="footer-line">GitHub nevertest155</div>
+                <div class="footer-line">3934107969</div>
+                <div class="footer-line">Never155/186 Molo4981</div>
+                <div class="footer-line">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <!-- 关于123下载帮助页面 -->
+        <div class="page-container" id="downloadHelpPage">
+            <section class="content-page">
+                <h1 class="content-title">关于123下载帮助</h1>
+                <div class="content-body">请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line">By Never155</div>
+                <div class="footer-line">GitHub nevertest155</div>
+                <div class="footer-line">3934107969</div>
+                <div class="footer-line">Never155/186 Molo4981</div>
+                <div class="footer-line">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <!-- Nev新闻页面 -->
+        <div class="page-container" id="nevNewsPage">
+            <section class="content-page">
+                <h1 class="content-title">Nev新闻</h1>
+                <div class="content-body">（1）26.1 贺新春版本即将到来！   （2）部署于Github Page 的YhBBKX全新静态网站已上线！！！</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line">By Never155</div>
+                <div class="footer-line">GitHub nevertest155</div>
+                <div class="footer-line">3934107969</div>
+                <div class="footer-line">Never155/186 Molo4981</div>
+                <div class="footer-line">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <!-- 一些事页面 -->
+        <div class="page-container" id="someThingsPage">
+            <section class="content-page">
+                <h1 class="content-title">一些事</h1>
+                <div class="content-body">求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line">By Never155</div>
+                <div class="footer-line">GitHub nevertest155</div>
+                <div class="footer-line">3934107969</div>
+                <div class="footer-line">Never155/186 Molo4981</div>
+                <div class="footer-line">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <!-- 关于本站页面 -->
+        <div class="page-container" id="aboutSitePage">
+            <section class="content-page">
+                <h1 class="content-title">关于本站</h1>
+                <div class="content-body">（此站为官方授权网站）网站版本：26.1 贺新春 最后一次编辑：2025年1月11日 9：07 此站为部署于Github Page 上的静态网站，仓库见：https://github.com/nevertest155/
+                YhBBKX.github.io/tree/main</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line">By Never155</div>
+                <div class="footer-line">GitHub nevertest155</div>
+                <div class="footer-line">3934107969</div>
+                <div class="footer-line">Never155/186 Molo4981</div>
+                <div class="footer-line">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ====== 多语言配置 ======
+        const i18n = {
+            zh: {
+                "app-name": "YhBBKX",
+                "menu-home": "首页",
+                "menu-download": "获取",
+                "menu-more": "更多",
+                "menu-about": "关于本站",
+                "theme-label": "深色模式",
+                "hero-subtitle": "在Android端MC基岩版Apk的极致优化",
+                "hero-desc": "更好的UI美学、更好的材质……顶尖的Apk区优化，且完全免费！",
+                "btn-download": "立即获取",
+                "btn-author": "关于作者",
+                "latest": "即将到来",
+                "history-versions": "历史版本",
+                "feature-1-title": "专治痛点的优化",
+                "feature-1-desc": "只优化需要的，没必要的我们不考虑",
+                "feature-2-title": "辅助性拉满的材质",
+                "feature-2-desc": "虽然不是非常有特色、护眼，但是材质这一块 @Molo4981 会不断庞大这个材质库",
+                "feature-3-title": "MoreUI美学，捅破 天 花 板 ！",
+                "feature-3-desc": "实现可修改的更美观实用的JsonUI版OreUI，极度舒适！",
+                "feature-4-title": "Apk优化",
+                "feature-4-desc": "比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！"
+            },
+            en: {
+                "app-name": "YhBBKX",
+                "menu-home": "Home",
+                "menu-download": "Get",
+                "menu-more": "More",
+                "menu-about": "About this static website",
+                "theme-label": "Dark Mode",
+                "hero-subtitle": "Extreme optimization of the Minecraft Bedrock Edition APK on Android.",
+                "hero-desc": "Better UI aesthetics, better materials... Top-notch APK optimization, and completely free!",
+                "btn-download": "Get Now",
+                "btn-author": "About Author",
+                "latest": "Coming Soon",
+                "history-versions": "History Versions",
+                "feature-1-title": "Optimization that addresses pain points",
+                "feature-1-desc": "We only optimize what's necessary; we don't consider what's unnecessary.",
+                "feature-2-title": "Material with maximum auxiliary function",
+                "feature-2-desc": "While not particularly unique or eye-friendly, @Molo4981 will continue to expand this material library.",
+                "feature-3-title": "MoreUI aesthetics,breaking THROUGH THE CEILING!",
+                "feature-3-desc": "A more aesthetically pleasing and user-friendly JSON UI version of OreUI, offering an extremely comfortable user experience!",
+                "feature-4-title": "Apk optimization",
+                "feature-4-desc": "Smaller than the original, no hidden accessories (except for the new version's pre-assembled bag), rest assured, completely free!"
+            }
+        };
+
+        // ====== DOM元素 ======
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('overlay');
+        const langSelect = document.getElementById('langSelect');
+        const themeSwitch = document.getElementById('themeSwitch');
+        const backBtn = document.getElementById('backBtn');
+        const pageTitle = document.getElementById('pageTitle');
+        const homeNav = document.getElementById('homeNav');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadContent = document.getElementById('downloadContent');
+        const moreSection = document.getElementById('moreSection');
+        const moreContent = document.getElementById('moreContent');
+        
+        // 页面容器
+        const homePage = document.getElementById('homePage');
+        const playGuidePage = document.getElementById('playGuidePage');
+        const downloadHelpPage = document.getElementById('downloadHelpPage');
+        const nevNewsPage = document.getElementById('nevNewsPage');
+        const someThingsPage = document.getElementById('someThingsPage');
+        const aboutSitePage = document.getElementById('aboutSitePage');
+        
+        // 当前活动页面
+        let currentPage = 'homePage';
+        let isDrawerOpen = false;
+
+        // ====== 切换语言 ======
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.textContent = i18n[lang][key];
+                }
+            });
+            document.documentElement.setAttribute('data-lang', lang);
+            localStorage.setItem('yhbbkx-lang', lang);
+        }
+
+        // ====== 切换主题 ======
+        function toggleTheme() {
+            const root = document.documentElement;
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            
+            if (isDark) {
+                root.setAttribute('data-theme', 'light');
+                themeSwitch.checked = false;
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                themeSwitch.checked = true;
+            }
+            localStorage.setItem('yhbbkx-theme', root.getAttribute('data-theme'));
+        }
+
+        // ====== 切换折叠菜单 ======
+        function toggleSection(sectionId, contentId) {
+            const content = document.getElementById(contentId);
+            const toggle = document.querySelector(`#${sectionId} .section-toggle`);
+            
+            if (content.classList.contains('open')) {
+                content.style.maxHeight = '0';
+                setTimeout(() => {
+                    content.classList.remove('open');
+                    toggle.classList.remove('active');
+                }, 400);
+            } else {
+                content.classList.add('open');
+                toggle.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+
+        // ====== 切换页面 ======
+        function switchPage(pageId, pageName) {
+            // 防止重复切换
+            if (currentPage === pageId) return;
+            
+            // 隐藏所有页面
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+                // 确保所有页面都有正确的显示属性
+                page.style.display = 'none';
+            });
+            
+            // 移除所有导航项的活动状态
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 显示目标页面
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                // 先设置display为block，然后添加active类触发动画
+                targetPage.style.display = 'block';
+                
+                // 使用requestAnimationFrame确保样式应用
+                requestAnimationFrame(() => {
+                    targetPage.classList.add('active');
+                });
+                
+                currentPage = pageId;
+                
+                // 更新导航项活动状态
+                if (pageId === 'homePage') {
+                    homeNav.classList.add('active');
+                    backBtn.classList.remove('active');
+                    pageTitle.classList.remove('active');
+                    pageTitle.textContent = '';
+                } else {
+                    // 根据页面ID找到对应的导航项
+                    const navItem = document.querySelector(`.nav-item[data-page="${pageId.replace('Page', '').toLowerCase()}"]`);
+                    if (navItem) {
+                        navItem.classList.add('active');
+                    }
+                    backBtn.classList.add('active');
+                    pageTitle.classList.add('active');
+                    pageTitle.textContent = pageName;
+                }
+                
+                // 关闭抽屉（移动端）
+                if (window.innerWidth < 1024) {
+                    closeDrawer();
+                }
+                
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // 触发页面加载完成事件
+                window.dispatchEvent(new Event('pageLoaded'));
+            }
+        }
+
+        // ====== 关闭抽屉 ======
+        function closeDrawer() {
+            if (!isDrawerOpen) return;
+            
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            isDrawerOpen = false;
+        }
+
+        // ====== 打开抽屉 ======
+        function openDrawer() {
+            if (isDrawerOpen) return;
+            
+            // 打开抽屉
+            drawer.classList.add('open');
+            overlay.classList.add('active');
+            document.body.classList.add('no-scroll');
+            isDrawerOpen = true;
+        }
+
+        // ====== 初始化折叠菜单 ======
+        function initSections() {
+            // 默认不展开获取和更多分类（保持收纳状态）
+            downloadContent.style.maxHeight = '0';
+            moreContent.style.maxHeight = '0';
+            
+            // 设置初始状态，移除open类
+            downloadContent.classList.remove('open');
+            moreContent.classList.remove('open');
+            
+            // 确保切换箭头正确
+            document.querySelector('#downloadSection .section-toggle').classList.remove('active');
+            document.querySelector('#moreSection .section-toggle').classList.remove('active');
+        }
+
+        // ====== 初始化 ======
+        function init() {
+            // 初始化主题
+            const savedTheme = localStorage.getItem('yhbbkx-theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeSwitch.checked = savedTheme === 'dark';
+            
+            // 初始化语言
+            const savedLang = localStorage.getItem('yhbbkx-lang') || 'zh';
+            langSelect.value = savedLang;
+            changeLanguage(savedLang);
+            
+            // 初始化折叠菜单
+            initSections();
+            
+            // 检查是否为PC端
+            if (window.innerWidth >= 1024) {
+                drawer.classList.add('open');
+                isDrawerOpen = true;
+            }
+            
+            // 设置首页为活动状态
+            homeNav.classList.add('active');
+            
+            // 预加载图片
+            preloadImages();
+            
+            // 监听页面加载完成
+            window.addEventListener('load', () => {
+                // 确保浏览器知道页面已加载完成
+                window.dispatchEvent(new Event('pageLoaded'));
+            });
+        }
+
+        // ====== 图片预加载 ======
+        function preloadImages() {
+            const images = [
+                'https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft Yh for Beta_Beta11.29（1.21.130.28）.apk_icon.png'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => console.log('图片加载成功:', src);
+                img.onerror = () => console.warn('图片加载失败:', src);
+            });
+        }
+
+        // ====== 事件监听 ======
+        menuBtn.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+        
+        // 语言切换
+        langSelect.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+        
+        // 主题切换
+        themeSwitch.addEventListener('change', toggleTheme);
+        
+        // 返回按钮
+        backBtn.addEventListener('click', () => {
+            switchPage('homePage', '');
+        });
+        
+        // 首页导航
+        homeNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchPage('homePage', '');
+        });
+        
+        // 获取分类切换
+        downloadSection.addEventListener('click', () => {
+            toggleSection('downloadSection', 'downloadContent');
+        });
+        
+        // 更多分类切换
+        moreSection.addEventListener('click', () => {
+            toggleSection('moreSection', 'moreContent');
+        });
+        
+        // 更多分类中的页面导航
+        document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = item.getAttribute('data-page');
+                const pageName = item.querySelector('.nav-item-label').textContent;
+                
+                switch (page) {
+                    case 'playGuide':
+                        switchPage('playGuidePage', pageName);
+                        break;
+                    case 'downloadHelp':
+                        switchPage('downloadHelpPage', pageName);
+                        break;
+                    case 'nevNews':
+                        switchPage('nevNewsPage', pageName);
+                        break;
+                    case 'someThings':
+                        switchPage('someThingsPage', pageName);
+                        break;
+                    case 'aboutSite':
+                        switchPage('aboutSitePage', pageName);
+                        break;
+                }
+            });
+        });
+        
+        // 外部链接处理
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            if (!link.hasAttribute('target')) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+        
+        // 窗口大小调整
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                drawer.classList.add('open');
+                isDrawerOpen = true;
+            } else {
+                drawer.classList.remove('open');
+                isDrawerOpen = false;
+            }
+        });
+        
+        // 防止页面闪现
+        window.addEventListener('DOMContentLoaded', () => {
+            // 设置初始显示
+            document.querySelectorAll('.page-container').forEach(page => {
+                if (page.id !== 'homePage') {
+                    page.style.display = 'none';
+                } else {
+                    page.style.display = 'block';
+                    page.classList.add('active');
+                }
+            });
+        });
+
+        // ====== 初始化 ======
+        init();
+    </script>
+</body>
+</html>
