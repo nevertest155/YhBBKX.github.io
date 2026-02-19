@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>YhBBKX-马年春节更新 快中快！</title>
+    <!-- ====== YhBBKX 网站图标配置 ====== -->
+    <link rel="icon" 
+          href="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png" 
+          type="image/png">
+    <link rel="apple-touch-icon" 
+          href="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png">
+    <link rel="shortcut icon" 
+          href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABYSURBVHjaYvz//z8DxQAkQAqgijyDCAa4GBiAPAbU5AwEAo5UBYDZAEI4IIg8BdHQwICBtIIgEc/wD+UwxABdCtAbCQkFEg0l2gCslkIiCjU5DBwAAG28E5KzpPRAAAAAAElFTkSuQmCC" 
+          type="image/x-icon">
+    <meta name="theme-color" content="#67C8FF">
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <script src="smart-preloader.js" defer></script>
+    <script src="scroll-animations.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Google Sans Flex', sans-serif;
+        }
+        :root {
+            --primary: #6750A4;
+            --primary-container: #EADDFF;
+            --on-primary: #FFFFFF;
+            --on-primary-container: #21005D;
+            --secondary: #D0BCFF;
+            --secondary-container: #4F378B;
+            --on-secondary: #381E72;
+            --on-secondary-container: #EADDFF;
+            --surface: #FEF7FF;
+            --surface-container: #F3EDF7;
+            --surface-container-high: #ECE6F0;
+            --surface-container-lowest: #FFFFFF;
+            --surface-container-highest: #DAD3DF;
+            --on-surface: #1C1B1F;
+            --on-surface-variant: #49454F;
+            --outline: #79747E;
+            --outline-variant: #CAC4D0;
+            --shadow-1: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+            --shadow-2: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+            --shadow-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+            --shadow-4: 0 6px 10px 4px rgba(0, 0, 0, 0.15);
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 28px;
+            --radius-full: 9999px;
+            --transition-emphasized: cubic-bezier(0.2, 0, 0, 1);
+            --transition-decelerate: cubic-bezier(0, 0, 0, 1);
+            --transition-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+            --transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+        }
+        :root[data-theme="dark"] {
+            --primary: #D0BCFF;
+            --primary-container: #4F378B;
+            --on-primary: #381E72;
+            --on-primary-container: #EADDFF;
+            --secondary: #CCC2DC;
+            --secondary-container: #4A4458;
+            --on-secondary: #332D41;
+            --on-secondary-container: #E8DEF8;
+            --surface: #141218;
+            --surface-container: #211F26;
+            --surface-container-high: #2B2930;
+            --surface-container-lowest: #0F0D13;
+            --surface-container-highest: #36343B;
+            --on-surface: #E6E1E5;
+            --on-surface-variant: #CAC4D0;
+            --outline: #938F99;
+            --outline-variant: #49454F;
+        }
+        body {
+            background-color: var(--surface);
+            color: var(--on-surface);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.4s var(--transition-emphasized), color 0.4s var(--transition-emphasized);
+        }
+        body.no-scroll {
+            overflow: hidden;
+        }
+        .top-app-bar {
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-md);
+            height: 64px;
+            background-color: var(--surface-container-lowest);
+            box-shadow: var(--shadow-1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--outline-variant);
+        }
+        .app-bar-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--primary);
+            flex: 1;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .app-bar-title img {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+        .screenshot-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 1px solid var(--outline-variant);
+            margin-left: var(--spacing-xs);
+        }
+        .back-button {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            border: none;
+            background-color: transparent;
+            color: var(--on-surface);
+            cursor: pointer;
+            margin-right: var(--spacing-sm);
+            transition: all 0.4s var(--transition-emphasized);
+            position: relative;
+            overflow: hidden;
+        }
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background-color: var(--primary);
+            opacity: 0;
+            transition: all 0.4s var(--transition-emphasized);
+            z-index: 0;
+        }
+        .back-button:hover::before {
+            opacity: 0.1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .back-button:active::before {
+            opacity: 0.15;
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+        .back-button .material-icons-outlined {
+            font-size: 24px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s var(--transition-emphasized);
+        }
+        .back-button:hover .material-icons-outlined {
+            transform: translateX(-2px);
+        }
+        .back-button.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-title {
+            display: none;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--on-surface);
+            margin-left: var(--spacing-sm);
+        }
+        .page-title.active {
+            display: block;
+        }
+        .icon-button {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            color: var(--on-surface);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+        .icon-button::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-full);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+        .icon-button:hover::after {
+            opacity: 0.08;
+        }
+        .icon-button:active::after {
+            opacity: 0.12;
+        }
+        .icon-button .material-icons-outlined {
+            font-size: 24px;
+            z-index: 1;
+        }
+        .drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100vh;
+            background-color: var(--surface-container-lowest);
+            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            transition: left 0.4s var(--transition-decelerate);
+            border-right: 1px solid var(--outline-variant);
+            will-change: left;
+            min-height: 100vh;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+        .drawer.open {
+            left: 0;
+        }
+        .drawer-header {
+            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+            border-bottom: 1px solid var(--outline-variant);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .drawer-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .drawer-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .drawer-content::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-lg);
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            gap: var(--spacing-md);
+            min-height: 56px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-lg);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+        .nav-item:hover::after {
+            opacity: 0.08;
+        }
+        .nav-item:active::after {
+            opacity: 0.12;
+        }
+        .nav-item.active {
+            background-color: var(--primary-container);
+            color: var(--on-primary-container);
+        }
+        .nav-item.active::after {
+            display: none;
+        }
+        .nav-item .material-icons-outlined,
+        .nav-item .nav-icon {
+            font-size: 22px;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+        }
+        .nav-item-label {
+            font-size: 15px;
+            font-weight: 500;
+            z-index: 1;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .nav-item-badge {
+            background-color: var(--secondary);
+            color: var(--on-secondary);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        @keyframes icons-return-home {
+            0% {
+                transform: translateX(10px);
+                opacity: 0.8;
+            }
+            60% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes button-click-animation {
+            0% {
+                border-radius: var(--radius-full);
+            }
+            30% {
+                border-radius: 33.68px;
+            }
+            70% {
+                border-radius: 33.68px;
+            }
+            100% {
+                border-radius: var(--radius-full);
+            }
+        }
+        .button-click-animation {
+            animation: button-click-animation 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            pointer-events: none;
+        }
+        .icons-return-animation {
+            animation: icons-return-home 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes surprise-explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(3);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(100);
+                opacity: 1;
+            }
+        }
+        @keyframes screen-shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .hero-logo.surprise-active {
+            animation: surprise-explode 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+            z-index: 9999 !important;
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+        body.screen-shake {
+            animation: screen-shake 0.5s ease-in-out;
+            overflow: hidden !important;
+        }
+        .surprise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            z-index: 9998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out;
+        }
+        .surprise-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .menu-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-lg);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+        .section-header:hover::after {
+            opacity: 0.08;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--on-surface);
+            z-index: 1;
+            white-space: nowrap;
+        }
+        .section-toggle {
+            color: var(--on-surface-variant);
+            font-size: 20px;
+            transition: transform 0.3s var(--transition-emphasized);
+            z-index: 1;
+            flex-shrink: 0;
+        }
+        .section-toggle.active {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--transition-decelerate);
+            padding-left: var(--spacing-md);
+        }
+        .section-content.open {
+            max-height: 2000px;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s var(--transition-decelerate);
+            will-change: opacity;
+        }
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .page-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s var(--transition-emphasized), transform 0.3s var(--transition-emphasized);
+            min-height: calc(100vh - 64px);
+            overflow: hidden;
+        }
+        .page-container.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero {
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--surface-container), var(--surface-container-high));
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: var(--spacing-xl);
+            border-radius: var(--radius-2xl);
+            background-color: var(--primary-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-3);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: var(--radius-xl);
+            position: relative;
+            z-index: 1;
+            background-color: var(--surface-container-lowest);
+        }
+        .hero-title {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        .hero-subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--on-surface-variant);
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+        }
+        .hero-desc {
+            max-width: 600px;
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--on-surface-variant);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.7;
+        }
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .md3-btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-full);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-emphasized);
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            min-height: 56px;
+            position: relative;
+            overflow: hidden;
+        }
+        .md3-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: currentColor;
+            opacity: 0;
+            border-radius: var(--radius-full);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+        .btn-filled {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            box-shadow: var(--shadow-2);
+        }
+        .btn-filled:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-3);
+        }
+        .btn-filled:active {
+            transform: translateY(-2px);
+        }
+        .btn-filled:hover::after {
+            opacity: 0.1;
+        }
+        .btn-filled:active::after {
+            opacity: 0.15;
+        }
+        .btn-outlined {
+            background-color: transparent;
+            border: 2px solid var(--outline-variant);
+            color: var(--on-surface);
+        }
+        .btn-outlined:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        .btn-outlined:hover::after {
+            opacity: 0.08;
+        }
+        #repoBtn svg {
+            fill: var(--on-surface);
+        }
+        .features {
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: calc(100vh - 64px - 500px);
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+        .feature-card {
+            background-color: var(--surface-container-lowest);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            transition: all 0.3s var(--transition-emphasized);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-lg);
+            border: 1px solid var(--outline-variant);
+        }
+        .feature-card:nth-child(1) {
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            border-bottom: none;
+        }
+        .feature-card:nth-child(2) {
+            border-radius: 0;
+            border-top: none;
+            border-bottom: none;
+        }
+        .feature-card:nth-child(3) {
+            border-radius: 0;
+            border-top: none;
+            border-bottom: none;
+        }
+        .feature-card:nth-child(4) {
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            border-top: none;
+        }
+        .feature-card:hover {
+            background-color: var(--surface-container);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-3);
+            z-index: 10;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-container);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--on-primary-container);
+            font-size: 24px;
+            flex-shrink: 0;
+            transition: all 0.3s var(--transition-emphasized);
+        }
+        .feature-card:hover .card-icon {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            transform: scale(1.1);
+        }
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--on-surface);
+            line-height: 1.3;
+        }
+        .card-desc {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--on-surface-variant);
+            line-height: 1.6;
+        }
+        .content-page {
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: calc(100vh - 64px - 320px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-bottom: var(--spacing-xl);
+        }
+        .content-body {
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--on-surface-variant);
+            line-height: 1.8;
+            background-color: var(--surface-container);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--outline-variant);
+            flex: 1;
+            overflow-y: auto;
+            max-height: calc(100vh - 64px - 320px - 120px);
+            white-space: pre-line;
+        }
+        .drawer-footer {
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--outline-variant);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        .md3-select {
+            width: 100%;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            background-color: var(--surface-container);
+            border: 2px solid var(--outline-variant);
+            color: var(--on-surface);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s var(--transition-emphasized);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            padding-right: 48px;
+        }
+        .md3-select:hover {
+            border-color: var(--primary);
+        }
+        .md3-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.2);
+        }
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--on-surface);
+            opacity: 0;
+            border-radius: var(--radius-lg);
+            transition: opacity 0.2s var(--transition-emphasized);
+        }
+        .theme-toggle:hover::after {
+            opacity: 0.08;
+        }
+        .toggle-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--on-surface);
+            z-index: 1;
+        }
+        .md3e-switch {
+            width: 52px;
+            height: 32px;
+            appearance: none;
+            background-color: var(--outline-variant);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            z-index: 1;
+        }
+        .md3e-switch:hover {
+            background-color: var(--outline);
+        }
+        .md3e-switch:checked {
+            background-color: var(--primary);
+        }
+        .md3e-switch::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--radius-full);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 3L9 9M9 3L3 9' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 10px;
+        }
+        .md3e-switch:checked::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6L5 8L9 4' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-size: 10px;
+            transform: translateX(20px);
+        }
+        [data-theme='dark'] .md3e-switch:not(:checked)::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 3L9 9M9 3L3 9' stroke='%23E6E1E5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-size: 10px;
+        }
+        [data-theme='dark'] .md3e-switch:checked::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6L5 8L9 4' stroke='%23D0BCFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-size: 10px;
+        }
+        .settings-section {
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--outline-variant);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+        .settings-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) var(--spacing-lg);
+            transition: all 0.2s var(--transition-emphasized);
+            cursor: pointer;
+        }
+        .settings-item:hover {
+            background-color: var(--surface-container);
+        }
+        .settings-item-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex: 1;
+            min-width: 0;
+        }
+        .settings-item-label .material-icons-outlined {
+            color: var(--on-surface-variant);
+            font-size: 20px;
+        }
+        .settings-item-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--on-surface);
+        }
+        #settingsLangSelect {
+            width: 160px;
+        }
+        .share-button {
+            width: 100%;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+        .search-container {
+            padding: var(--spacing-lg);
+            background-color: var(--surface-container);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        .search-box {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background-color: var(--surface-container-lowest);
+            border: 2px solid var(--outline-variant);
+            border-radius: var(--radius-full);
+            font-size: 15px;
+            color: var(--on-surface);
+            transition: all 0.2s var(--transition-emphasized);
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.2);
+        }
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        .faq-item {
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--outline-variant);
+            overflow: hidden;
+            transition: all 0.3s var(--transition-emphasized);
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            transition: all 0.2s var(--transition-emphasized);
+        }
+        .faq-question:hover {
+            background-color: var(--surface-container);
+        }
+        .faq-question-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--on-surface);
+            flex: 1;
+        }
+        .faq-toggle {
+            color: var(--on-surface-variant);
+            font-size: 20px;
+            transition: transform 0.3s var(--transition-emphasized);
+            flex-shrink: 0;
+        }
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--transition-decelerate);
+            padding: 0 var(--spacing-lg);
+        }
+        .faq-answer.open {
+            max-height: 500px;
+        }
+        .faq-answer-text {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--on-surface-variant);
+            line-height: 1.6;
+            padding-bottom: var(--spacing-lg);
+        }
+        .more-content {
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--outline-variant);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+        .more-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--on-surface);
+            margin-bottom: var(--spacing-lg);
+        }
+        .more-text {
+            font-size: 15px;
+            color: var(--on-surface-variant);
+            margin-bottom: var(--spacing-xl);
+        }
+        .more-button {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .footer {
+            background-color: var(--surface-container);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+            border-top: 1px solid var(--outline-variant);
+            text-align: center;
+            color: var(--on-surface-variant);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.8;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+        .footer-line {
+            margin-bottom: var(--spacing-xs);
+            opacity: 0.8;
+        }
+        .footer-version {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: var(--spacing-sm);
+        }
+        @media (min-width: 1024px) {
+            body {
+                padding-left: 320px;
+            }
+            .drawer {
+                left: 0;
+                box-shadow: none;
+                transition: none;
+            }
+            .top-app-bar {
+                padding-left: calc(320px + var(--spacing-md));
+            }
+            .app-bar-title {
+                flex: 0;
+                margin-left: var(--spacing-md);
+            }
+            .overlay {
+                display: none;
+            }
+            .icon-button#menuBtn {
+                display: none;
+            }
+            .drawer-header .icon-button {
+                display: none;
+            }
+            .icons-return-animation {
+                animation: icons-return-home 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+            .back-button::before {
+                width: 34px;
+                height: 34px;
+            }
+            .button-click-animation {
+                animation-duration: 0.8s;
+            }
+            .features {
+                max-width: 900px;
+            }
+            .hero {
+                padding: var(--spacing-2xl) var(--spacing-2xl);
+            }
+            .content-page {
+                padding: var(--spacing-2xl);
+            }
+            .settings-section {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media (max-width: 600px) {
+            .top-app-bar {
+                height: 56px;
+                padding: 0 var(--spacing-sm);
+            }
+            .hero {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+            .hero-title {
+                font-size: 36px;
+            }
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            .hero-logo {
+                width: 140px;
+                height: 140px;
+            }
+            .features, .content-page {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+            .content-body {
+                max-height: calc(100vh - 56px - 280px - 100px);
+            }
+            .feature-card {
+                padding: var(--spacing-md) var(--spacing-lg);
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: flex-start;
+            }
+            .card-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .drawer {
+                width: 100%;
+                max-width: 280px;
+            }
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .md3-btn {
+                width: 100%;
+            }
+            .content-title {
+                font-size: 28px;
+            }
+            .settings-item {
+                padding: var(--spacing-md);
+            }
+        }
+        @media (min-width: 1440px) {
+            .features {
+                max-width: 1000px;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: var(--surface-container);
+            border-radius: var(--radius-full);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: var(--radius-full);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--primary-container);
+        }
+    </style>
+</head>
+<body>
+    <header class="top-app-bar">
+        <button class="back-button" id="backBtn">
+            <span class="material-icons-outlined">arrow_back</span>
+        </button>
+        <div class="app-bar-title">
+            <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png" 
+                 alt="Logo"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzY3QzhGRiIvPgo8dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Ikdvb2dsZSBTYW5zIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSI+WUg8L3RleHQ+Cjwvc3ZnPg=='">
+            <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/main/screenshot%20(2).png" 
+                 alt="Screenshot"
+                 class="screenshot-icon"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzY3NEE0Ii8+CjxwYXRoIGQ9Ik0xNiAxMC4xNjY3QzEyLjcgMTAuMTY2NyAxMCAxMi44NjY3IDEwIDE2LjE2NjdDMTAgMTkuNDY2NyAxMi43IDIyLjE2NjcgMTYgMjIuMTY2N0MxOS4zIDIyLjE2NjcgMjIgMTkuNDY2NyAyMiAxNi4xNjjD22IDEyLjg2NjcgMTkuMyAxMC4xNjY3IDE2IDEwLjE2NjdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'">
+        </div>
+        <span class="page-title" id="pageTitle"></span>
+        <button class="icon-button" id="menuBtn">
+            <span class="material-icons-outlined">menu</span>
+        </button>
+    </header>
+
+    <div class="drawer" id="drawer">
+        <div class="drawer-header">
+            <div class="drawer-title" data-i18n="menu-title">菜单</div>
+            <button class="icon-button" id="closeBtn">
+                <span class="material-icons-outlined">close</span>
+            </button>
+        </div>
+        <div class="drawer-content">
+            <div class="nav-item active" id="homeNav">
+                <span class="material-icons-outlined">home</span>
+                <span class="nav-item-label" data-i18n="menu-home">首页</span>
+            </div>
+            
+            <div class="menu-section">
+                <div class="section-header" id="downloadSection">
+                    <div class="section-title" data-i18n="menu-download">获取</div>
+                    <span class="material-icons-outlined section-toggle">expand_more</span>
+                </div>
+                <div class="section-content" id="downloadContent">
+                    <a href="https://www.123912.com/s/xzqLTd-9iOw" target="_blank" class="nav-item" id="download26">
+                        <span class="material-icons-outlined">system_update_alt</span>
+                        <span class="nav-item-label" data-i18n="download-26">26.1</span>
+                        <span class="nav-item-badge" data-i18n="latest">新版本</span>
+                    </a>
+                    <a href="https://www.123912.com/s/xzqLTd-AiOw" target="_blank" class="nav-item" id="downloadHistory">
+                        <span class="material-icons-outlined">history</span>
+                        <span class="nav-item-label" data-i18n="history-versions">历史版本</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <div class="section-header" id="moreSection">
+                    <div class="section-title" data-i18n="menu-more">更多</div>
+                    <span class="material-icons-outlined section-toggle">expand_more</span>
+                </div>
+                <div class="section-content" id="moreContent">
+                    <div class="nav-item" data-page="settings">
+                        <span class="material-icons-outlined">settings</span>
+                        <span class="nav-item-label" data-i18n="menu-settings">设置</span>
+                    </div>
+                    <div class="nav-item" data-page="playGuide">
+                        <span class="material-icons-outlined">sports_esports</span>
+                        <span class="nav-item-label" data-i18n="play-guide">游玩须知</span>
+                    </div>
+                    <div class="nav-item" data-page="downloadHelp">
+                        <span class="material-icons-outlined">help_center</span>
+                        <span class="nav-item-label" data-i18n="download-help">关于123下载帮助</span>
+                    </div>
+                    <div class="nav-item" data-page="nevNews">
+                        <span class="material-icons-outlined">newspaper</span>
+                        <span class="nav-item-label" data-i18n="nev-news">Nev新闻</span>
+                    </div>
+                    <div class="nav-item" data-page="someThings">
+                        <span class="material-icons-outlined">question_answer</span>
+                        <span class="nav-item-label" data-i18n="some-things">一些事</span>
+                    </div>
+                    <a href="https://obedient-heron-1h6kp0.mysxl.cn/" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/main/Better%20Minecraft%20Preview_1.21.130.24.apk_icon.png" 
+                             alt="Better Minecraft" 
+                             class="nav-icon"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzY3NEE0Ii8+CjxwYXRoIGQ9Ik0xMiA3LjMzMzMzQzkuNDIgNy4zMzMzMyA3LjMzMzMzIDkuNDIgNy4zMzMzMyAxMkM3LjMzMzMzIDE0LjU4IDkuNDIgMTYuNjY2NyAxMiAxNi42NjY3QzE0LjU4IDE2LjY2NjcgMTYuNjY2NyAxNC41OCAxNi42NjY3IDEyQzE2LjY2NjcgOS40MiAxNC41OCA3LjMzMzMzIDEyIDcuMzMzMzNaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'">
+                        <span class="nav-item-label" data-i18n="better-minecraft">Better Minecraft</span>
+                    </a>
+                    <a href="https://cysunk.mlzi.top/vanilla_optimizations/" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/main/%E5%8E%9F%E7%89%88%E4%BC%98%E5%8C%96%E6%95%B4%E5%90%88%E5%8C%85_1.0.0.apk_icon.png" 
+                             alt="原版优化整合包" 
+                             class="nav-icon"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzRFMzc4QiIvPgo8cGF0aCBkPSJNMTIgOC42NjY2N0M5Ljg4IDguNjY2NjcgOC4xIDExLjIgOC4xIDE0QzguMSAxNi44IDkuODggMTkuMzMzMyAxMiAxOS4zMzMzQzE0LjEyIDE5LjMzMzMgMTUuOSAxNi44IDE1LjkgMTRDMTUuOSAxMS4yIDE0LjEyIDguNjY2NjcgMTIgOC42NjY2N1oiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo='">
+                        <span class="nav-item-label" data-i18n="vanilla-optimization">原版优化整合包</span>
+                    </a>
+                    <div class="nav-item" data-page="aboutSite">
+                        <span class="material-icons-outlined">info</span>
+                        <span class="nav-item-label" data-i18n="menu-about">关于本站</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="drawer-footer">
+            <select class="md3-select" id="langSelect">
+                <option value="zh" selected data-i18n="language-chinese">让我们说中文</option>
+                <option value="en" data-i18n="language-english">Oh,ENGLISH！</option>
+            </select>
+            <div class="theme-toggle">
+                <span class="toggle-label" data-i18n="theme-label">深色模式</span>
+                <input type="checkbox" class="md3e-switch" id="themeSwitch">
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main id="mainContent">
+        <div class="page-container active" id="homePage">
+            <section class="hero">
+                <div class="hero-logo">
+                    <img src="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png" 
+                         alt="YhBBKX Logo"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDE2MCAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiByeD0iMjQiIGZpbGw9IiM2N0M4RkYiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHb29nbGUgU2FucyIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5ZSDwvdGV4dD4KPC9zdmc+'">
+                </div>
+                <h1 class="hero-title" data-i18n="app-name">YhBBKX</h1>
+                <h2 class="hero-subtitle" data-i18n="hero-subtitle">在Android端MC基岩版Apk的极致优化</h2>
+                <p class="hero-desc" data-i18n="hero-desc">更好的UI美学、更好的材质……顶尖的Apk区优化，且完全免费！</p>
+                <div class="btn-group">
+                    <a href="https://www.123912.com/s/xzqLTd-AiOw" class="md3-btn btn-filled" target="_blank" rel="noopener" id="downloadBtn">
+                        <span class="material-icons-outlined">download</span>
+                        <span data-i18n="btn-download">立即获取</span>
+                    </a>
+                    <a href="https://m.bilibili.com/space/3546840507091375?plat_id=1&share_from=space&share_medium=android_i&share_plat=android&share_session_id=d0b46bd4-f256-4280-83da-3350fe5f622f&share_source=COPY&share_tag=s_i&timestamp=1768036194&unique_k=BrRAwF0" class="md3-btn btn-outlined" target="_blank" rel="noopener" id="authorBtn">
+                        <span class="material-icons-outlined">person</span>
+                        <span data-i18n="btn-author">关于作者</span>
+                    </a>
+                    <a href="https://github.com/nevertest155/YhBBKX.github.io/tree/main" class="md3-btn btn-outlined" target="_blank" rel="noopener" id="repoBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span data-i18n="repo-link">本站仓库</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">design_services</div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-i18n="feature-1-title">专治痛点的优化</h3>
+                        <p class="card-desc" data-i18n="feature-1-desc">只优化需要的，没必要的我们不考虑</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">dashboard</div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-i18n="feature-2-title">辅助性拉满的材质</h3>
+                        <p class="card-desc" data-i18n="feature-2-desc">虽然不是非常有特色、护眼，但是材质这一块 @Molo4981 会不断庞大这个材质库</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">palette</div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-i18n="feature-3-title">MoreUI美学，捅破 天 花 板 ！</h3>
+                        <p class="card-desc" data-i18n="feature-3-desc">实现可修改的更美观实用的JsonUI版OreUI，极度舒适！</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon material-icons-outlined">android</div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-i18n="feature-4-title">Apk优化</h3>
+                        <p class="card-desc" data-i18n="feature-4-desc">比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="settingsPage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="settings-title">设置</h1>
+                <div class="content-body">
+                    <div class="settings-section">
+                        <div class="settings-item" id="settingsLanguage">
+                            <div class="settings-item-label">
+                                <span class="material-icons-outlined">language</span>
+                                <span class="settings-item-text" data-i18n="settings-language">语言</span>
+                            </div>
+                            <select class="md3-select" id="settingsLangSelect">
+                                <option value="zh" selected data-i18n="language-chinese">让我们说中文</option>
+                                <option value="en" data-i18n="language-english">Oh,ENGLISH！</option>
+                            </select>
+                        </div>
+                        <div class="settings-item" id="settingsTheme">
+                            <div class="settings-item-label">
+                                <span class="material-icons-outlined">dark_mode</span>
+                                <span class="settings-item-text" data-i18n="settings-theme">深色模式</span>
+                            </div>
+                            <input type="checkbox" class="md3e-switch" id="settingsThemeSwitch">
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="settings-item" data-page="helpFeedback">
+                            <div class="settings-item-label">
+                                <span class="material-icons-outlined">help</span>
+                                <span class="settings-item-text" data-i18n="help-feedback">帮助与反馈</span>
+                            </div>
+                            <span class="material-icons-outlined" style="color: var(--on-surface-variant);">chevron_right</span>
+                        </div>
+                        <div class="settings-item" data-page="more">
+                            <div class="settings-item-label">
+                                <span class="material-icons-outlined">more_horiz</span>
+                                <span class="settings-item-text" data-i18n="more">更多</span>
+                            </div>
+                            <span class="material-icons-outlined" style="color: var(--on-surface-variant);">chevron_right</span>
+                        </div>
+                    </div>
+                    
+                    <button class="md3-btn btn-filled share-button" id="shareBtn">
+                        <span class="material-icons-outlined">share</span>
+                        <span data-i18n="share-button">分享网站</span>
+                    </button>
+                </div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="helpFeedbackPage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="help-feedback-title">帮助与反馈</h1>
+                <div class="content-body">
+                    <div class="faq-container" id="faqContainer"></div>
+                </div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="morePage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="more-title">更多</h1>
+                <div class="content-body">
+                    <div class="more-content">
+                        <h3 class="more-title" data-i18n="more-content-title">更多</h3>
+                        <p class="more-text" data-i18n="more-content-text">尝试Yh Pack？</p>
+                        <a href="https://www.123912.com/s/xzqLTd-vTRw" target="_blank" rel="noopener noreferrer" class="md3-btn btn-filled more-button">
+                            <span data-i18n="more-button">26.1 新版本</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="playGuidePage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="play-guide-title">游玩须知</h1>
+                <div class="content-body" data-i18n="play-guide-content">您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="downloadHelpPage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="download-help-title">关于123下载帮助</h1>
+                <div class="content-body" data-i18n="download-help-content">请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="nevNewsPage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="nev-news-title">Nev新闻</h1>
+                <div class="content-body" data-i18n="nev-news-content">（1）YhBBKX26.1发布啦！快快去此网站的菜单更新吧！\n（2）YhPack26.1即将整理完毕！\n（3）NeoreUI 3 彻底弥补了物品栏的遗憾！\n（4）ND1设计超棒的！</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="someThingsPage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="some-things-title">一些事</h1>
+                <div class="content-body" data-i18n="some-things-content">求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+
+        <div class="page-container" id="aboutSitePage">
+            <section class="content-page">
+                <h1 class="content-title" data-i18n="menu-about-title">关于本站</h1>
+                <div class="content-body" data-i18n="about-site-content">（此站为官方授权网站）网站版本：26.1 贺新春 最后一次编辑：2026年2月19日 11：45 北京时间 此站为部署于Github Page 上的静态网站，仓库见：https://github.com/nevertest155/YhBBKX.github.io/tree/main</div>
+            </section>
+            <div class="footer">
+                <div class="footer-line" data-i18n="footer-by">By Never155</div>
+                <div class="footer-line" data-i18n="footer-github">GitHub nevertest155</div>
+                <div class="footer-line" data-i18n="footer-contact">3934107969</div>
+                <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
+                <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.1 贺新春</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+const i18n = {
+    zh: {
+        "app-name": "YhBBKX",
+        "menu-title": "菜单",
+        "menu-home": "首页",
+        "menu-download": "获取",
+        "menu-more": "更多",
+        "menu-settings": "设置",
+        "menu-about": "关于本站",
+        "theme-label": "深色模式",
+        "hero-subtitle": "在Android端MC基岩版Apk的极致优化",
+        "hero-desc": "更好的UI美学、更好的材质……顶尖的Apk区优化，且完全免费！",
+        "btn-download": "立即获取",
+        "btn-author": "关于作者",
+        "latest": "新版本",
+        "history-versions": "历史版本",
+        "feature-1-title": "专治痛点的优化",
+        "feature-1-desc": "只优化需要的，没必要的我们不考虑",
+        "feature-2-title": "辅助性拉满的材质",
+        "feature-2-desc": "虽然不是非常有特色、护眼，但是材质这一块 @Molo4981 会不断庞大这个材质库",
+        "feature-3-title": "MoreUI美学，捅破 天 花 板 ！",
+        "feature-3-desc": "实现可修改的更美观实用的JsonUI版OreUI，极度舒适！",
+        "feature-4-title": "Apk优化",
+        "feature-4-desc": "比原版体积小，不塞私货（除了新版本拼好包），放心，完全免费！",
+        "play-guide": "游玩须知",
+        "download-help": "关于123下载帮助",
+        "nev-news": "Nev新闻",
+        "some-things": "一些事",
+        "better-minecraft": "Better Minecraft",
+        "vanilla-optimization": "原版优化整合包",
+        "language-chinese": "让我们说中文",
+        "language-english": "Oh,ENGLISH！",
+        "footer-by": "By Never155",
+        "footer-github": "GitHub nevertest155",
+        "footer-contact": "3934107969",
+        "footer-team": "Never155/186 Molo4981",
+        "footer-copyright": "© 2026 Never155 保留所有权利",
+        "website-version": "网站版本：26.1 贺新春",
+        "download-26": "26.1",
+        "play-guide-title": "游玩须知",
+        "play-guide-content": "您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155",
+        "download-help-title": "关于123下载帮助",
+        "download-help-content": "请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））",
+        "nev-news-title": "Nev新闻",
+        "nev-news-content": "（1）YhBBKX26.1发布啦！快快去此网站的菜单更新吧！\n（2）YhPack26.1即将整理完毕！\n（3）NeoreUI 3 彻底弥补了物品栏的遗憾！\n（4）ND1设计超棒的！",
+        "some-things-title": "一些事",
+        "some-things-content": "求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！",
+        "menu-about-title": "关于本站",
+        "about-site-content": "（此站为官方授权网站）网站版本：26.1 贺新春 最后一次编辑：2026年2月19日 11：45 北京时间 此站为部署于Github Page 上的静态网站，仓库见：https://github.com/nevertest155/YhBBKX.github.io/tree/main",
+        "settings-title": "设置",
+        "settings-language": "语言",
+        "settings-theme": "深色模式",
+        "help-feedback": "帮助与反馈",
+        "share-button": "分享网站",
+        "help-feedback-title": "帮助与反馈",
+        "search-placeholder": "搜索问题...",
+        "faq-1-title": "123盘下不了怎么办？",
+        "faq-1-answer": "下123客户端，登录后快速下载",
+        "faq-2-title": "游戏内锁60帧怎么办？",
+        "faq-2-answer": "这是基岩版的原版特性，可下载 B站@林台-范奥运 的 原版优化整合包，解除限制",
+        "faq-3-title": "闪退怎么办？",
+        "faq-3-answer": "正常情况下不会发生闪退，请检查安装包完整性和资源包/行为包的适配",
+        "faq-4-title": "有没有防沉迷？",
+        "faq-4-answer": "绝对没有，也不会有",
+        "faq-5-title": "无法安装/显示证书缺少/签名不一致？",
+        "faq-5-answer": "前两种请检查安装包的签名，无签名请自行用MT管理器签名，而针对签名不一致情况，请检查安装包包名，或者将已安装的删除，再安装",
+        "faq-6-title": "安全吗？",
+        "faq-6-answer": "安全",
+        "faq-7-title": "有bug咋办？",
+        "faq-7-answer": "进Q群报道，或私信（UP都可能有时不上线）",
+        "faq-8-title": "支持什么系统？",
+        "faq-8-answer": "目前只支持Android(推荐15，最低8.0)和HarmonyOS 5/6(请在卓易通里安装)",
+        "faq-9-title": "付费的？",
+        "faq-9-answer": "免费，完全免费！！！",
+        "faq-10-title": "市场无法加载怎办？",
+        "faq-10-answer": "挂TM加速器，或者检查网络",
+        "faq-11-title": "我和朋友明明都用了YhBBKX，为啥联机会报错？",
+        "faq-11-answer": "①如果您在高铁/动车/火车上使用流量玩Minecraft联机，会导致信号不好（特别是隧道内！），导致巨大延迟甚至卡退，建议您到一个站后再联机 ②如果您非要用流量玩联机，而且没有大的信号波动，但还是报错，请到 设置>通用>启用移动数据玩线上游戏（这个开关打开） ③如果还是报错？请检查朋友和您版本是否一致！",
+        "faq-12-title": "联机时自定义皮肤没了？",
+        "faq-12-answer": "设置>通用>只允许信任的皮肤（暂译）（这个开关关掉）",
+        "faq-13-title": "无法进入服务器？",
+        "faq-13-answer": "请检查版本，如底层版本为Beta版，就有可能无法进入",
+        "more-title": "更多",
+        "more-content-title": "更多",
+        "more-content-text": "尝试Yh Pack？",
+        "more-button": "26.1 新版本"
+    },
+    
+    en: {
+        "app-name": "YhBBKX",
+        "menu-title": "Menu",
+        "menu-home": "Home",
+        "menu-download": "Get",
+        "menu-more": "More",
+        "menu-settings": "Settings",
+        "menu-about": "About this static website",
+        "theme-label": "Dark Mode",
+        "hero-subtitle": "Extreme optimization of the Minecraft Bedrock Edition APK on Android.",
+        "hero-desc": "Better UI aesthetics, better materials... Top-notch APK optimization, and completely free!",
+        "btn-download": "Get Now",
+        "btn-author": "About Author",
+        "latest": "NEW！",
+        "history-versions": "History Versions",
+        "feature-1-title": "Optimization that addresses pain points",
+        "feature-1-desc": "We only optimize what's necessary; we don't consider what's unnecessary.",
+        "feature-2-title": "Material with maximum auxiliary function",
+        "feature-2-desc": "While not particularly unique or eye-friendly, @Molo4981 will continue to expand this material library.",
+        "feature-3-title": "MoreUI aesthetics,breaking THROUGH THE CEILING!",
+        "feature-3-desc": "A more aesthetically pleasing and user-friendly JSON UI version of OreUI, offering an extremely comfortable user experience!",
+        "feature-4-title": "Apk optimization",
+        "feature-4-desc": "Smaller than the original, no hidden accessories (except for the new version's pre-assembled bag), rest assured, completely free!",
+        "play-guide": "Play Guide",
+        "download-help": "About 123 Download Help",
+        "nev-news": "Nev News",
+        "some-things": "Some Things",
+        "better-minecraft": "Better Minecraft",
+        "vanilla-optimization": "Vanilla Optimization Pack",
+        "language-chinese": "让我们说中文",
+        "language-english": "Oh,ENGLISH!",
+        "repo-link": "Site Repository",
+        "footer-by": "By Never155",
+        "footer-github": "GitHub nevertest155",
+        "footer-contact": "3934107969",
+        "footer-team": "Never155/186 Molo4981",
+        "footer-copyright": "© 2026 Never155 All rights reserved",
+        "website-version": "Website Version: 26.1 Chinese New Year",
+        "download-26": "26.1 Chinese New Year",
+        "play-guide-title": "Play Guide",
+        "play-guide-content": "By obtaining the APK installation package, you agree to our agreement: 1. The original author of the YhBBKX APK installation package is @Never155. 2. The original author of the YhBBKX APK installation package on Github is @nevertest155. 3. The YhBBKX APK installation package is not open source on Github. 4. We respect your safety and privacy; the APK has no security issues and is completely free. 5. You can modify our APK package at will, but if bugs appear in modified packages or unmodified packages with other UIs added, the original author has the right not to fix the bugs and not to respond. 6. You can freely repost the original author's self-created music in APK packages from version 26.1 and above, but you must provide the original author's name and download link (must use 123 Pan). 7. You can promote YhBBKX, but you must provide the official download link (specific link, please refer to Bilibili @Never155's pinned post). Promotion of any modified packages is prohibited! 8. It is strongly recommended to support the official version first, then download our package (although @Never155 hasn't purchased the official version either... it's okay to download and play without the official version, but... uh). 9. The original package of this package is the MC version library. 10. More agreements can be found in the APK. If you do not agree with the above agreements, please do not download our package. If others violate, please inform Bilibili @Never155.",
+        "download-help-title": "About 123 Download Help",
+        "download-help-content": "Please download and install 123 Cloud Disk to get a monthly free 20GB ultra-fast download traffic package for more convenient and faster downloads each time. Please join group 737134435 to get the card key (completely free card key! But you need to download the acquisition tool, please ask the group owner for the installation package from Friday evening to Sunday. Or follow Bilibili Never155 and send a private message to get it (slower)).",
+        "nev-news-title": "Nev News",
+        "nev-news-content": "(1)YhBBKX26.1 has been released! Hurry and go update the menu on this website!\n(2)YhPack26.1 is about to be finalized\n(3)NeoreUI 3 completely makes up for the shortcomings of the inventory!\n(4)The ND1 is awesome!",
+        "some-things-title": "Some Things",
+        "some-things-content": "Please ask others (like Bilibili @林台-范奥运) to pay attention to this small project too! After all, it's free!",
+        "menu-about-title": "About this static website",
+        "about-site-content": "(This site is an officially authorized website) Website version: 26.1 Chinese New Year Last edited: February 19, 2026, 11:45 Beijing Time.This site is a static website deployed on Github Page. Repository: https://github.com/nevertest155/YhBBKX.github.io/tree/main",
+        "settings-title": "Settings",
+        "settings-language": "Language",
+        "settings-theme": "Dark Mode",
+        "help-feedback": "Help & Feedback",
+        "share-button": "Share Website",
+        "help-feedback-title": "Help & Feedback",
+        "search-placeholder": "Search questions...",
+        "faq-1-title": "What should I do if 123 Pan cannot be downloaded?",
+        "faq-1-answer": "Download the 123 client and log in for fast downloading",
+        "faq-2-title": "What should I do if the game is locked at 60fps?",
+        "faq-2-answer": "This is a vanilla feature of the Bedrock Edition. You can download the vanilla optimization package from Bilibili @林台-范奥运 to remove the restriction",
+        "faq-3-title": "What should I do if it crashes?",
+        "faq-3-answer": "Under normal circumstances, crashes will not occur. Please check the integrity of the installation package and the compatibility of resource packs/behavior packs",
+        "faq-4-title": "Is there any anti-addiction system?",
+        "faq-4-answer": "Absolutely not, and there never will be",
+        "faq-5-title": "Cannot install/showing missing certificate/signature inconsistency?",
+        "faq-5-answer": "For the first two situations, please check the signature of the installation package. If there is no signature, please sign it yourself using MT Manager. For signature inconsistency, check the package name of the installation package, or delete the already installed version and reinstall",
+        "faq-6-title": "Is it safe?",
+        "faq-6-answer": "Safe",
+        "faq-7-title": "What should I do if there's a bug?",
+        "faq-7-answer": "Report it in the QQ group or send a private message (the UP may sometimes be offline)",
+        "faq-8-title": "What systems are supported?",
+        "faq-8-answer": "Currently only supports Android (recommended 15, minimum 8.0) and HarmonyOS 5/6 (please install via Zhuoyitong)",
+        "faq-9-title": "Is it paid?",
+        "faq-9-answer": "Free, completely free!!!",
+        "faq-10-title": "What should I do if the market cannot load?",
+        "faq-10-answer": "Use TM accelerator or check your network",
+        "faq-11-title": "Why do I get an error when connecting with friends even though we both use YhBBKX?",
+        "faq-11-answer": "① If you use mobile data to play Minecraft multiplayer on high-speed rail/bullet trains/trains, the signal may be poor (especially in tunnels!), causing huge delays or even crashes. It is recommended to connect after arriving at a station. ② If you insist on using mobile data for multiplayer and there are no major signal fluctuations, but you still get an error, go to Settings > General > Enable mobile data for online games (turn this switch on). ③ If you still get an error? Check if your friend's version is the same as yours!",
+        "faq-12-title": "Custom skins disappeared during multiplayer?",
+        "faq-12-answer": "Settings > General > Only allow trusted skins (turn this switch off)",
+        "faq-13-title": "Cannot join servers?",
+        "faq-13-answer": "Please check the version. If the underlying version is a Beta version, it may be impossible to join",
+        "more-title": "More",
+        "more-content-title": "More",
+        "more-content-text": "Try Yh Pack?",
+        "more-button": "26.1 Coming Soon"
+    }
+};
+        
+let logoClickCount = 0;
+let isSurpriseActive = false;
+const surpriseThreshold = 10;
+let lastClickTime = 0;
+const clickCooldown = 300;
+
+function disableZoom() {
+    document.addEventListener('touchstart', function(event) {
+        if (event.touches.length > 1) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+    
+    document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+    });
+    
+    document.addEventListener('wheel', function(e) {
+        if (e.ctrlKey) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey && (e.key === '+' || e.key === '-' || e.key === '0')) || 
+            (e.ctrlKey && e.key === '=') ||
+            (e.metaKey && (e.key === '+' || e.key === '-' || e.key === '0'))) {
+            e.preventDefault();
+        }
+    });
+    
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    }, false);
+    
+    console.log('🔒 缩放功能已完全禁用');
+}
+
+function disableCopy() {
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'Insert')) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+            e.preventDefault();
+            return false;
+        }
+        
+        if ((e.ctrlKey || e.metaKey) && e.key === 'x') {
+            e.preventDefault();
+            return false;
+        }
+    });
+    
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    document.addEventListener('mousedown', function(e) {
+        if (e.button === 1) {
+            e.preventDefault();
+            return false;
+        }
+    });
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        * {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+        
+        input, textarea, [contenteditable="true"] {
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            user-select: text !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    try {
+        navigator.clipboard.writeText('');
+    } catch (e) {}
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        setInterval(function() {
+            window.getSelection().removeAllRanges();
+        }, 100);
+        
+        document.addEventListener('selectionchange', function() {
+            window.getSelection().removeAllRanges();
+        });
+    });
+    
+    console.log('🔒 复制功能已完全禁用');
+}
+
+function handleButtonClick(buttonElement, url, targetBlank = true) {
+    if (buttonElement.classList.contains('button-click-animation')) {
+        return;
+    }
+    
+    const isPC = window.innerWidth >= 1024;
+    const animationDuration = isPC ? 800 : 700;
+    
+    buttonElement.classList.add('button-click-animation');
+    buttonElement.style.pointerEvents = 'none';
+    
+    setTimeout(() => {
+        buttonElement.classList.remove('button-click-animation');
+        buttonElement.style.pointerEvents = '';
+        
+        if (targetBlank) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+        } else {
+            window.location.href = url;
+        }
+    }, animationDuration);
+}
+
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+const langSelect = document.getElementById('langSelect');
+const themeSwitch = document.getElementById('themeSwitch');
+const backBtn = document.getElementById('backBtn');
+const pageTitle = document.getElementById('pageTitle');
+const homeNav = document.getElementById('homeNav');
+const downloadSection = document.getElementById('downloadSection');
+const downloadContent = document.getElementById('downloadContent');
+const moreSection = document.getElementById('moreSection');
+const moreContent = document.getElementById('moreContent');
+
+const homePage = document.getElementById('homePage');
+const settingsPage = document.getElementById('settingsPage');
+const helpFeedbackPage = document.getElementById('helpFeedbackPage');
+const morePage = document.getElementById('morePage');
+const playGuidePage = document.getElementById('playGuidePage');
+const downloadHelpPage = document.getElementById('downloadHelpPage');
+const nevNewsPage = document.getElementById('nevNewsPage');
+const someThingsPage = document.getElementById('someThingsPage');
+const aboutSitePage = document.getElementById('aboutSitePage');
+
+const settingsLangSelect = document.getElementById('settingsLangSelect');
+const settingsThemeSwitch = document.getElementById('settingsThemeSwitch');
+const shareBtn = document.getElementById('shareBtn');
+
+let currentPage = 'homePage';
+let isDrawerOpen = false;
+
+function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+            el.textContent = i18n[lang][key];
+        }
+    });
+    
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[lang] && i18n[lang][key]) {
+            el.setAttribute('placeholder', i18n[lang][key]);
+        }
+    });
+    
+    document.documentElement.setAttribute('data-lang', lang);
+    localStorage.setItem('yhbbkx-lang', lang);
+    
+    if (currentPage === 'helpFeedbackPage') {
+        initFAQ();
+    }
+    
+    if (currentPage !== 'homePage' && pageTitle.classList.contains('active')) {
+        const pageMap = {
+            'helpFeedbackPage': 'help-feedback-title',
+            'morePage': 'more-title',
+            'settingsPage': 'settings-title',
+            'playGuidePage': 'play-guide-title',
+            'downloadHelpPage': 'download-help-title',
+            'nevNewsPage': 'nev-news-title',
+            'someThingsPage': 'some-things-title',
+            'aboutSitePage': 'menu-about-title'
+        };
+        
+        const key = pageMap[currentPage];
+        if (key && i18n[lang] && i18n[lang][key]) {
+            pageTitle.textContent = i18n[lang][key];
+        }
+    }
+}
+
+function toggleTheme() {
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    
+    if (isDark) {
+        root.setAttribute('data-theme', 'light');
+        themeSwitch.checked = false;
+        if (settingsThemeSwitch) settingsThemeSwitch.checked = false;
+    } else {
+        root.setAttribute('data-theme', 'dark');
+        themeSwitch.checked = true;
+        if (settingsThemeSwitch) settingsThemeSwitch.checked = true;
+    }
+    localStorage.setItem('yhbbkx-theme', root.getAttribute('data-theme'));
+}
+
+function toggleSection(sectionId, contentId) {
+    const content = document.getElementById(contentId);
+    const toggle = document.querySelector(`#${sectionId} .section-toggle`);
+    
+    if (!content || !toggle) return;
+    
+    if (content.classList.contains('open')) {
+        content.style.maxHeight = '0';
+        setTimeout(() => {
+            content.classList.remove('open');
+            toggle.classList.remove('active');
+        }, 400);
+    } else {
+        content.classList.add('open');
+        toggle.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
+}
+
+function switchPage(pageId, pageName) {
+    if (currentPage === pageId) return;
+    
+    document.querySelectorAll('.page-container').forEach(page => {
+        page.classList.remove('active');
+        page.style.display = 'none';
+    });
+    
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.style.display = 'block';
+        
+        requestAnimationFrame(() => {
+            targetPage.classList.add('active');
+        });
+        
+        currentPage = pageId;
+        
+        if (pageId === 'homePage') {
+            homeNav.classList.add('active');
+            backBtn.classList.remove('active');
+            pageTitle.classList.remove('active');
+            pageTitle.textContent = '';
+        } else {
+            const navItem = document.querySelector(`.nav-item[data-page="${pageId.replace('Page', '').toLowerCase()}"]`);
+            if (navItem) {
+                navItem.classList.add('active');
+            }
+            backBtn.classList.add('active');
+            pageTitle.classList.add('active');
+            pageTitle.textContent = pageName;
+            
+            if (pageId === 'helpFeedbackPage') {
+                initFAQ();
+            }
+        }
+        
+        if (window.innerWidth < 1024) {
+            closeDrawer();
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        window.dispatchEvent(new Event('pageLoaded'));
+    }
+}
+
+function closeDrawer() {
+    if (!isDrawerOpen) return;
+    
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+    isDrawerOpen = false;
+}
+
+function openDrawer() {
+    if (isDrawerOpen) return;
+    
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+    document.body.classList.add('no-scroll');
+    isDrawerOpen = true;
+}
+
+function initSections() {
+    downloadContent.style.maxHeight = '0';
+    moreContent.style.maxHeight = '0';
+    
+    downloadContent.classList.remove('open');
+    moreContent.classList.remove('open');
+    
+    document.querySelector('#downloadSection .section-toggle').classList.remove('active');
+    document.querySelector('#moreSection .section-toggle').classList.remove('active');
+}
+
+function initFAQ() {
+    const faqContainer = document.getElementById('faqContainer');
+    if (!faqContainer) return;
+    
+    faqContainer.innerHTML = '';
+    
+    const currentLang = document.documentElement.getAttribute('data-lang') || 'zh';
+    
+    const faqData = [
+        { titleKey: 'faq-1-title', answerKey: 'faq-1-answer' },
+        { titleKey: 'faq-2-title', answerKey: 'faq-2-answer' },
+        { titleKey: 'faq-3-title', answerKey: 'faq-3-answer' },
+        { titleKey: 'faq-4-title', answerKey: 'faq-4-answer' },
+        { titleKey: 'faq-5-title', answerKey: 'faq-5-answer' },
+        { titleKey: 'faq-6-title', answerKey: 'faq-6-answer' },
+        { titleKey: 'faq-7-title', answerKey: 'faq-7-answer' },
+        { titleKey: 'faq-8-title', answerKey: 'faq-8-answer' },
+        { titleKey: 'faq-9-title', answerKey: 'faq-9-answer' },
+        { titleKey: 'faq-10-title', answerKey: 'faq-10-answer' },
+        { titleKey: 'faq-11-title', answerKey: 'faq-11-answer' },
+        { titleKey: 'faq-12-title', answerKey: 'faq-12-answer' },
+        { titleKey: 'faq-13-title', answerKey: 'faq-13-answer' }
+    ];
+    
+    faqData.forEach((faq, index) => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.id = `faq-${index + 1}`;
+        
+        const title = i18n[currentLang] && i18n[currentLang][faq.titleKey] ? i18n[currentLang][faq.titleKey] : faq.titleKey;
+        const answer = i18n[currentLang] && i18n[currentLang][faq.answerKey] ? i18n[currentLang][faq.answerKey] : faq.answerKey;
+        
+        faqItem.innerHTML = `
+            <div class="faq-question" data-faq-index="${index}">
+                <div class="faq-question-text">${title}</div>
+                <span class="material-icons-outlined faq-toggle">expand_more</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-text">${answer}</div>
+            </div>
+        `;
+        
+        faqContainer.appendChild(faqItem);
+    });
+    
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function() {
+            const index = this.getAttribute('data-faq-index');
+            const answer = document.querySelector(`#faq-${parseInt(index) + 1} .faq-answer`);
+            const toggle = this.querySelector('.faq-toggle');
+            
+            if (answer.classList.contains('open')) {
+                answer.style.maxHeight = '0';
+                setTimeout(() => {
+                    answer.classList.remove('open');
+                    toggle.classList.remove('active');
+                }, 400);
+            } else {
+                answer.classList.add('open');
+                toggle.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+    
+    const searchBox = document.getElementById('helpSearch');
+    if (searchBox) {
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const questionText = item.querySelector('.faq-question-text').textContent.toLowerCase();
+                if (questionText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+}
+
+function shareWebsite() {
+    const url = 'https://nevertest155.github.io/YhBBKX.github.io/';
+    
+    try {
+        const originalClipboard = window._originalClipboard;
+        if (originalClipboard && originalClipboard.writeText) {
+            originalClipboard.writeText(url).then(() => {
+                showCopySuccess();
+            }).catch(() => {
+                useFallbackMethod(url);
+            });
+            return;
+        }
+    } catch (e) {
+        console.log('方法1失败，尝试方法2');
+    }
+    
+    useFallbackMethod(url);
+}
+
+function useFallbackMethod(url) {
+    const copyContainer = document.createElement('div');
+    copyContainer.style.cssText = `
+        position: fixed;
+        top: -100px;
+        left: -100px;
+        width: 10px;
+        height: 10px;
+        opacity: 0.01;
+        z-index: -9999;
+    `;
+    
+    const editableDiv = document.createElement('div');
+    editableDiv.contentEditable = true;
+    editableDiv.style.cssText = `
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        user-select: text;
+        -webkit-user-select: text;
+    `;
+    
+    const textNode = document.createTextNode(url);
+    editableDiv.appendChild(textNode);
+    copyContainer.appendChild(editableDiv);
+    document.body.appendChild(copyContainer);
+    
+    const range = document.createRange();
+    range.selectNodeContents(editableDiv);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    
+    let copySuccess = false;
+    
+    if (window._originalExecCommand) {
+        try {
+            copySuccess = window._originalExecCommand.call(document, 'copy');
+        } catch (e) {
+            console.log('方法A失败');
+        }
+    }
+    
+    if (!copySuccess) {
+        try {
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = url;
+            tempTextArea.style.position = 'fixed';
+            tempTextArea.style.top = '0';
+            tempTextArea.style.left = '0';
+            tempTextArea.style.opacity = '0';
+            document.body.appendChild(tempTextArea);
+            tempTextArea.focus();
+            tempTextArea.select();
+            
+            copySuccess = document.execCommand('copy');
+            
+            setTimeout(() => {
+                document.body.removeChild(tempTextArea);
+            }, 100);
+        } catch (e) {
+            console.log('方法B失败');
+        }
+    }
+    
+    if (!copySuccess) {
+        try {
+            const tempDiv = document.createElement('div');
+            tempDiv.contentEditable = true;
+            tempDiv.innerHTML = url;
+            document.body.appendChild(tempDiv);
+            
+            tempDiv.focus();
+            const sel = window.getSelection();
+            sel.selectAllChildren(tempDiv);
+            
+            copySuccess = document.execCommand('copy');
+            
+            setTimeout(() => {
+                document.body.removeChild(tempDiv);
+            }, 100);
+        } catch (e) {
+            console.log('方法C失败');
+        }
+    }
+    
+    selection.removeAllRanges();
+    setTimeout(() => {
+        document.body.removeChild(copyContainer);
+    }, 100);
+    
+    if (copySuccess) {
+        showCopySuccess();
+    } else {
+        showManualCopyDialog(url);
+    }
+}
+
+function showCopySuccess() {
+    const toast = document.createElement('div');
+    toast.textContent = '✅ 链接已复制到剪贴板！';
+    toast.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--primary);
+        color: var(--on-primary);
+        padding: var(--spacing-md) var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        z-index: 99999;
+        box-shadow: var(--shadow-3);
+        animation: toastFade 2s ease-in-out;
+    `;
+    
+    document.body.appendChild(toast);
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes toastFade {
+            0% { opacity: 0; transform: translate(-50%, -40%); }
+            15% { opacity: 1; transform: translate(-50%, -50%); }
+            85% { opacity: 1; transform: translate(-50%, -50%); }
+            100% { opacity: 0; transform: translate(-50%, -60%); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    setTimeout(() => {
+        document.body.removeChild(toast);
+        document.head.removeChild(style);
+    }, 2000);
+}
+
+function showManualCopyDialog(url) {
+    const dialog = document.createElement('div');
+    dialog.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--surface-container-lowest);
+        border: 2px solid var(--primary);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        z-index: 99999;
+        box-shadow: var(--shadow-4);
+        max-width: 90%;
+        width: 400px;
+    `;
+    
+    dialog.innerHTML = `
+        <h3 style="color: var(--on-surface); margin-bottom: var(--spacing-md);">请手动复制链接</h3>
+        <div style="background-color: var(--surface-container); padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+            <code style="color: var(--primary); word-break: break-all;">${url}</code>
+        </div>
+        <div style="display: flex; gap: var(--spacing-md);">
+            <button id="copyManualBtn" style="flex: 1; padding: var(--spacing-sm); background-color: var(--primary); color: var(--on-primary); border: none; border-radius: var(--radius-md); cursor: pointer;">点击选择链接</button>
+            <button id="closeDialogBtn" style="flex: 1; padding: var(--spacing-sm); background-color: var(--surface-container); color: var(--on-surface); border: 1px solid var(--outline-variant); border-radius: var(--radius-md); cursor: pointer;">关闭</button>
+        </div>
+    `;
+    
+    document.body.appendChild(dialog);
+    
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 99998;
+    `;
+    document.body.appendChild(overlay);
+    
+    document.getElementById('copyManualBtn').addEventListener('click', function() {
+        const codeElement = dialog.querySelector('code');
+        const range = document.createRange();
+        range.selectNode(codeElement);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        showCopySuccess();
+        setTimeout(() => {
+            document.body.removeChild(dialog);
+            document.body.removeChild(overlay);
+        }, 1000);
+    });
+    
+    document.getElementById('closeDialogBtn').addEventListener('click', function() {
+        document.body.removeChild(dialog);
+        document.body.removeChild(overlay);
+    });
+    
+    overlay.addEventListener('click', function() {
+        document.body.removeChild(dialog);
+        document.body.removeChild(overlay);
+    });
+}
+
+function init() {
+    disableZoom();
+    disableCopy();
+    
+    const savedTheme = localStorage.getItem('yhbbkx-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeSwitch.checked = savedTheme === 'dark';
+    if (settingsThemeSwitch) settingsThemeSwitch.checked = savedTheme === 'dark';
+    
+    const savedLang = localStorage.getItem('yhbbkx-lang') || 'zh';
+    langSelect.value = savedLang;
+    if (settingsLangSelect) settingsLangSelect.value = savedLang;
+    changeLanguage(savedLang);
+    
+    initSections();
+    
+    if (window.innerWidth >= 1024) {
+        drawer.classList.add('open');
+        isDrawerOpen = true;
+    }
+    
+    homeNav.classList.add('active');
+    
+    preloadImages();
+    
+    setTimeout(() => {
+        if (window.YhBBKXPreloader) window.YhBBKXPreloader.startPreloading();
+    }, 100);
+    
+    setTimeout(() => {
+        if (window.YhBBKXScrollAnimator) window.YhBBKXScrollAnimator.init();
+    }, 200);
+    
+    window.addEventListener('load', () => {
+        window.dispatchEvent(new Event('pageLoaded'));
+    });
+}
+
+function preloadImages() {
+    const images = [
+        'https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png',
+        'https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/main/screenshot%20(2).png',
+        'https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/main/Better%20Minecraft%20Preview_1.21.130.24.apk_icon.png',
+        'https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/main/%E5%8E%9F%E7%89%88%E4%BC%98%E5%8C%96%E6%95%B4%E5%90%88%E5%8C%85_1.0.0.apk_icon.png'
+    ];
+    
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => console.log('图片加载成功:', src);
+        img.onerror = () => console.warn('图片加载失败:', src);
+    });
+}
+
+menuBtn.addEventListener('click', openDrawer);
+closeBtn.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+
+langSelect.addEventListener('change', (e) => {
+    changeLanguage(e.target.value);
+    if (settingsLangSelect) settingsLangSelect.value = e.target.value;
+});
+
+if (settingsLangSelect) {
+    settingsLangSelect.addEventListener('change', (e) => {
+        changeLanguage(e.target.value);
+        langSelect.value = e.target.value;
+    });
+}
+
+themeSwitch.addEventListener('change', toggleTheme);
+
+if (settingsThemeSwitch) {
+    settingsThemeSwitch.addEventListener('change', toggleTheme);
+}
+
+downloadSection.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleSection('downloadSection', 'downloadContent');
+});
+
+moreSection.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleSection('moreSection', 'moreContent');
+});
+
+homeNav.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchPage('homePage', '');
+});
+
+document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const page = item.getAttribute('data-page');
+        const pageName = item.querySelector('.nav-item-label').textContent;
+        
+        switch (page) {
+            case 'settings':
+                switchPage('settingsPage', pageName);
+                break;
+            case 'playGuide':
+                switchPage('playGuidePage', pageName);
+                break;
+            case 'downloadHelp':
+                switchPage('downloadHelpPage', pageName);
+                break;
+            case 'nevNews':
+                switchPage('nevNewsPage', pageName);
+                break;
+            case 'someThings':
+                switchPage('someThingsPage', pageName);
+                break;
+            case 'aboutSite':
+                switchPage('aboutSitePage', pageName);
+                break;
+            case 'helpFeedback':
+                switchPage('helpFeedbackPage', pageName);
+                break;
+            case 'more':
+                switchPage('morePage', pageName);
+                break;
+        }
+    });
+});
+
+document.querySelectorAll('.settings-item[data-page]').forEach(item => {
+    item.addEventListener('click', function() {
+        const page = this.getAttribute('data-page');
+        const pageName = this.querySelector('.settings-item-text').textContent;
+        
+        switch (page) {
+            case 'helpFeedback':
+                switchPage('helpFeedbackPage', pageName);
+                break;
+            case 'more':
+                switchPage('morePage', pageName);
+                break;
+        }
+    });
+});
+
+backBtn.addEventListener('click', () => {
+    const appBarTitle = document.querySelector('.app-bar-title');
+    
+    if (appBarTitle) {
+        appBarTitle.classList.remove('icons-return-animation');
+        void appBarTitle.offsetWidth;
+        appBarTitle.classList.add('icons-return-animation');
+        
+        setTimeout(() => {
+            appBarTitle.classList.remove('icons-return-animation');
+        }, 600);
+    }
+    
+    if (currentPage === 'helpFeedbackPage' || currentPage === 'morePage') {
+        const currentLang = document.documentElement.getAttribute('data-lang') || 'zh';
+        const settingsTitle = (i18n[currentLang] && i18n[currentLang]['menu-settings']) 
+                              ? i18n[currentLang]['menu-settings'] 
+                              : '设置';
+        switchPage('settingsPage', settingsTitle);
+    } else {
+        switchPage('homePage', '');
+    }
+});
+
+if (shareBtn) {
+    shareBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        shareWebsite();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const heroLogo = document.querySelector('.hero-logo');
+    const surpriseOverlay = document.getElementById('surpriseOverlay');
+    
+    if (heroLogo) {
+        heroLogo.style.cursor = 'pointer';
+        heroLogo.title = '  ';
+        
+        heroLogo.addEventListener('click', function(e) {
+            const now = Date.now();
+            if (now - lastClickTime < clickCooldown) return;
+            lastClickTime = now;
+            
+            if (isSurpriseActive) return;
+            
+            logoClickCount++;
+            console.log(`Logo点击次数: ${logoClickCount}/${surpriseThreshold}`);
+            
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+            
+            if (logoClickCount >= surpriseThreshold && !isSurpriseActive) {
+                triggerSurprise(heroLogo, surpriseOverlay);
+            }
+        });
+    }
+    
+    window.addEventListener('pageLoaded', function() {
+        if (currentPage === 'homePage') {
+            const heroLogo = document.querySelector('.hero-logo');
+            const surpriseOverlay = document.getElementById('surpriseOverlay');
+            
+            if (heroLogo && surpriseOverlay) {
+                heroLogo.classList.remove('surprise-active');
+                surpriseOverlay.classList.remove('active');
+                document.body.classList.remove('screen-shake');
+                isSurpriseActive = false;
+            }
+        }
+    });
+});
+
+function triggerSurprise(logoElement, overlayElement) {
+    if (isSurpriseActive) return;
+    
+    isSurpriseActive = true;
+    console.log('🎉 彩蛋触发！');
+    
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('screen-shake');
+    overlayElement.classList.add('active');
+    logoElement.classList.add('surprise-active');
+    
+    playSurpriseSound();
+    
+    setTimeout(() => {
+        document.body.classList.remove('screen-shake');
+    }, 500);
+    
+    setTimeout(() => {
+        alert('🎮 恭喜你发现了彩蛋！\n\n网站将在3秒后恢复正常...');
+    }, 800);
+    
+    setTimeout(() => {
+        resetSurprise(logoElement, overlayElement);
+    }, 5000);
+}
+
+function resetSurprise(logoElement, overlayElement) {
+    logoElement.classList.remove('surprise-active');
+    overlayElement.classList.remove('active');
+    
+    setTimeout(() => {
+        logoElement.style.transform = '';
+        document.body.style.overflow = '';
+        isSurpriseActive = false;
+        
+        if (currentPage === 'homePage') {
+            logoClickCount = 0;
+            console.log('彩蛋已重置，点击计数清零');
+        }
+    }, 300);
+}
+
+function playSurpriseSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(880, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(1760, audioContext.currentTime + 0.2);
+        
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+    } catch (e) {
+        console.log('音频播放失败:', e);
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.altKey && e.key === 'r') {
+        if (!isSurpriseActive) {
+            logoClickCount = 0;
+            alert('彩蛋点击计数已重置为0');
+            console.log('彩蛋计数已重置');
+        }
+    }
+});
+
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    if (!link.hasAttribute('target')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            handleButtonClick(this, url, true);
+        });
+    }
+    
+    const authorBtn = document.getElementById('authorBtn');
+    if (authorBtn) {
+        authorBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            handleButtonClick(this, url, true);
+        });
+    }
+    
+    const repoBtn = document.getElementById('repoBtn');
+    if (repoBtn) {
+        repoBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            handleButtonClick(this, url, true);
+        });
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+        drawer.classList.add('open');
+        isDrawerOpen = true;
+    } else {
+        drawer.classList.remove('open');
+        isDrawerOpen = false;
+    }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.page-container').forEach(page => {
+        if (page.id !== 'homePage') {
+            page.style.display = 'none';
+        } else {
+            page.style.display = 'block';
+            page.classList.add('active');
+        }
+    });
+});
+
+window._originalClipboard = navigator.clipboard;
+window._originalExecCommand = document.execCommand.bind(document);
+
+Object.defineProperty(navigator, 'clipboard', {
+    get: function() {
+        return {
+            writeText: function() {
+                return Promise.reject(new Error('复制被禁止'));
+            },
+            readText: function() {
+                return Promise.reject(new Error('粘贴被禁止'));
+            }
+        };
+    }
+});
+
+const originalExecCommand = document.execCommand;
+document.execCommand = function(command, showUI, value) {
+    if (command === 'copy' || command === 'cut') {
+        console.warn('复制/剪切命令被阻止');
+        return false;
+    }
+    return originalExecCommand.apply(this, arguments);
+};
+
+const originalGetSelection = window.getSelection;
+window.getSelection = function() {
+    const selection = originalGetSelection.apply(this, arguments);
+    
+    if (selection && selection.toString) {
+        const originalToString = selection.toString;
+        selection.toString = function() {
+            return '';
+        };
+        
+        selection._originalToString = originalToString;
+    }
+    
+    return selection;
+};
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+    
+    if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+    
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+    
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+console.log('🔒 高级复制保护已启用');
+
+init();
+    </script>
+    <div class="surprise-overlay" id="surpriseOverlay"></div>
+</body>
+</html>
