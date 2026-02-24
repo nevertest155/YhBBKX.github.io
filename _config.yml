@@ -1,0 +1,12 @@
+# GitHub Pages 配置
+plugins:
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+
+# 强制 HTTPS
+github: [metadata]
+encoding: UTF-8
+kramdown:
+  input: GFM
+  hard_wrap: false
+repository: nevertest155/YhBBKX.github.io
