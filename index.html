@@ -378,24 +378,34 @@
                 opacity: 1;
             }
         }
-        @keyframes button-click-animation {
-            0% {
-                border-radius: var(--radius-full);
-            }
-            30% {
-                border-radius: 33.68px;
-            }
-            70% {
-                border-radius: 33.68px;
-            }
-            100% {
-                border-radius: var(--radius-full);
-            }
+        
+        /* ====== 水波纹点击效果 ====== */
+        .md3-btn {
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.2s var(--transition-emphasized), box-shadow 0.2s var(--transition-emphasized);
+            -webkit-tap-highlight-color: transparent;
         }
-        .button-click-animation {
-            animation: button-click-animation 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            pointer-events: none;
+        
+        .md3-btn:active::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(2);
+            transition: transform 0.3s var(--transition-emphasized), opacity 0.2s var(--transition-emphasized);
         }
+        
+        /* 深色模式水波纹颜色微调 */
+        [data-theme="dark"] .md3-btn::after {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 确保按钮文字和图标在水波纹上层 */
+        .md3-btn .material-icons-outlined,
+        .md3-btn svg,
+        .md3-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
         .icons-return-animation {
             animation: icons-return-home 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
@@ -706,36 +716,11 @@
             justify-content: center;
             gap: var(--spacing-sm);
             min-height: 56px;
-            position: relative;
-            overflow: hidden;
-        }
-        .md3-btn::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: currentColor;
-            opacity: 0;
-            border-radius: var(--radius-full);
-            transition: opacity 0.2s var(--transition-emphasized);
         }
         .btn-filled {
             background-color: var(--primary);
             color: var(--on-primary);
             box-shadow: var(--shadow-2);
-        }
-        .btn-filled:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-3);
-        }
-        .btn-filled:active {
-            transform: translateY(-2px);
-        }
-        .btn-filled:hover::after {
-            opacity: 0.1;
-        }
-        .btn-filled:active::after {
-            opacity: 0.15;
         }
         .btn-outlined {
             background-color: transparent;
@@ -746,12 +731,9 @@
             border-color: var(--primary);
             transform: translateY(-4px);
         }
-        .btn-outlined:hover::after {
-            opacity: 0.08;
-        }
         #repoBtn svg {
-            fill: var(--on-surface);
-        }
+    fill: var(--on-primary);
+}
         .features {
             padding: var(--spacing-2xl) var(--spacing-xl);
             max-width: 800px;
@@ -1167,9 +1149,6 @@
                 width: 34px;
                 height: 34px;
             }
-            .button-click-animation {
-                animation-duration: 0.8s;
-            }
             .features {
                 max-width: 900px;
             }
@@ -1274,6 +1253,45 @@ html[data-lang="en"] .lang-en-only {
 html[data-lang="en"] [data-i18n="app-name-line2"]::after {
     content: "\A";
     white-space: pre;
+}
+/* ====== 增强水波纹效果 ====== */
+.md3-btn {
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.md3-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.md3-btn:active::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.2s ease;
+}
+
+[data-theme="dark"] .md3-btn::after {
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 70%);
+}
+
+.md3-btn .material-icons-outlined,
+.md3-btn svg,
+.md3-btn span {
+    position: relative;
+    z-index: 3;
 }
     </style>
 </head>
@@ -1398,7 +1416,6 @@ html[data-lang="en"] [data-i18n="app-name-line2"]::after {
      onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDE2MCAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiByeD0iMjQiIGZpbGw9IiM2N0M4RkYiLz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHb29nbGUgU2FucyIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5ZSDwvdGV4dD4KPC9zdmc+'">
                 </div>
                 <h1 class="hero-title yh-animate yh-fade-in-down">
-    <h1 class="hero-title yh-animate yh-fade-in-down">
     <span data-i18n="app-name-line1">YhBBKX</span><br>
     <span data-i18n="app-name-line2">原版优化版本库</span>
     <span class="lang-en-only" data-i18n="app-name-line3">Optimized VL</span>
@@ -1410,16 +1427,20 @@ html[data-lang="en"] [data-i18n="app-name-line2"]::after {
                         <span class="material-icons-outlined">download</span>
                         <span data-i18n="btn-download">立即获取</span>
                     </a>
-                    <a href="https://m.bilibili.com/space/3546840507091375?plat_id=1&share_from=space&share_medium=android_i&share_plat=android&share_session_id=d0b46bd4-f256-4280-83da-3350fe5f622f&share_source=COPY&share_tag=s_i&timestamp=1768036194&unique_k=BrRAwF0" class="md3-btn btn-outlined" target="_blank" rel="noopener" id="authorBtn">
-                        <span class="material-icons-outlined">person</span>
-                        <span data-i18n="btn-author">关于作者</span>
-                    </a>
-                    <a href="https://github.com/nevertest155/YhBBKX.github.io/tree/main" class="md3-btn btn-outlined" target="_blank" rel="noopener" id="repoBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        <span data-i18n="repo-link">本站仓库</span>
-                    </a>
+                    <a href="https://m.bilibili.com/space/3546840507091375?plat_id=1&share_from=space&share_medium=android_i&share_plat=android&share_session_id=d0b46bd4-f256-4280-83da-3350fe5f622f&share_source=COPY&share_tag=s_i&timestamp=1768036194&unique_k=BrRAwF0" class="md3-btn btn-filled" target="_blank" rel="noopener" id="authorBtn">
+    <span class="material-icons-outlined">person</span>
+    <span data-i18n="btn-author">关于作者</span>
+</a>
+                    <a href="https://github.com/nevertest155/YhBBKX.github.io/tree/main" class="md3-btn btn-filled" target="_blank" rel="noopener" id="repoBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+    </svg>
+    <span data-i18n="repo-link">本站仓库</span>
+</a>
+                    <a href="https://qm.qq.com/q/3yuwyOGjGU" class="md3-btn btn-filled yh-animate yh-fade-in-up yh-delay-4" target="_blank" rel="noopener" id="contactBtn">
+    <span class="material-icons-outlined" style="font-size: 20px; margin-right: 4px;">contact_phone</span>
+    <span data-i18n="contact-author">联系作者</span>
+</a>
                 </div>
             </section>
 
@@ -1773,6 +1794,7 @@ const i18n = {
         "language-chinese": "让我们说中文",
         "language-english": "Oh,ENGLISH！",
         "repo-link": "本站仓库",
+        "contact-author": "联系作者",
         "footer-by": "By Never155",
         "footer-github": "GitHub nevertest155",
         "footer-contact": "3934107969",
@@ -1864,6 +1886,7 @@ const i18n = {
         "language-chinese": "让我们说中文",
         "language-english": "Oh,ENGLISH!",
         "repo-link": "Site Repository",
+        "contact-author": "Contact Author",
         "footer-by": "By Never155",
         "footer-github": "GitHub nevertest155",
         "footer-contact": "3934107969",
@@ -2034,29 +2057,6 @@ function disableCopy() {
     });
     
     console.log('🔒 复制功能已完全禁用');
-}
-
-function handleButtonClick(buttonElement, url, targetBlank = true) {
-    if (buttonElement.classList.contains('button-click-animation')) {
-        return;
-    }
-    
-    const isPC = window.innerWidth >= 1024;
-    const animationDuration = isPC ? 800 : 700;
-    
-    buttonElement.classList.add('button-click-animation');
-    buttonElement.style.pointerEvents = 'none';
-    
-    setTimeout(() => {
-        buttonElement.classList.remove('button-click-animation');
-        buttonElement.style.pointerEvents = '';
-        
-        if (targetBlank) {
-            window.open(url, '_blank', 'noopener,noreferrer');
-        } else {
-            window.location.href = url;
-        }
-    }, animationDuration);
 }
 
 const menuBtn = document.getElementById('menuBtn');
@@ -2857,31 +2857,50 @@ document.querySelectorAll('a[href^="http"]').forEach(link => {
     }
 });
 
+// ====== 首页按钮点击事件 ======
 document.addEventListener('DOMContentLoaded', function() {
+    // 所有按钮共用延迟跳转函数
+    function delayedOpen(button, url) {
+        button.style.pointerEvents = 'none';
+        setTimeout(() => {
+            window.open(url, '_blank', 'noopener,noreferrer');
+            button.style.pointerEvents = '';
+        }, 1300); // 1.5秒后跳转
+    }
+
+    // "立即获取"按钮
     const downloadBtn = document.getElementById('downloadBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const url = this.getAttribute('href');
-            handleButtonClick(this, url, true);
+            delayedOpen(this, this.getAttribute('href'));
         });
     }
     
+    // "关于作者"按钮
     const authorBtn = document.getElementById('authorBtn');
     if (authorBtn) {
         authorBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const url = this.getAttribute('href');
-            handleButtonClick(this, url, true);
+            delayedOpen(this, this.getAttribute('href'));
         });
     }
     
+    // "本站仓库"按钮
     const repoBtn = document.getElementById('repoBtn');
     if (repoBtn) {
         repoBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const url = this.getAttribute('href');
-            handleButtonClick(this, url, true);
+            delayedOpen(this, this.getAttribute('href'));
+        });
+    }
+
+    // "联系作者"按钮
+    const contactBtn = document.getElementById('contactBtn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            delayedOpen(this, this.getAttribute('href'));
         });
     }
 });
