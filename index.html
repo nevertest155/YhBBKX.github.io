@@ -1690,10 +1690,139 @@
         font-size: 16px;
             }
         }
+    /* ====== 保持Android开放警告横幅 ====== */
+.alert-banner {
+    background-color: #dc3545;
+    color: white;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.alert-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.alert-icon {
+    font-size: 20px;
+    margin-right: 4px;
+    color: white;
+}
+
+.alert-text {
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.alert-link {
+    color: white;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+}
+
+.alert-link:hover {
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] .alert-banner {
+    background-color: #b91c1c;
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .alert-link {
+    color: #ffd966;
+}
+
+/* PC端调整内边距和最大宽度 */
+@media (min-width: 1024px) {
+    .alert-banner {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+    .alert-icon {
+        font-size: 22px;
+    }
+}
+
+/* 移动端换行优化 */
+@media (max-width: 600px) {
+    .alert-banner-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .alert-text, .alert-link {
+        display: inline;
+    }
+}
+    /* 横幅独立入场动画（从上方滑入） */
+.alert-banner-animate {
+    animation: alertSlideDown 0.5s cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@keyframes alertSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    /* 横幅文字剧烈震动动画 */
+.alert-text, .alert-link {
+    display: inline-block;
+    animation: textShake 0.12s infinite ease-in-out;
+}
+
+@keyframes textShake {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    20% {
+        transform: translate(-1px, 0.5px) rotate(-0.5deg);
+    }
+    40% {
+        transform: translate(1px, -0.5px) rotate(0.5deg);
+    }
+    60% {
+        transform: translate(-0.5px, -0.2px) rotate(0.2deg);
+    }
+    80% {
+        transform: translate(0.5px, 0.2px) rotate(-0.2deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
     </style>
 </head>
 
 <body>
+    <!-- 保持Android开放警告横幅（不可关闭） -->
+<div class="alert-banner alert-banner-animate" id="alertBanner">
+    <div class="alert-banner-content">
+        <span class="alert-icon material-icons-outlined">warning</span>
+        <span class="alert-text" data-i18n="alert-text">⚠️ 威胁警告！Google正在改变安装未知来源.apk的方式，这会导致第三方.apk无法安装，YhBBKX和其他第三方应用正在面临威胁！请通过</span>
+        <a href="https://keepandroidopen.org/" target="_blank" rel="noopener noreferrer" class="alert-link" data-i18n="alert-link">https://keepandroidopen.org/</a>
+        <span class="alert-text" data-i18n="alert-text-suffix">提供帮助</span>
+    </div>
+</div>
     <!-- 启动加载动画 -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-logo">
@@ -2307,6 +2436,9 @@
             "more-content-title": "更多",
             "more-content-text": "尝试Yh Pack？",
             "more-button": "26.1 没有贺新春！",
+            "alert-text": "⚠️ 威胁警告！Google正在改变安装未知来源.apk的方式，这会导致第三方.apk无法安装，YhBBKX和其他第三方应用正在面临威胁！请通过",
+"alert-link": "https://keepandroidopen.org/",
+"alert-text-suffix": "提供帮助",
             "test-application": "申请测试",
             "test-title": "申请测试",
             "test-description": "申请YhBBKX安装包/Yh Pack 测试资格",
@@ -2409,6 +2541,9 @@
             "more-content-title": "More",
             "more-content-text": "Try Yh Pack?",
             "more-button": "26.1 It don't has Chinese New year！",
+            "alert-text": "⚠️ THREAT WARNING! Google is changing the way unknown source .apk files are installed, which will prevent third-party .apks from being installed. YhBBKX and other third-party apps are facing a threat! Please provide help through",
+"alert-link": "https://keepandroidopen.org/",
+"alert-text-suffix": "",
             "test-application": "Apply for Testing",
             "test-title": "Apply for Testing",
             "test-description": "Apply for YhBBKX installation package / Yh Pack test qualification",
