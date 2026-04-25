@@ -1,320 +1,337 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-lang="zh" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Something went wrong - YhBBKX</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <!-- 使用与主站相同的字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>404 - 页面未找到 | YhBBKX</title>
+    <!-- ====== 安全策略配置 ====== -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://s41.ax1x.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- ====== 网站图标 ====== -->
+    <link rel="icon" href="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/nevertest155/YhBBKX.github.io/refs/heads/main/Minecraft%20Yh%20for%20Beta_Beta11.29%EF%BC%881.21.130.28%EF%BC%89.apk_icon.png">
+    <link rel="shortcut icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABYSURBVHjaYvz//z8DxQAkQAqgijyDCAa4GBiAPAbU5AwEAo5UBYDZAEI4IIg8BdHQwICBtIIgEc/wD+UwxABdCtAbCQkFEg0l2gCslkIiCjU5DBwAAG28E5KzpPRAAAAAAElFTkSuQmCC" type="image/x-icon">
+    <meta name="theme-color" content="#67C8FF">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,wdth,ROND@8..60,300..700,25..151,0..100&display=swap" rel="stylesheet" crossorigin="anonymous">
     <style>
-        /* 使用与主站相同的MD3E颜色系统 */
-        :root {
-            /* 主色调 - MD3E 蓝色调 (#6750A4) */
-            --primary: #6750A4;
-            --primary-container: #EADDFF;
-            --on-primary: #FFFFFF;
-            --on-primary-container: #21005D;
-            
-            /* 辅助色调 - MD3E 紫色调 (#D0BCFF) */
-            --secondary: #D0BCFF;
-            --secondary-container: #4F378B;
-            --on-secondary: #381E72;
-            --on-secondary-container: #EADDFF;
-            
-            /* 表面颜色 - MD3E */
-            --surface: #FEF7FF;
-            --surface-container: #F3EDF7;
-            --surface-container-high: #ECE6F0;
-            --surface-container-lowest: #FFFFFF;
-            --surface-container-highest: #DAD3DF;
-            
-            /* 文本颜色 */
-            --on-surface: #1C1B1F;
-            --on-surface-variant: #49454F;
-            --outline: #79747E;
-            --outline-variant: #CAC4D0;
-            
-            /* 阴影 - MD3E 更柔和的阴影 */
-            --shadow-1: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
-            --shadow-2: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
-            --shadow-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15);
-            --shadow-4: 0 6px 10px 4px rgba(0, 0, 0, 0.15);
-            
-            /* 圆角 */
-            --radius-xs: 4px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 20px;
-            --radius-2xl: 28px;
-            --radius-full: 9999px;
-            
-            /* 动画曲线 - MD3E 标准曲线 */
-            --transition-emphasized: cubic-bezier(0.2, 0, 0, 1);
-            --transition-decelerate: cubic-bezier(0, 0, 0, 1);
-            --transition-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
-            --transition-standard: cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* 间距 */
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-2xl: 48px;
-            --spacing-3xl: 64px;
-        }
-
-        /* ====== 深色模式 ====== */
-        :root[data-theme="dark"] {
-            --primary: #D0BCFF;
-            --primary-container: #4F378B;
-            --on-primary: #381E72;
-            --on-primary-container: #EADDFF;
-            
-            --secondary: #CCC2DC;
-            --secondary-container: #4A4458;
-            --on-secondary: #332D41;
-            --on-secondary-container: #E8DEF8;
-            
-            --surface: #141218;
-            --surface-container: #211F26;
-            --surface-container-high: #2B2930;
-            --surface-container-lowest: #0F0D13;
-            --surface-container-highest: #36343B;
-            
-            --on-surface: #E6E1E5;
-            --on-surface-variant: #CAC4D0;
-            --outline: #938F99;
-            --outline-variant: #49454F;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* 使用与主站相同的字体 */
-            font-family: 'Inter', 'Google Sans', sans-serif;
+            font-family: 'Google Sans Flex', sans-serif;
+            font-variation-settings: 'ROND' 100;
         }
-
+        :root {
+            --primary: #212121;
+            --primary-container: #e0e0e0;
+            --on-primary: #ffffff;
+            --on-primary-container: #121212;
+            --secondary: #424242;
+            --secondary-container: #f5f5f5;
+            --surface: #ffffff;
+            --surface-container: #f5f5f5;
+            --surface-container-lowest: #ffffff;
+            --on-surface: #121212;
+            --on-surface-variant: #424242;
+            --outline-variant: #cccccc;
+            --shadow-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+            --radius-2xl: 28px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+            --transition-emphasized: cubic-bezier(0.2, 0, 0, 1);
+            --spacing-xl: 32px;
+            --spacing-lg: 24px;
+            --spacing-md: 16px;
+            --spacing-sm: 8px;
+            --on-surface-rgb: 18, 18, 18;
+        }
+        :root[data-theme="dark"] {
+            --primary: #e0e0e0;
+            --primary-container: #2c2c2c;
+            --on-primary: #121212;
+            --on-primary-container: #ffffff;
+            --secondary: #9e9e9e;
+            --secondary-container: #2c2c2c;
+            --surface: #121212;
+            --surface-container: #1e1e1e;
+            --surface-container-lowest: #0a0a0a;
+            --on-surface: #e0e0e0;
+            --on-surface-variant: #b0b0b0;
+            --outline-variant: #3a3a3a;
+            --on-surface-rgb: 224, 224, 224;
+        }
         body {
             background-color: var(--surface);
             color: var(--on-surface);
+            line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.4s var(--transition-emphasized), color 0.4s var(--transition-emphasized);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ====== 启动加载动画 ====== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            z-index: 9999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: var(--spacing-xl);
-            text-align: center;
-            transition: background-color 0.4s var(--transition-emphasized), color 0.4s var(--transition-emphasized);
+            transition: opacity 0.5s var(--transition-emphasized);
+            opacity: 1;
+            pointer-events: auto;
         }
-
-        .error-container {
-            max-width: 600px;
+        .loading-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--spacing-xl);
+            animation: logoPulse 1s ease-in-out infinite;
+        }
+        .loading-logo img {
             width: 100%;
-            background-color: var(--surface-container-lowest);
-            padding: var(--spacing-2xl);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--outline-variant);
-            box-shadow: var(--shadow-2);
+            height: 100%;
+            object-fit: contain;
         }
-
-        .error-icon {
-            font-size: 120px;
-            color: var(--primary);
-            margin-bottom: var(--spacing-lg);
-            animation: float 3s ease-in-out infinite;
+        .md2-spinner {
+            width: 48px;
+            height: 48px;
+            animation: spinnerRotate 1s linear infinite;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .md2-spinner svg {
+            width: 100%;
+            height: 100%;
+            display: block;
         }
-
+        .md2-spinner circle {
+            stroke: var(--on-primary);
+            stroke-width: 4;
+            stroke-linecap: round;
+            fill: none;
+            stroke-dasharray: 31.4 94.2;
+        }
+        @keyframes spinnerRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        
+        /* ====== 主内容区 ====== */
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-xl);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: yh-fade-in-up 0.8s cubic-bezier(0.2, 0, 0, 1) forwards;
+            animation-delay: 2.6s;
+        }
+        @keyframes yh-fade-in-up {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
         .error-code {
             font-size: 120px;
-            font-weight: 800;
+            font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: var(--spacing-md);
+            letter-spacing: -2px;
+            font-variation-settings: 'wdth' 130, 'ROND' 100;
             line-height: 1;
+            margin-bottom: var(--spacing-lg);
         }
-
         .error-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--on-surface);
-        }
-
-        .error-message {
-            font-size: 18px;
-            color: var(--on-surface-variant);
-            margin-bottom: var(--spacing-2xl);
-            line-height: 1.6;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: var(--spacing-md);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: var(--spacing-xl);
-        }
-
-        .md3-btn {
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: var(--radius-full);
-            font-size: 15px;
+            font-size: 28px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s var(--transition-emphasized);
-            border: none;
-            text-decoration: none;
+            color: var(--on-surface);
+            margin-bottom: var(--spacing-md);
+        }
+        .error-desc {
+            font-size: 17px;
+            color: var(--on-surface-variant);
+            max-width: 500px;
+            margin-bottom: var(--spacing-xl);
+        }
+        .error-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-xl);
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border-radius: var(--radius-full);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s var(--transition-emphasized);
+            border: none;
+            cursor: pointer;
             min-height: 56px;
             position: relative;
             overflow: hidden;
-        }
-
-        .md3-btn::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: currentColor;
-            opacity: 0;
-            border-radius: var(--radius-full);
-            transition: opacity 0.2s var(--transition-emphasized);
-        }
-
-        .btn-filled {
-            background-color: var(--primary);
-            color: var(--on-primary);
-            box-shadow: var(--shadow-2);
-        }
-
-        .btn-filled:hover {
-            transform: translateY(-4px);
+            -webkit-tap-highlight-color: transparent;
             box-shadow: var(--shadow-3);
         }
-
-        .btn-filled:hover::after {
-            opacity: 0.1;
+        .error-btn:hover {
+            transform: translateY(-2px);
+        }
+        .error-btn:active {
+            transform: scale(0.96);
+        }
+        .error-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .error-btn:active::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.2s ease;
         }
 
-        .btn-outlined {
-            background-color: transparent;
-            border: 2px solid var(--outline-variant);
-            color: var(--on-surface);
+        /* ====== 深色模式文字高亮 ====== */
+        [data-theme="dark"] body {
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.3);
         }
-
-        .btn-outlined:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
+        [data-theme="dark"] .error-code,
+        [data-theme="dark"] .error-title {
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.7), 0 0 12px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
         }
-
-        .btn-outlined:hover::after {
-            opacity: 0.08;
+        [data-theme="dark"] .error-desc {
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.5), 0 0 8px rgba(255, 255, 255, 0.3);
         }
-
-        .back-home {
-            margin-top: var(--spacing-2xl);
-            color: var(--on-surface-variant);
-            font-size: 14px;
+        [data-theme="dark"] .error-btn {
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.1);
         }
-
-        .back-home a {
-            color: var(--primary);
-            text-decoration: none;
+        [data-theme="dark"] .error-btn:hover {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25), 0 8px 28px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 255, 255, 0.2);
         }
+        
+        /* ====== 多语言控制 ====== */
+        .lang-en-only { display: none; }
+        html[data-lang="en"] .lang-en-only { display: inline; }
+        html[data-lang="en"] .lang-zh-only { display: none; }
 
-        .back-home a:hover {
-            text-decoration: underline;
-        }
-
-        /* 响应式设计 */
+        /* ====== 响应式 ====== */
         @media (max-width: 600px) {
-            .error-code {
-                font-size: 80px;
-            }
-            
-            .error-title {
-                font-size: 24px;
-            }
-            
-            .error-message {
-                font-size: 16px;
-            }
-            
-            .btn-group {
-                flex-direction: column;
-            }
-            
-            .md3-btn {
-                width: 100%;
-            }
-            
-            .error-container {
-                padding: var(--spacing-xl) var(--spacing-lg);
-            }
+            .error-code { font-size: 80px; }
+            .error-title { font-size: 22px; }
+            .error-desc { font-size: 15px; }
         }
     </style>
 </head>
+
 <body>
-    <div class="error-container">
-        <div class="error-icon material-icons-outlined">error_outline</div>
-        <h1 class="error-code">❹︎●❹</h1>
-        <h2 class="error-title">没有这个页面</h2>
-        <p class="error-message">
-            抱歉，您打开的网页有问题，请检查链接<br>
-            Sorry, there is a problem with the webpage you opened. Please check the link.
-        </p>
-        
-        <div class="btn-group">
-            <a href="https://nevertest155.github.io/YhBBKX.github.io/" class="md3-btn btn-filled">
-                <span class="material-icons-outlined">home</span>
-                打开主站 Open the main website
-            </a>
-            <a href="https://github.com/nevertest155/YhBBKX.github.io" class="md3-btn btn-outlined" target="_blank">
-                <span class="material-icons-outlined">code</span>
-                GitHub仓库 Github repository
-            </a>
+    <!-- 启动加载动画 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <img src="https://s41.ax1x.com/2026/04/04/petwe8s.png" alt="YhBBKX Logo">
         </div>
-        
-        <div class="back-home">
-            如果您认为这是个错误，请
-            If you think this is a mistake, please <a href="https://github.com/nevertest155/YhBBKX.github.io/issues" target="_blank">提交问题 Submit an issue</a>
+        <div class="md2-spinner">
+            <svg viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="20" />
+            </svg>
         </div>
     </div>
 
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">
+            <span class="lang-zh-only" data-i18n="error-title">页面未找到</span>
+            <span class="lang-en-only" data-i18n="error-title-en">Page Not Found</span>
+        </h1>
+        <p class="error-desc">
+            <span class="lang-zh-only" data-i18n="error-desc">你访问的页面不存在或已被移除。<br>请检查链接是否正确，或返回首页。</span>
+            <span class="lang-en-only" data-i18n="error-desc-en">The page you're looking for doesn't exist or has been moved.<br>Check the URL or go back to the homepage.</span>
+        </p>
+        <a href="https://yhbbkx.qzz.io/" class="error-btn">
+            <span class="material-icons-outlined">home</span>
+            <span class="lang-zh-only" data-i18n="error-btn">返回首页</span>
+            <span class="lang-en-only" data-i18n="error-btn-en">Back to Home</span>
+        </a>
+    </div>
+
     <script>
-        // 继承主站的主题设置
-        (function() {
-            // 获取主站的主题设置
-            const mainTheme = localStorage.getItem('yhbbkx-theme');
-            const mainLang = localStorage.getItem('yhbbkx-lang');
-            
-            if (mainTheme) {
-                document.documentElement.setAttribute('data-theme', mainTheme);
-            } else {
-                // 如果没有保存的主题，使用系统偏好
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        const i18n = {
+            zh: {
+                "error-title": "页面未找到",
+                "error-desc": "你访问的页面不存在或已被移除。<br>请检查链接是否正确，或返回首页。",
+                "error-btn": "返回首页"
+            },
+            en: {
+                "error-title-en": "Page Not Found",
+                "error-desc-en": "The page you're looking for doesn't exist or has been moved.<br>Check the URL or go back to the homepage.",
+                "error-btn-en": "Back to Home"
             }
-            
-            if (mainLang) {
-                document.documentElement.setAttribute('data-lang', mainLang);
+        };
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+            document.documentElement.setAttribute('data-lang', lang);
+            localStorage.setItem('yhbbkx-lang', lang);
+        }
+
+        function init() {
+            const savedTheme = localStorage.getItem('yhbbkx-theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const savedLang = localStorage.getItem('yhbbkx-lang') || 'zh';
+            changeLanguage(savedLang);
+
+            // 启动加载动画控制
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hide');
+                    setTimeout(() => {
+                        loadingScreen.remove();
+                    }, 500);
+                }, 2000);
             }
-        })();
+        }
+        init();
     </script>
 </body>
+
 </html>

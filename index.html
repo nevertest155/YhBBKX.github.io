@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>YhBBKX-春季更新26.1 Pre2已出炉！</title>
+    <title>YhBBKX-静等26年+/O 上半年场!</title>
+    <!--法律声明:“Minecraft”及“我的世界”是Microsoft Corporation和 Mojang Synergies AB的注册商标。 YhBBKX及 YhPack、 NeoreUI和Neore Design与Microsoft、 Mojang 或网易公司无任何从属或合作关系。-->
+    <!--禁止对此网站做出任何违反中华人民共和国法律的行为-->
+    <!--禁止在没被Never155允许的情况下，将二创的网站发布上线-->
+    <!--新版Better Minecraft官方网站基于𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐打造，Molo4981已被Never155授权-->
     <!-- ====== 安全策略配置 ====== -->
     <!-- 内容安全策略 - 防止XSS和注入 -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://raw.githubusercontent.com https://fonts.googleapis.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://raw.githubusercontent.com https://s41.ax1x.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
@@ -171,8 +175,10 @@
             padding: 0 var(--spacing-md);
             height: 64px;
             background-color: rgba(var(--surface-container-lowest-rgb), 0);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.3) 100%);
+-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.3) 100%);
             box-shadow: var(--shadow-1);
             position: sticky;
             top: 0;
@@ -398,8 +404,8 @@
         }
         .nav-item.active {
     background-color: rgba(33, 33, 33, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: var(--on-primary-container);
     /* GPU加速 */
     will-change: transform;
@@ -1427,6 +1433,7 @@
             width: 100%;
             box-sizing: border-box;
             flex-shrink: 0;
+            padding-bottom: calc(var(--spacing-xl) + 72px);
         }
         .footer-line {
             margin-bottom: var(--spacing-xs);
@@ -1439,7 +1446,7 @@
         }
         @media (min-width: 1024px) {
             body {
-        padding-left: 320px;
+        padding-left: 0;
             }
             .drawer {
         left: 0;
@@ -2224,6 +2231,292 @@
     }
 }
 * { -webkit-tap-highlight-color: transparent; }
+
+/* ====== 底部液态玻璃 Tab 栏 ====== */
+.liquid-glass-tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: transparent;
+    backdrop-filter: blur(20px) saturate(250%);
+    -webkit-backdrop-filter: blur(20px) saturate(250%);
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    will-change: transform;
+    transform: translateX(-50%) translateZ(0);
+    backface-visibility: hidden;
+    transition: all 0.4s var(--transition-emphasized);
+}
+
+/* 浅色模式 */
+[data-theme="light"] .liquid-glass-tabbar {
+    background: transparent;
+    backdrop-filter: blur(20px) saturate(250%);
+    -webkit-backdrop-filter: blur(20px) saturate(250%);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* 深色模式 */
+[data-theme="dark"] .liquid-glass-tabbar {
+    background: transparent;
+    backdrop-filter: blur(20px) saturate(250%);
+    -webkit-backdrop-filter: blur(20px) saturate(250%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all 0.3s var(--transition-emphasized);
+    color: var(--on-surface-variant);
+    text-decoration: none;
+    position: relative;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    flex: 1;
+    min-height: 56px;
+    will-change: transform;
+}
+
+.tab-item .material-icons-outlined {
+    font-size: 24px;
+    transition: transform 0.3s var(--transition-emphasized);
+}
+
+.tab-item:hover {
+    background: rgba(128, 128, 128, 0.1);
+    color: var(--primary);
+}
+
+.tab-item:active {
+    transform: scale(0.95);
+}
+
+.tab-item.active {
+    color: var(--primary);
+    background: rgba(128, 128, 128, 0.08);
+}
+
+.tab-item.active .tab-icon {
+    transform: scale(1.1);
+}
+
+.tab-item.active::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.tab-label {
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* PC 端调整 */
+@media (min-width: 1024px) {
+    .liquid-glass-tabbar {
+        max-width: 600px;
+        padding: var(--spacing-sm) var(--spacing-xl);
+    }
+    .tab-item {
+        padding: var(--spacing-sm) var(--spacing-xl);
+    }
+}
+
+/* 移动端调整 */
+@media (max-width: 600px) {
+    .liquid-glass-tabbar {
+        max-width: 100%;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    .tab-item {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+/* ====== Material Design 3 Expressive 对话框 ====== */
+.md3-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    background: transparent;
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--transition-emphasized), visibility 0.3s;
+    will-change: opacity;
+    overflow: hidden;
+}
+
+.md3-dialog-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.md3-dialog {
+    background: var(--surface-container-lowest);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-4);
+    width: calc(100% - 32px);
+    max-width: 380px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9);
+    transition: transform 0.4s var(--transition-emphasized);
+    will-change: transform;
+    border: 1px solid var(--outline-variant);
+}
+
+.md3-dialog-overlay.active .md3-dialog {
+    transform: scale(1);
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--outline-variant);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--on-surface);
+}
+
+.dialog-close {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-surface-variant);
+    transition: background-color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dialog-close:hover {
+    background-color: rgba(var(--on-surface-rgb), 0.08);
+}
+
+.dialog-body {
+    padding: var(--spacing-md) var(--spacing-lg);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.dialog-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color 0.2s var(--transition-emphasized);
+    color: var(--on-surface);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dialog-item:hover {
+    background-color: rgba(var(--on-surface-rgb), 0.08);
+}
+
+.dialog-item:active {
+    background-color: rgba(var(--on-surface-rgb), 0.12);
+}
+
+.dialog-item .dialog-item-icon {
+    font-size: 22px;
+    color: var(--on-surface-variant);
+    flex-shrink: 0;
+}
+
+.dialog-item .dialog-item-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dialog-item .dialog-item-badge {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+/* 深色模式 */
+[data-theme="dark"] .md3-dialog {
+    background: transparent;
+    backdrop-filter: blur(20px) saturate(250%);
+    -webkit-backdrop-filter: blur(20px) saturate(250%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .dialog-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .dialog-item:active {
+    background-color: rgba(255, 255, 255, 0.12);
+}
     </style>
 </head>
 
@@ -2258,100 +2551,7 @@
             <img src="https://s41.ax1x.com/2026/02/24/pZv13DI.png" alt="Screenshot" class="screenshot-icon" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzY3NEE0Ii8+CjxwYXRoIGQ9Ik0xNiAxMC4xNjY3QzEyLjcgMTAuMTY2NyAxMCAxMi44NjY3IDEwIDE2LjE2NjdDMTAgMTkuNDY2NyAxMi43IDIyLjE2NjcgMTYgMjIuMTY2N0MxOS4zIDIyLjE2NjcgMjIgMTkuNDY2NyAyMiAxNi4xNjjD22IDEyLjg2NjcgMTkuMyAxMC4xNjY3IDE2IDEwLjE2NjdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'">
         </div>
         <span class="page-title" id="pageTitle"></span>
-        <button class="icon-button" id="menuBtn" style="color: #1C1B1F !important;">
-    <span class="material-icons-outlined" style="color: #1C1B1F !important;">menu</span>
-</button>
     </header>
-
-    <div class="drawer" id="drawer">
-        <div class="drawer-header">
-            <div class="drawer-title" data-i18n="menu-title">菜单</div>
-            <button class="icon-button" id="closeBtn">
-                <span class="material-icons-outlined">close</span>
-            </button>
-        </div>
-        <div class="drawer-content">
-            <div class="nav-item active" id="homeNav">
-                <span class="material-icons-outlined">home</span>
-                <span class="nav-item-label" data-i18n="menu-home">首页</span>
-            </div>
-
-            <div class="menu-section">
-                <div class="section-header" id="downloadSection">
-                    <div class="section-title" data-i18n="menu-download">获取</div>
-                    <span class="material-icons-outlined section-toggle">expand_more</span>
-                </div>
-                <div class="section-content" id="downloadContent">
-                    <a href="https://www.123912.com/s/xzqLTd-f0Rw" target="_blank" class="nav-item" id="download26">
-                        <span class="material-icons-outlined">new_releases</span>
-                        <span class="nav-item-label" data-i18n="download-26">26.1 Pre2</span>
-                        <span class="nav-item-badge" data-i18n="latest">新版本!</span>
-                    </a>
-                    <a href="https://www.123912.com/s/xzqLTd-a0Rw" target="_blank" class="nav-item" id="downloadHistory">
-                        <span class="material-icons-outlined">history</span>
-                        <span class="nav-item-label" data-i18n="history-versions">历史版本</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="menu-section">
-                <div class="section-header" id="moreSection">
-                    <div class="section-title" data-i18n="menu-more">更多</div>
-                    <span class="material-icons-outlined section-toggle">expand_more</span>
-                </div>
-                <div class="section-content" id="moreContent">
-                    <div class="nav-item" data-page="settings">
-                        <span class="material-icons-outlined">settings</span>
-                        <span class="nav-item-label" data-i18n="menu-settings">设置</span>
-                    </div>
-                    <div class="nav-item" data-page="playGuide">
-                        <span class="material-icons-outlined">sports_esports</span>
-                        <span class="nav-item-label" data-i18n="play-guide">游玩须知</span>
-                    </div>
-                    <div class="nav-item" data-page="downloadHelp">
-                        <span class="material-icons-outlined">help_center</span>
-                        <span class="nav-item-label" data-i18n="download-help">关于123下载帮助</span>
-                    </div>
-                    <div class="nav-item" data-page="nevNews">
-                        <span class="material-icons-outlined">newspaper</span>
-                        <span class="nav-item-label" data-i18n="nev-news">Nev新闻</span>
-                    </div>
-                    <div class="nav-item" data-page="someThings">
-                        <span class="material-icons-outlined">question_answer</span>
-                        <span class="nav-item-label" data-i18n="some-things">一些事</span>
-                    </div>
-                    <a href="https://obedient-heron-1h6kp0.mysxl.cn/" target="_blank" rel="noopener noreferrer" class="nav-item">
-                        <img src="https://s41.ax1x.com/2026/02/24/pZv11KA.jpg" alt="Better Minecraft" class="nav-icon" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzY3NEE0Ii8+CjxwYXRoIGQ9Ik0xMiA3LjMzMzMzQzkuNDIgNy4zMzMzMyA3LjMzMzMzIDkuNDIgNy4zMzMzMyAxMkM3LjMzMzMzIDE0LjU4IDkuNDIgMTYuNjY2NyAxMiAxNi42NjY3QzE0LjU4IDE2LjY2NjcgMTYuNjY2NyAxNC41OCAxNi42NjY3IDEyQzE2LjY2NjcgOS40MiAxNC41OCA3LjMzMzMzIDEyIDcuMzMzMzNaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K'">
-                        <span class="nav-item-label" data-i18n="better-minecraft">Better Minecraft</span>
-                    </a>
-                    <a href="https://cysunk.mlzi.top/vanilla_optimizations/" target="_blank" rel="noopener noreferrer" class="nav-item">
-                        <img src="https://s41.ax1x.com/2026/02/24/pZv1JVP.png" alt="原版优化整合包" class="nav-icon" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzRFMzc4QiIvPgo8cGF0aCBkPSJNMTIgOC42NjY2N0M5Ljg4IDguNjY2NjcgOC4xIDExLjIgOC4xIDE0QzguMSAxNi44IDkuODggMTkuMzMzMyAxMiAxOS4zMzMzQzE0LjEyIDE5LjMzMzMgMTUuOSAxNi44IDE1LjkgMTRDMTUuOSAxMS4yIDE0LjEyIDguNjY2NjcgMTIgOC42NjY2N1oiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo='">
-                        <span class="nav-item-label" data-i18n="vanilla-optimization">原版优化整合包</span>
-                    </a>
-                    <div class="nav-item" data-page="aboutSite">
-                        <span class="material-icons-outlined">info</span>
-                        <span class="nav-item-label" data-i18n="menu-about">关于本站</span>
-                    </div>
-                    <div class="nav-item" data-page="testapplication">
-                        <span class="material-icons-outlined">science</span>
-                        <span class="nav-item-label" data-i18n="test-application">申请测试</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="drawer-footer">
-            <select class="md3-select" id="langSelect">
-                <option value="zh" selected data-i18n="language-chinese">让我们说中文</option>
-                <option value="en" data-i18n="language-english">Oh,ENGLISH！</option>
-            </select>
-            <div class="theme-toggle">
-                <span class="toggle-label" data-i18n="theme-label">深色模式</span>
-                <input type="checkbox" class="md3e-switch" id="themeSwitch">
-            </div>
-        </div>
-    </div>
-
-    <div class="overlay" id="overlay"></div>
 
     <main id="mainContent">
         <div class="page-container active" id="homePage">
@@ -2441,7 +2641,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
@@ -2498,7 +2698,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
@@ -2515,7 +2715,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
@@ -2538,7 +2738,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
@@ -2553,7 +2753,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
@@ -2568,14 +2768,14 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
         <div class="page-container" id="nevNewsPage">
             <section class="content-page">
                 <h1 class="content-title yh-animate yh-fade-in-down" data-i18n="nev-news-title">Nev新闻</h1>
-                <div class="content-body yh-animate yh-fade-in-up yh-delay-1" data-i18n="nev-news-content">（1）26.7 官方网站更新了！全新域名yhbbkx.qzz.io！\n（2）26.2将改名为26.4(新命名法)</div>
+                <div class="content-body yh-animate yh-fade-in-up yh-delay-1" data-i18n="nev-news-content">(1)26.7 Expressive!网站超级更新!\n(2)2026 NeverNEXT +/O 上半年场正在筹备!</div>
             </section>
             <div class="footer">
                 <div class="footer-line" data-i18n="footer-by">By Never155</div>
@@ -2583,7 +2783,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
@@ -2598,14 +2798,14 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
 
         <div class="page-container" id="aboutSitePage">
             <section class="content-page">
                 <h1 class="content-title yh-animate yh-fade-in-down" data-i18n="menu-about-title">关于本站</h1>
-                <div class="content-body yh-animate yh-fade-in-up yh-delay-1" data-i18n="about-site-content">（此站为官方授权网站）网站版本：26.7 最后一次编辑：2026年4月18日 10：33 北京时间 此站为部署于Github Page 上的静态网站，域名：yhbbkx.qzz.io，仓库见：https://github.com/nevertest155/YhBBKX.github.io/tree/main</div>
+                <div class="content-body yh-animate yh-fade-in-up yh-delay-1" data-i18n="about-site-content">（此站为官方授权网站）网站版本：26.7 Expressive 最后一次编辑：2026年4月25日 16:15 北京时间 此站为部署于Github Page 上的静态网站，域名：yhbbkx.qzz.io，仓库见：https://github.com/nevertest155/YhBBKX.github.io/tree/main</div>
             </section>
             <div class="footer">
                 <div class="footer-line" data-i18n="footer-by">By Never155</div>
@@ -2613,7 +2813,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
         <div class="page-container" id="testApplicationPage">
@@ -2658,10 +2858,99 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 <div class="footer-line" data-i18n="footer-contact">3934107969</div>
                 <div class="footer-line" data-i18n="footer-team">Never155/186 Molo4981</div>
                 <div class="footer-line" data-i18n="footer-copyright">© 2026 Never155 保留所有权利</div>
-                <div class="footer-version" data-i18n="website-version">网站版本：26.7 yhbbkx.qzz.io</div>
+                <div class="footer-version" data-i18n="website-version">网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐</div>
             </div>
         </div>
     </main>
+
+    <!-- 底部液态玻璃 Tab 栏 -->
+    <nav class="liquid-glass-tabbar" id="liquidTabBar">
+        <button class="tab-item active" id="tabHome" onclick="switchPage('homePage', '')">
+            <span class="material-icons-outlined tab-icon">home</span>
+            <span class="tab-label" data-i18n="menu-home">首页</span>
+        </button>
+        <button class="tab-item" id="tabDownload" onclick="openUpdateDialog()">
+            <span class="material-icons-outlined tab-icon">download</span>
+            <span class="tab-label" data-i18n="menu-download">更新与下载</span>
+        </button>
+        <button class="tab-item" id="tabTest" onclick="switchPage('testApplicationPage', '申请测试')">
+            <span class="material-icons-outlined tab-icon">science</span>
+            <span class="tab-label" data-i18n="test-application">申请测试</span>
+        </button>
+        <button class="tab-item" id="tabMore" onclick="openMoreDialog()">
+            <span class="material-icons-outlined tab-icon">more_horiz</span>
+            <span class="tab-label" data-i18n="menu-more">更多</span>
+        </button>
+    </nav>
+
+    <!-- 更新与下载对话框 -->
+    <div class="md3-dialog-overlay" id="updateDialogOverlay">
+        <div class="md3-dialog">
+            <div class="dialog-header">
+                <span data-i18n="menu-download">获取</span>
+                <button class="dialog-close" onclick="closeUpdateDialog()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="dialog-body">
+                <a href="https://www.123912.com/s/xzqLTd-f0Rw" target="_blank" rel="noopener" class="dialog-item">
+                    <span class="material-icons-outlined dialog-item-icon">new_releases</span>
+                    <span class="dialog-item-label" data-i18n="download-26">26.1 Pre2</span>
+                    <span class="dialog-item-badge" data-i18n="latest">新版本!</span>
+                </a>
+                <a href="https://www.123912.com/s/xzqLTd-a0Rw" target="_blank" rel="noopener" class="dialog-item">
+                    <span class="material-icons-outlined dialog-item-icon">history</span>
+                    <span class="dialog-item-label" data-i18n="history-versions">历史版本</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更多对话框 -->
+    <div class="md3-dialog-overlay" id="moreDialogOverlay">
+        <div class="md3-dialog">
+            <div class="dialog-header">
+                <span data-i18n="menu-more">更多</span>
+                <button class="dialog-close" onclick="closeMoreDialog()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="dialog-body">
+                <div class="dialog-item" onclick="switchPage('playGuidePage', '游玩须知'); closeMoreDialog();">
+                    <span class="material-icons-outlined dialog-item-icon">sports_esports</span>
+                    <span class="dialog-item-label" data-i18n="play-guide">游玩须知</span>
+                </div>
+                <div class="dialog-item" onclick="switchPage('downloadHelpPage', '关于123下载帮助'); closeMoreDialog();">
+                    <span class="material-icons-outlined dialog-item-icon">help_center</span>
+                    <span class="dialog-item-label" data-i18n="download-help">关于123下载帮助</span>
+                </div>
+                <div class="dialog-item" onclick="switchPage('nevNewsPage', 'Nev新闻'); closeMoreDialog();">
+                    <span class="material-icons-outlined dialog-item-icon">newspaper</span>
+                    <span class="dialog-item-label" data-i18n="nev-news">Nev新闻</span>
+                </div>
+                <div class="dialog-item" onclick="switchPage('someThingsPage', '一些事'); closeMoreDialog();">
+                    <span class="material-icons-outlined dialog-item-icon">question_answer</span>
+                    <span class="dialog-item-label" data-i18n="some-things">一些事</span>
+                </div>
+                <a href="https://obedient-heron-1h6kp0.mysxl.cn/" target="_blank" rel="noopener" class="dialog-item">
+                    <img src="https://s41.ax1x.com/2026/02/24/pZv11KA.jpg" alt="" class="dialog-item-icon" style="width:22px;height:22px;border-radius:4px;">
+                    <span class="dialog-item-label" data-i18n="better-minecraft">Better Minecraft</span>
+                </a>
+                <a href="https://cysunk.mlzi.top/vanilla_optimizations/" target="_blank" rel="noopener" class="dialog-item">
+                    <img src="https://s41.ax1x.com/2026/02/24/pZv1JVP.png" alt="" class="dialog-item-icon" style="width:22px;height:22px;border-radius:4px;">
+                    <span class="dialog-item-label" data-i18n="vanilla-optimization">原版优化整合包</span>
+                </a>
+                <div class="dialog-item" onclick="switchPage('aboutSitePage', '关于本站'); closeMoreDialog();">
+                    <span class="material-icons-outlined dialog-item-icon">info</span>
+                    <span class="dialog-item-label" data-i18n="menu-about">关于本站</span>
+                </div>
+                <div class="dialog-item" onclick="switchPage('settingsPage', '设置'); closeMoreDialog();">
+                    <span class="material-icons-outlined dialog-item-icon">settings</span>
+                    <span class="dialog-item-label" data-i18n="menu-settings">设置</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // ====== 滚动动画系统 ======
@@ -2808,14 +3097,14 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
             "footer-contact": "3934107969",
             "footer-team": "Never155/186 Molo4981",
             "footer-copyright": "© 2026 Never155 保留所有权利",
-            "website-version": "网站版本：26.7 yhbbkx.qzz.io",
+            "website-version": "网站版本：26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐",
             "download-26": "26.1 Pre2",
             "play-guide-title": "游玩须知",
             "play-guide-content": "您获取后Apk安装包后，即表示您同意我们的协议：1.YhBBKX Apk安装包原作者为@Never155 2.YhBBKX Apk安装包Github原作者为@nevertest155 3.YhBBKX Apk安装包不开源于Github 4.我们尊重您的安全和隐私，Apk无任何安全问题，且完全免费 5.您可以随意修改我们的Apk包，但修改后的包或无修改的包加入其他UI后，这些包如果出现bug原作者有权利不修复bug和不做出回应 6.您可以随意转载26.1版本及以上的Apk包中的原作者自创豆包音乐，但必须提供原作者名及下载链接（必须使用123盘） 7.您可以宣传YhBBKX，但必须提供官方下载链接（具体链接请转至B站@Never155置顶动态），禁止任何二改包宣传！ 8.强烈建议先支持正版，再下载我们的包（虽然@Never155也没入正…不入正版下载玩也是没问题的，但是…呃） 9.此包原包为MC版本库 10.更多协议请见Apk，以上协议如果发现不同意，请不要下载我们的包，如他人违反，请告知B站@Never155",
             "download-help-title": "关于123下载帮助",
             "download-help-content": "请下载安装123云盘获得每月免费20GB超光速下载流量包，以每次下载更方便更快速，请加群737134435获取卡密（完全免费的卡密！只不过要下载获取工具，请在周五傍晚左右到周日询问群主安装包。或者关注B站Never155私信获取（更慢））",
             "nev-news-title": "Nev新闻",
-            "nev-news-content": "（1）26.7 官方网站更新了，全新域名：yhbbkx.qzz.io！\n（2）26.2将改名为26.4(新命名法)",
+            "nev-news-content": "(1)26.7 Expressive!网站超级更新!\n(2)2026 NeverNEXT +/O 上半年场正在筹备!",
             "some-things-title": "一些事",
             "some-things-content": "求求您让其他人（比如B站@林台-范奥运）也关注这个小小项目吧！毕竟是免费的！",
             "menu-about-title": "关于本站",
@@ -2913,18 +3202,18 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
             "footer-contact": "3934107969",
             "footer-team": "Never155/186 Molo4981",
             "footer-copyright": "© 2026 Never155 All rights reserved",
-            "website-version": "Website Version: 26.7 yhbbkx.qzz.io",
+            "website-version": "Website Version: 26.7 Expressive | 𝒚𝒉𝒃𝒃𝒌𝒙.𝒒𝒛𝒛.𝒊𝒐",
             "download-26": "26.1 Pre2",
             "play-guide-title": "Play Guide",
             "play-guide-content": "By obtaining the APK installation package, you agree to our agreement: 1. The original author of the YhBBKX APK installation package is @Never155. 2. The original author of the YhBBKX APK installation package on Github is @nevertest155. 3. The YhBBKX APK installation package is not open source on Github. 4. We respect your safety and privacy; the APK has no security issues and is completely free. 5. You can modify our APK package at will, but if bugs appear in modified packages or unmodified packages with other UIs added, the original author has the right not to fix the bugs and not to respond. 6. You can freely repost the original author's self-created music in APK packages from version 26.1 and above, but you must provide the original author's name and download link (must use 123 Pan). 7. You can promote YhBBKX, but you must provide the official download link (specific link, please refer to Bilibili @Never155's pinned post). Promotion of any modified packages is prohibited! 8. It is strongly recommended to support the official version first, then download our package (although @Never155 hasn't purchased the official version either... it's okay to download and play without the official version, but... uh). 9. The original package of this package is the MC version library. 10. More agreements can be found in the APK. If you do not agree with the above agreements, please do not download our package. If others violate, please inform Bilibili @Never155.",
             "download-help-title": "About 123 Download Help",
             "download-help-content": "Please download and install 123 Cloud Disk to get a monthly free 20GB ultra-fast download traffic package for more convenient and faster downloads each time. Please join group 737134435 to get the card key (completely free card key! But you need to download the acquisition tool, please ask the group owner for the installation package from Friday evening to Sunday. Or follow Bilibili Never155 and send a private message to get it (slower)).",
             "nev-news-title": "Nev News",
-            "nev-news-content": "(1) 26.7 official website has been updated! New domain name:yhbbkx.qzz.io\n(2) 26.2 will be renamed to 26.4 (new naming convention)",
+            "nev-news-content": "(1) 26.7 Expressive new version! Website super updated!\n(2) 2026 NeverNEXT /O First half of the year event is being prepared!",
             "some-things-title": "Some Things",
             "some-things-content": "Please ask others (like Bilibili @林台-范奥运) to pay attention to this small project too! After all, it's free!",
             "menu-about-title": "About this static website",
-            "about-site-content": "(This site is an officially authorized website) Website version: 26.7 Last edited: Apr.28th., 2026, 10:34 Beijing Time.This site is a static website deployed on Github Page.Domain Name:yhbbkx.qzz.io, Repository: https://github.com/nevertest155/YhBBKX.github.io/tree/main",
+            "about-site-content": "(This site is an officially authorized website) Website version: 26.7 Expressive.Last edited: Apr.25th., 2026, 16:15 Beijing Time.This site is a static website deployed on Github Page.Domain Name:yhbbkx.qzz.io, Repository: https://github.com/nevertest155/YhBBKX.github.io/tree/main",
             "settings-title": "Settings",
             "settings-language": "Language",
             "settings-theme": "Dark Mode",
@@ -2989,6 +3278,15 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 event.preventDefault();
             }
         }, { passive: false });
+        // 允许 AI 输入框正常接收触摸事件
+document.addEventListener('touchstart', function(e) {
+    if (e.target.closest('#aiChatOverlay')) {
+    return; // 放行 AI 对话框内的所有触摸
+}
+if (e.target.closest('#aiChatInput') || e.target.closest('.ai-chat-input')) {
+    return; // 放行 AI 输入框的触摸
+}
+}, { passive: true });
         
         document.addEventListener('gesturestart', function(e) {
             e.preventDefault();
@@ -3079,31 +3377,32 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
         } catch (e) {}
         
         document.addEventListener('DOMContentLoaded', function() {
-            setInterval(function() {
-                window.getSelection().removeAllRanges();
-            }, 100);
-            
-            document.addEventListener('selectionchange', function() {
-                window.getSelection().removeAllRanges();
-            });
-        });
+    setInterval(function() {
+        var activeEl = document.activeElement;
+        // 如果当前焦点在输入框、文本域或可编辑元素上，不强制清除选区，避免键盘弹出后立即收回
+        if (!activeEl || (activeEl.tagName !== 'INPUT' && activeEl.tagName !== 'TEXTAREA' && !activeEl.isContentEditable)) {
+            window.getSelection().removeAllRanges();
+        }
+    }, 100);
+    
+    document.addEventListener('selectionchange', function() {
+        var activeEl = document.activeElement;
+        if (!activeEl || (activeEl.tagName !== 'INPUT' && activeEl.tagName !== 'TEXTAREA' && !activeEl.isContentEditable)) {
+            window.getSelection().removeAllRanges();
+        }
+    });
+});
         
         console.log('🔒 复制功能已完全禁用');
         }
         
         const menuBtn = document.getElementById('menuBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        const drawer = document.getElementById('drawer');
         const overlay = document.getElementById('overlay');
         const langSelect = document.getElementById('langSelect');
         const themeSwitch = document.getElementById('themeSwitch');
         const backBtn = document.getElementById('backBtn');
         const pageTitle = document.getElementById('pageTitle');
         const homeNav = document.getElementById('homeNav');
-        const downloadSection = document.getElementById('downloadSection');
-        const downloadContent = document.getElementById('downloadContent');
-        const moreSection = document.getElementById('moreSection');
-        const moreContent = document.getElementById('moreContent');
         
         const homePage = document.getElementById('homePage');
         const settingsPage = document.getElementById('settingsPage');
@@ -3120,7 +3419,6 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
         const shareBtn = document.getElementById('shareBtn');
         
         let currentPage = 'homePage';
-        let isDrawerOpen = false;
         
         function changeLanguage(lang) {
         const elements = document.querySelectorAll('[data-i18n]');
@@ -3181,81 +3479,46 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
         localStorage.setItem('yhbbkx-theme', root.getAttribute('data-theme'));
         }
         
-        function toggleSection(sectionId, contentId) {
-        const content = document.getElementById(contentId);
-        const toggle = document.querySelector(`#${sectionId} .section-toggle`);
-        
-        if (!content || !toggle) return;
-        
-        if (content.classList.contains('open')) {
-            content.style.maxHeight = '0';
-            setTimeout(() => {
-                content.classList.remove('open');
-                toggle.classList.remove('active');
-            }, 400);
-        } else {
-            content.classList.add('open');
-            toggle.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
-        }
-        
         function switchPage(pageId, pageName) {
         if (currentPage === pageId) return;
         
-        // 获取当前活动页面和要切换到的页面
         const currentPageEl = document.getElementById(currentPage);
         const targetPage = document.getElementById(pageId);
         
         if (!targetPage) return;
         
-        // 判断是否是二级页面（不是首页）
         const isSecondaryPage = pageId !== 'homePage';
         
-        // 设置目标页面的动画类（只有二级页面才用淡入淡出类）
         if (isSecondaryPage) {
             targetPage.classList.add('fade-transition');
         } else {
-            // 首页用原有的入场动画（不需要额外类）
             targetPage.classList.remove('fade-transition');
         }
         
-        // 显示目标页面（先隐藏，准备动画）
         targetPage.style.display = 'block';
-        
-        // 强制重排，确保动画生效
         void targetPage.offsetWidth;
-        
-        // 添加active类触发动画
         targetPage.classList.add('active');
         
-        // 隐藏当前页面（延迟一点，让动画更流畅）
         if (currentPageEl) {
             currentPageEl.classList.remove('active');
             setTimeout(() => {
                 if (currentPageEl.id !== pageId) {
                     currentPageEl.style.display = 'none';
-                    // 清理临时类
                     currentPageEl.classList.remove('fade-transition');
                 }
             }, 300);
         }
         
-        // 更新导航项活动状态
         document.querySelectorAll('.nav-item').forEach(item => {
             item.classList.remove('active');
         });
         
         if (pageId === 'homePage') {
-            homeNav.classList.add('active');
+            if (homeNav) homeNav.classList.add('active');
             backBtn.classList.remove('active');
             pageTitle.classList.remove('active');
             pageTitle.textContent = '';
         } else {
-            const navItem = document.querySelector(`.nav-item[data-page="${pageId.replace('Page', '').toLowerCase()}"]`);
-            if (navItem) {
-                navItem.classList.add('active');
-            }
             backBtn.classList.add('active');
             pageTitle.classList.add('active');
             pageTitle.textContent = pageName;
@@ -3265,49 +3528,73 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
             }
         }
         
-        // 更新当前页面记录
         currentPage = pageId;
         
-        // 关闭抽屉（移动端）
-        if (window.innerWidth < 1024) {
-            closeDrawer();
-        }
+        updateTabBarActive(pageId);
         
-        // 滚动到顶部
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
-        // 触发页面加载完成事件
         window.dispatchEvent(new Event('pageLoaded'));
         }
         
-        function closeDrawer() {
-        if (!isDrawerOpen) return;
-        
-        drawer.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-        isDrawerOpen = false;
+        function updateTabBarActive(pageId) {
+            document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+            if (pageId === 'homePage') {
+                document.getElementById('tabHome').classList.add('active');
+            } else if (pageId === 'testApplicationPage') {
+                document.getElementById('tabTest').classList.add('active');
+            }
         }
         
-        function openDrawer() {
-        if (isDrawerOpen) return;
-        
-        drawer.classList.add('open');
-        overlay.classList.add('active');
-        document.body.classList.add('no-scroll');
-        isDrawerOpen = true;
+        function openUpdateDialog() {
+            document.getElementById('updateDialogOverlay').classList.add('active');
+            document.body.classList.add('no-scroll');
         }
         
-        function initSections() {
-        downloadContent.style.maxHeight = '0';
-        moreContent.style.maxHeight = '0';
-        
-        downloadContent.classList.remove('open');
-        moreContent.classList.remove('open');
-        
-        document.querySelector('#downloadSection .section-toggle').classList.remove('active');
-        document.querySelector('#moreSection .section-toggle').classList.remove('active');
+        function closeUpdateDialog() {
+            document.getElementById('updateDialogOverlay').classList.remove('active');
+            document.body.classList.remove('no-scroll');
         }
+        
+        function openMoreDialog() {
+            document.getElementById('moreDialogOverlay').classList.add('active');
+            document.body.classList.add('no-scroll');
+        }
+        
+        function closeMoreDialog() {
+            document.getElementById('moreDialogOverlay').classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+        
+        document.getElementById('updateDialogOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeUpdateDialog();
+        });
+        
+        document.querySelectorAll('.settings-item[data-page]').forEach(item => {
+    item.addEventListener('click', function() {
+        const page = this.getAttribute('data-page');
+        const pageName = this.querySelector('.settings-item-text').textContent;
+        switch (page) {
+            case 'helpFeedback':
+                switchPage('helpFeedbackPage', pageName);
+                break;
+            case 'more':
+                switchPage('morePage', pageName);
+                break;
+        }
+    });
+});
+        
+        document.getElementById('moreDialogOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeMoreDialog();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeUpdateDialog();
+                closeMoreDialog();
+            }
+        });
         
         function initFAQ() {
         const faqContainer = document.getElementById('faqContainer');
@@ -3623,22 +3910,15 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
         const savedTheme = localStorage.getItem('yhbbkx-theme') || 
             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', savedTheme);
-        themeSwitch.checked = savedTheme === 'dark';
+        if (themeSwitch) themeSwitch.checked = savedTheme === 'dark';
         if (settingsThemeSwitch) settingsThemeSwitch.checked = savedTheme === 'dark';
         
         const savedLang = localStorage.getItem('yhbbkx-lang') || 'zh';
-        langSelect.value = savedLang;
+        if (langSelect) langSelect.value = savedLang;
         if (settingsLangSelect) settingsLangSelect.value = savedLang;
         changeLanguage(savedLang);
         
-        initSections();
-        
-        if (window.innerWidth >= 1024) {
-            drawer.classList.add('open');
-            isDrawerOpen = true;
-        }
-        
-        homeNav.classList.add('active');
+        if (homeNav) homeNav.classList.add('active');
         
         preloadImages();
         
@@ -3671,98 +3951,29 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
         });
         }
         
-        menuBtn.addEventListener('click', openDrawer);
-        closeBtn.addEventListener('click', closeDrawer);
-        overlay.addEventListener('click', closeDrawer);
-        
+        if (langSelect) {
         langSelect.addEventListener('change', (e) => {
         changeLanguage(e.target.value);
         if (settingsLangSelect) settingsLangSelect.value = e.target.value;
         });
+        }
         
         if (settingsLangSelect) {
         settingsLangSelect.addEventListener('change', (e) => {
             changeLanguage(e.target.value);
-            langSelect.value = e.target.value;
+            if (langSelect) langSelect.value = e.target.value;
         });
         }
         
+        if (themeSwitch) {
         themeSwitch.addEventListener('change', toggleTheme);
+        }
         
         if (settingsThemeSwitch) {
         settingsThemeSwitch.addEventListener('change', toggleTheme);
         }
         
-        downloadSection.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleSection('downloadSection', 'downloadContent');
-        });
-        
-        moreSection.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleSection('moreSection', 'moreContent');
-        });
-        
-        homeNav.addEventListener('click', (e) => {
-        e.preventDefault();
-        switchPage('homePage', '');
-        });
-        
-        document.querySelectorAll('.nav-item[data-page]').forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const page = item.getAttribute('data-page');
-            const pageName = item.querySelector('.nav-item-label').textContent;
-            
-            switch (page) {
-                case 'settings':
-                    switchPage('settingsPage', pageName);
-                    break;
-                case 'playGuide':
-                    switchPage('playGuidePage', pageName);
-                    break;
-                case 'downloadHelp':
-                    switchPage('downloadHelpPage', pageName);
-                    break;
-                case 'nevNews':
-                    switchPage('nevNewsPage', pageName);
-                    break;
-                case 'someThings':
-                    switchPage('someThingsPage', pageName);
-                    break;
-                case 'aboutSite':
-                    switchPage('aboutSitePage', pageName);
-                    break;
-                    case 'testapplication':
-        switchPage('testApplicationPage', pageName);
-        break;
-                case 'helpFeedback':
-                    switchPage('helpFeedbackPage', pageName);
-                    break;
-                case 'more':
-                    switchPage('morePage', pageName);
-                    break;
-            }
-        });
-        });
-        
-        document.querySelectorAll('.settings-item[data-page]').forEach(item => {
-        item.addEventListener('click', function() {
-            const page = this.getAttribute('data-page');
-            const pageName = this.querySelector('.settings-item-text').textContent;
-            
-            switch (page) {
-                case 'helpFeedback':
-                    switchPage('helpFeedbackPage', pageName);
-                    break;
-                case 'more':
-                    switchPage('morePage', pageName);
-                    break;
-            }
-        });
-        });
-        
+        if (backBtn) {
         backBtn.addEventListener('click', () => {
         const appBarTitle = document.querySelector('.app-bar-title');
         
@@ -3786,6 +3997,7 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
             switchPage('homePage', '');
         }
         });
+        }
         
         if (shareBtn) {
         shareBtn.addEventListener('click', function(e) {
@@ -3986,19 +4198,6 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 delayedOpen(this, this.getAttribute('href'));
             });
         }
-        
-        // ====== 悬浮按钮点击事件 ======
-        const fabBtn = document.getElementById('fabHelpBtn');
-        if (fabBtn) {
-            fabBtn.addEventListener('click', function() {
-                // 获取帮助与反馈页面的标题（多语言）
-                const currentLang = document.documentElement.getAttribute('data-lang') || 'zh';
-                const pageName = (i18n[currentLang] && i18n[currentLang]['help-feedback']) 
-                                  ? i18n[currentLang]['help-feedback'] 
-                                  : '帮助与反馈';
-                switchPage('helpFeedbackPage', pageName);
-            });
-        }
         });
         
         // ====== 申请测试页面交互 ======
@@ -4022,22 +4221,12 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
                 setTimeout(() => {
                     if (testLoading) testLoading.style.display = 'none';
                     if (testResult) testResult.style.display = 'block';
-                    // 如果需要重新启用按钮，取消下面注释
-                    // testBtn.disabled = false;
-                    // testBtn.style.opacity = '1';
-                    // testBtn.style.cursor = 'pointer';
                 }, 12000);
             });
         }
         });
         window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024) {
-            drawer.classList.add('open');
-            isDrawerOpen = true;
-        } else {
-            drawer.classList.remove('open');
-            isDrawerOpen = false;
-        }
+        // 窗口大小变化处理
         });
         
         window.addEventListener('DOMContentLoaded', () => {
@@ -4124,11 +4313,595 @@ onerror="this.onerror=null; this.src='data:image/svg+xml;base64,...'">
         init();
     </script>
     <div class="surprise-overlay" id="surpriseOverlay"></div>
+    
+    <!-- ====== YhBBKX AI 助手 ====== -->
+<style>
+    .ai-assistant-fab {
+        position: fixed;
+        bottom: 100px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #67C8FF, #4A90D9);
+        box-shadow: 0 4px 20px rgba(103, 200, 255, 0.4);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        opacity: 0;
+        animation: aiFabIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 3s forwards;
+    }
+    @keyframes aiFabIn {
+        0% { opacity: 0; transform: translateZ(0) scale(0); }
+        100% { opacity: 1; transform: translateZ(0) scale(1); }
+    }
+    .ai-assistant-fab:hover {
+        transform: scale(1.12);
+        box-shadow: 0 6px 28px rgba(103, 200, 255, 0.6);
+    }
+    .ai-assistant-fab:active {
+        transform: scale(0.92);
+    }
+    .ai-assistant-fab .material-icons-outlined {
+        font-size: 28px;
+        color: white;
+    }
+    .ai-assistant-fab .ai-pulse {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(103, 200, 255, 0.3);
+        animation: aiPulse 2s ease-in-out infinite;
+    }
+    @keyframes aiPulse {
+        0%, 100% { transform: scale(1); opacity: 0.6; }
+        50% { transform: scale(1.4); opacity: 0; }
+    }
+    
+    .ai-chat-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: transparent;
+        backdrop-filter: blur(20px) saturate(200%);
+        -webkit-backdrop-filter: blur(20px) saturate(200%);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s cubic-bezier(0.2, 0, 0, 1), visibility 0.3s;
+    }
+    .ai-chat-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .ai-chat-panel {
+        background: var(--surface-container-lowest);
+        border-radius: 28px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        width: calc(100% - 32px);
+        max-width: 420px;
+        max-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(0.9);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: 1px solid var(--outline-variant);
+    }
+    .ai-chat-overlay.active .ai-chat-panel {
+    transform: scale(1);
+    pointer-events: auto;
+}
+    
+    .ai-chat-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--outline-variant);
+        background: var(--surface-container);
+    }
+    .ai-chat-header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .ai-chat-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #67C8FF, #4A90D9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+    }
+    .ai-chat-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--on-surface);
+    }
+    .ai-chat-subtitle {
+        font-size: 11px;
+        color: var(--on-surface-variant);
+        margin-top: 2px;
+    }
+    .ai-chat-close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--on-surface-variant);
+        transition: background-color 0.2s;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .ai-chat-close:hover {
+        background-color: rgba(var(--on-surface-rgb), 0.08);
+    }
+    
+    .ai-chat-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-height: 200px;
+    }
+    .ai-chat-message {
+        padding: 12px 16px;
+        border-radius: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        max-width: 85%;
+        animation: aiMsgIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes aiMsgIn {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .ai-chat-message.ai-bot {
+        background: var(--surface-container);
+        color: var(--on-surface);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+    }
+    .ai-chat-message.ai-user {
+        background: linear-gradient(135deg, #67C8FF, #4A90D9);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+    }
+    
+    .ai-guess-section {
+        border-top: 1px solid var(--outline-variant);
+        padding: 12px 16px;
+        background: var(--surface-container);
+    }
+    .ai-guess-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--on-surface-variant);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .ai-guess-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-height: 120px;
+        overflow-y: auto;
+    }
+    .ai-guess-item {
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: var(--surface-container-lowest);
+        border: 1px solid var(--outline-variant);
+        font-size: 13px;
+        color: var(--on-surface);
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+        white-space: nowrap;
+        -webkit-tap-highlight-color: transparent;
+        animation: aiGuessIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes aiGuessIn {
+        0% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+    .ai-guess-item:hover {
+        background: linear-gradient(135deg, #67C8FF, #4A90D9);
+        color: white;
+        border-color: transparent;
+    }
+    .ai-guess-item:active {
+        transform: scale(0.95);
+    }
+    
+    .ai-chat-input-area {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        border-top: 1px solid var(--outline-variant);
+        background: var(--surface-container-lowest);
+    }
+    .ai-chat-input {
+        flex: 1;
+        padding: 10px 16px;
+        border-radius: 24px;
+        border: 2px solid var(--outline-variant);
+        background: var(--surface-container);
+        color: var(--on-surface);
+        font-size: 14px;
+        font-family: inherit;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+    .ai-chat-input:focus {
+        border-color: #67C8FF;
+    }
+    .ai-chat-send {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, #67C8FF, #4A90D9);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+        -webkit-tap-highlight-color: transparent;
+        flex-shrink: 0;
+    }
+    .ai-chat-send:active {
+        transform: scale(0.9);
+    }
+    
+    .ai-disclaimer {
+        text-align: center;
+        padding: 8px 16px;
+        font-size: 10px;
+        color: var(--on-surface-variant);
+        opacity: 0.6;
+        border-top: 1px solid var(--outline-variant);
+    }
+    
+    [data-theme="dark"] .ai-chat-panel {
+        background: rgba(30, 30, 30, 0.95);
+    }
+    [data-theme="dark"] .ai-chat-header {
+        background: rgba(40, 40, 40, 0.8);
+    }
+    [data-theme="dark"] .ai-chat-message.ai-bot {
+        background: rgba(50, 50, 50, 0.8);
+    }
+    [data-theme="dark"] .ai-chat-input {
+        background: rgba(40, 40, 40, 0.8);
+        color: #e0e0e0;
+    }
+    
+    @media (max-width: 600px) {
+        .ai-assistant-fab {
+            bottom: 90px;
+            right: 16px;
+            width: 48px;
+            height: 48px;
+        }
+        .ai-chat-panel {
+            max-height: 85vh;
+            border-radius: 20px 20px 0 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+        .ai-chat-body {
+            max-height: 150px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .ai-assistant-fab {
+            bottom: 120px;
+            right: 32px;
+        }
+    }
+</style>
 
-    <!-- 悬浮帮助按钮 -->
-    <button class="fab" id="fabHelpBtn">
-        <span class="material-icons-outlined">help</span>
-    </button>
+<button class="ai-assistant-fab" id="aiFab" title="YhBBKX AI 小助手">
+    <div class="ai-pulse"></div>
+    <span class="material-icons-outlined">psychology</span>
+</button>
+
+<div class="ai-chat-overlay" id="aiChatOverlay">
+    <div class="ai-chat-panel">
+        <div class="ai-chat-header">
+            <div class="ai-chat-header-left">
+                <div class="ai-chat-avatar">
+                    <span class="material-icons-outlined" style="font-size:20px;">psychology</span>
+                </div>
+                <div>
+                    <div class="ai-chat-title">YhBBKX AI 小助手</div>
+                    <div class="ai-chat-subtitle">实验性功能 · 仅支持中文</div>
+                </div>
+            </div>
+            <button class="ai-chat-close" id="aiChatClose">
+                <span class="material-icons-outlined">close</span>
+            </button>
+        </div>
+        <div class="ai-chat-body" id="aiChatBody">
+            <div class="ai-chat-message ai-bot">
+                👋 你好！我是 YhBBKX AI 小助手<br>
+                输入关键词，我会猜你想问什么～
+            </div>
+        </div>
+        <div class="ai-guess-section" id="aiGuessSection">
+            <div class="ai-guess-title">💡 猜你想问</div>
+            <div class="ai-guess-list" id="aiGuessList"></div>
+        </div>
+        <div class="ai-chat-input-area">
+            <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="输入关键词...">
+            <button class="ai-chat-send" id="aiChatSend">
+                <span class="material-icons-outlined" style="font-size:20px;">send</span>
+            </button>
+        </div>
+        <div class="ai-disclaimer">
+            ⚠️ 回答为 DeepSeek V4 生成，不能保证内容真实 · AI 助手仅支持中文 · 每次回答最多 6 行
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const aiFab = document.getElementById('aiFab');
+    const aiChatOverlay = document.getElementById('aiChatOverlay');
+    const aiChatClose = document.getElementById('aiChatClose');
+    const aiChatInput = document.getElementById('aiChatInput');
+    const aiChatSend = document.getElementById('aiChatSend');
+    const aiChatBody = document.getElementById('aiChatBody');
+    const aiGuessList = document.getElementById('aiGuessList');
+    
+    let displayedCount = 0;
+    const DISPLAY_INCREMENT = 10;
+    let allMatchResults = [];
+    
+    // ====== 60 条问答库 + 200+ 关键词 ======
+const qaDatabase = [
+    { q: "YhBBKX 是什么？", k: ["yhbbkx","是什么","介绍","概述","简介","关于","版本库"], a: "YhBBKX 是一个 Minecraft 基岩版优化版本库。它基于原版 Minecraft 进行深度优化，提供更好的 UI 美学、材质和 APK 优化，完全免费。" },
+    { q: "YhBBKX 要钱吗？", k: ["付费","收费","价格","钱","多少钱","免费","费用","支付"], a: "YhBBKX 完全免费，不需要支付任何费用。所有优化版本均可免费下载使用，我们承诺永远不会收费。" },
+    { q: "怎么下载 YhBBKX？", k: ["下载","安装","获取","链接","地址","下载链接","在哪里","渠道"], a: "请访问官网 yhbbkx.qzz.io，在首页点击「立即获取」按钮。推荐使用 123 云盘下载，登录后可获每月 20GB 免费高速流量。" },
+    { q: "YhBBKX 支持什么系统？", k: ["系统","安卓","iOS","鸿蒙","Android","HarmonyOS","平台","兼容","版本要求"], a: "目前仅支持 Android（推荐 15，最低 8.0）和 HarmonyOS 5/6（需在卓易通中安装）。暂不支持 iOS。" },
+    { q: "YhBBKX 安全吗？", k: ["安全","病毒","木马","恶意","检测","杀毒","隐私","后门","泄漏"], a: "YhBBKX 绝对安全，不含任何恶意代码。我们尊重用户隐私，APK 无任何安全问题，可放心使用。" },
+    { q: "安装后闪退怎么办？", k: ["闪退","崩溃","卡退","打不开","闪退修复","无法启动","黑屏","白屏"], a: "请检查安装包完整性，确保资源包/行为包适配。若持续闪退，可加入 QQ 群反馈，或尝试重新下载安装。" },
+    { q: "游戏锁 60 帧怎么办？", k: ["锁帧","60帧","帧率","卡顿","FPS","流畅","帧数限制","性能"], a: "锁 60 帧是基岩版原生特性。可下载 @林台-范奥运 的原版优化整合包解除帧率限制，获得更高帧率体验。" },
+    { q: "无法安装怎么办？", k: ["无法安装","安装失败","证书","签名","解析错误","安装包损坏","未知来源"], a: "请检查是否开启了「安装未知来源应用」权限。如提示证书缺少，请用 MT 管理器自行签名；签名不一致请卸载旧版本后重装。" },
+    { q: "什么是 NeoreUI？", k: ["neoreui","neore","UI","界面","美学","设计","视觉","风格","OreUI"], a: "NeoreUI 是 YhBBKX 定制的 JSON UI 界面系统，提供更美观实用的视觉体验。支持修改和自定义，实现个性化界面。" },
+    { q: "什么是 MoreUI？", k: ["moreui","more","UI增强","界面增强","高级UI","美化","皮肤","布局"], a: "MoreUI 是 YhBBKX 的界面增强模块，捅破天花板级别的美学设计。基于 JsonUI 版 OreUI 魔改，极度舒适美观。" },
+    { q: "YhBBKX 和原版有什么区别？", k: ["区别","原版","差异","对比","不同","优势","特点","特色"], a: "YhBBKX 比原版体积更小，内置优化材质和 UI 增强，但不塞私货。提供更好的视觉体验和 APK 层面优化。" },
+    { q: "材质包怎么用？", k: ["材质","材质包","纹理","贴图","资源包","导入","应用","启用"], a: "下载材质包后放入 Minecraft 的 resource_packs 文件夹，进入游戏设置 → 全局资源中启用即可。@Molo4981 持续更新材质库。" },
+    { q: "有防沉迷吗？", k: ["防沉迷","限制","时长","健康系统","实名","认证","未成年","时间限制"], a: "YhBBKX 没有防沉迷系统，未来也不会添加。但建议合理安排游戏时间，注意休息。" },
+    { q: "怎么联机？", k: ["联机","多人","服务器","好友","房间","局域网","一起玩","连接"], a: "确保双方版本一致，在同一网络下可局域网联机。远程联机需确保移动数据权限开启，设置 → 通用 → 启用移动数据玩线上游戏。" },
+    { q: "联机时皮肤没了？", k: ["皮肤","自定义皮肤","皮肤丢失","联机皮肤","显示皮肤","皮肤不显示"], a: "进入设置 → 通用 → 关闭「只允许信任的皮肤」选项，即可显示自定义皮肤。联机双方都需操作。" },
+    { q: "无法进入服务器？", k: ["服务器","加入服务器","连接失败","版本不兼容","协议","Beta"], a: "请检查游戏底层版本是否为 Beta 版，Beta 版本可能无法进入正式服务器。建议使用正式版或与服务器版本匹配。" },
+    { q: "市场无法加载？", k: ["市场","Marketplace","加载失败","商店","内容","TM加速器","网络","加速"], a: "尝试挂 TM 加速器或检查网络连接。市场加载需要稳定的国际网络，切换网络环境可能解决问题。" },
+    { q: "YhBBKX 有更新吗？", k: ["更新","新版本","最新","版本号","26","升级","更新日志","发布"], a: "最新版本为 26.1 Pre2。关注 Nev 新闻页面和 B站 @Never155 获取最新更新动态。夏季大更新正在制作中。" },
+    { q: "Nev 新闻在哪里看？", k: ["新闻","nev","动态","公告","通知","消息","更新内容","新功能"], a: "打开网站侧边栏「更多」→「Nev新闻」或在底部 Tab 栏点击「更多」查看。所有重要更新都会在此发布。" },
+    { q: "怎么联系作者？", k: ["联系","作者","Never155","反馈","建议","问题","QQ","私信"], a: "可通过 QQ 群 3934107969 联系，或在 B站 @Never155 私信。问题反馈和建议都欢迎，UP 有时不上线请耐心等待。" },
+    { q: "123 云盘下不了？", k: ["123云盘","123盘","下载失败","网盘","限速","流量","卡密","获取工具"], a: "下载安装 123 云盘客户端，登录后可获每月 20GB 免费高速流量。加群 737134435 获取免费卡密兑换更多流量。" },
+    { q: "YhBBKX 开源吗？", k: ["开源","GitHub","仓库","代码","源码","开源地址","查看代码"], a: "YhBBKX APK 不开源，但官方网站是开源的。仓库地址：github.com/nevertest155/YhBBKX.github.io，欢迎 Star。" },
+    { q: "可以二改吗？", k: ["二改","修改","魔改","二次开发","修改包","改包","定制","修改版本"], a: "可以修改 APK 包，但修改后的包出现 bug 原作者有权不修复。禁止二改包宣传，转载须提供官方链接。" },
+    { q: "Yh Pack 是什么？", k: ["yh pack","ypack","资源包","整合包","附加包","扩展","DLC"], a: "Yh Pack 是 YhBBKX 的配套资源包，提供额外材质和优化。可通过「更多」页面尝试下载，版本 26.1 不含贺新春内容。" },
+    { q: "Better Minecraft 是什么？", k: ["better minecraft","better","mc优化","整合","推荐","外部"], a: "Better Minecraft 是外部推荐的优化整合方案，非 YhBBKX 官方产品。可在侧边栏「更多」中找到链接访问。" },
+    { q: "原版优化整合包是什么？", k: ["原版优化","优化整合","整合包","vanilla","林台","范奥运","第三人称"], a: "由 B站 @林台-范奥运 制作的优化整合包，解除原版帧率限制等。非 YhBBKX 官方产品，可在侧边栏找到链接。" },
+    { q: "申请测试怎么操作？", k: ["申请测试","测试","Beta","预览","内测","资格","测试版","Preview"], a: "点击底部 Tab 栏「申请测试」进入页面，点击检测按钮等待 12 秒。通过后可下载测试包，包名与正式版不同请注意。" },
+    { q: "测试包和正式版有什么区别？", k: ["测试包","正式版","区别","包名","数据","备份","不同","测试"], a: "测试包包名为 com.mojang.minecraftyhCESHI，与正式版不同。安装测试包前请备份重要数据，请勿透露测试内容。" },
+    { q: "网站是什么技术做的？", k: ["网站","技术","前端","HTML","CSS","JS","框架","响应式","静态"], a: "本站采用纯 HTML/CSS/JS 构建，部署于 GitHub Pages。使用 Material Design 3 设计规范，支持多语言和深色模式。" },
+    { q: "域名是免费的吗？", k: ["域名","yhbbkx.qzz.io","免费域名","qzz.io","绑定","自定义","网址","地址"], a: "是的，yhbbkx.qzz.io 是永久免费域名。通过 Cloudflare 提供全球 CDN 加速和 HTTPS 加密，加载速度更快。" },
+    { q: "怎么切换深色模式？", k: ["深色模式","暗黑","夜间","护眼","主题","黑色","dark","切换"], a: "点击侧边栏底部的开关或设置页面的深色模式开关即可切换。网站会自动记住你的偏好。" },
+    { q: "怎么切换语言？", k: ["语言","English","中文","切换语言","翻译","英文","多语言","Chinese"], a: "点击侧边栏底部的语言选择按钮，选择「让我们说中文」或「Oh,ENGLISH!」即可切换。设置页面也有语言选项。" },
+    { q: "网站怎么分享？", k: ["分享","转发","推荐","告诉朋友","复制链接","宣传","推广"], a: "进入设置页面点击「分享网站」按钮，链接会自动复制到剪贴板。也可直接转发 yhbbkx.qzz.io 给朋友。" },
+    { q: "有 QQ 群吗？", k: ["QQ群","群号","加群","反馈群","交流","社区","社群"], a: "有！QQ 群号 3934107969，用于问题反馈和交流。另有 123 云盘卡密群 737134435，获取免费下载流量。" },
+    { q: "有没有 Discord？", k: ["discord","国际","海外","外国","社区","聊天"], a: "目前暂无 Discord 服务器，主要通过 QQ 群和 B站进行交流。未来如有需求会考虑开设。" },
+    { q: "网站打不开怎么办？", k: ["打不开","404","无法访问","加载失败","网络","连接","超时","错误"], a: "请检查网络连接，尝试刷新页面。若持续无法访问，可能是 GitHub Pages 临时故障，稍后重试即可。" },
+    { q: "YhBBKX 支持模组吗？", k: ["模组","addon","addons","附加","插件","扩展","MOD","行为包"], a: "YhBBKX 支持 Minecraft 基岩版的 Addons（行为包）。安装方式与原版一致，放入 behavior_packs 文件夹即可。" },
+    { q: "怎么导入行为包？", k: ["导入","行为包","behavior","安装包","mcpack","mcaddon","文件"], a: "将 .mcpack 或 .mcaddon 文件用 Minecraft 打开即可自动导入。也可手动放入 behavior_packs 文件夹。" },
+    { q: "存档在哪里？", k: ["存档","数据","备份","保存","文件","位置","目录","存储"], a: "存档位于手机存储的 Android/data/com.mojang.minecraftpe/files/games/com.mojang/minecraftWorlds 目录下。" },
+    { q: "怎么备份存档？", k: ["备份","存档备份","导出","保存","恢复","数据备份","云端"], a: "进入设置 → 通用 → 文件存储位置，选择「外部存储」。然后将 minecraftWorlds 文件夹复制到安全位置即可。" },
+    { q: "游戏内怎么截图？", k: ["截图","拍照","画面","保存图片","录屏","分享画面"], a: "Minecraft 基岩版暂无内置截图功能。可使用手机系统截图或第三方录屏软件记录精彩瞬间。" },
+    { q: "手柄怎么连接？", k: ["手柄","控制器","蓝牙","外设","游戏手柄","PS4","Xbox","连接"], a: "通过手机蓝牙连接手柄，Minecraft 基岩版会自动识别。支持 Xbox、PS4 等主流蓝牙手柄。" },
+    { q: "触控怎么设置？", k: ["触控","操作","按键","灵敏度","摇杆","按钮","界面","调整"], a: "进入设置 → 触控，可调整虚拟摇杆大小、按钮位置和灵敏度。支持自定义触控方案。" },
+    { q: "音效有问题？", k: ["音效","声音","音乐","无声","音频","音量","听不到","噪音"], a: "检查手机音量和游戏内音效设置。部分优化包可能替换音效文件，如遇到问题可尝试恢复默认资源包。" },
+    { q: "YhBBKX 有广告吗？", k: ["广告","推广","弹窗","联盟","营销","盈利","收入"], a: "YhBBKX 没有任何广告，完全免费无盈利目的。我们承诺保持纯净体验，不会添加任何广告。" },
+    { q: "开发者是谁？", k: ["开发者","作者","团队","Never155","Molo4981","制作","背后"], a: "YhBBKX 由 @Never155（主开发）和 @Molo4981（材质）共同打造。GitHub 仓库为 nevertest155/YhBBKX.github.io。" },
+    { q: "支持正版吗？", k: ["正版","入正","购买","支持","付费","官方","Mojang"], a: "强烈建议先支持正版再下载我们的包。虽然没有入正也能玩，但支持开发者是对游戏行业的贡献。" },
+    { q: "有什么法律声明？", k: ["法律","版权","商标","Mojang","微软","声明","侵权","法律风险"], a: "Minecraft 是 Microsoft 和 Mojang 的注册商标。YhBBKX 与官方无任何从属关系，仅为社区优化版本，请支持正版。" },
+    { q: "Google 安装限制是什么？", k: ["Google","安装限制","未知来源","威胁","Android","政策","keepandroidopen"], a: "Google 正在改变安装未知来源 APK 的方式，可能影响第三方应用安装。请通过 keepandroidopen.org 提供帮助反对此限制。" },
+    { q: "什么是 26.4 新命名法？", k: ["命名法","26.4","版本号","命名规则","为什么","改名"], a: "26.2 将改名为 26.4，采用新的版本命名规则。具体细节请关注 Nev 新闻和 B站公告。" },
+    { q: "怎么清除缓存？", k: ["缓存","清理","垃圾","存储","空间","数据","清除","重置"], a: "进入手机设置 → 应用 → Minecraft → 存储，点击清除缓存。游戏内可在设置 → 存储中管理资源包缓存。" },
+    { q: "YhBBKX 耗电吗？", k: ["耗电","电池","续航","发热","性能","功耗","省电"], a: "YhBBKX 经过优化，相比原版功耗更低。如遇发热问题，建议降低画质设置或关闭后台应用。" },
+    { q: "支持光线追踪吗？", k: ["光追","光线追踪","RTX","光影","shader","着色器","画质"], a: "Minecraft 基岩版支持光线追踪，但需要兼容的设备和显卡。YhBBKX 不内置光追，需自行配置。" },
+    { q: "怎么调整画质？", k: ["画质","分辨率","渲染","视距","特效","图像","图形","设置"], a: "进入设置 → 视频，可调整渲染距离、抗锯齿、粒子效果等。降低画质可提升性能和续航。" },
+    { q: "YhBBKX 体积多少？", k: ["体积","大小","安装包大小","存储","占用","空间占用","MB"], a: "YhBBKX 经过 APK 优化，体积比原版更小。具体大小因版本而异，请查看下载页面的详细信息。" },
+    { q: "怎么反馈 BUG？", k: ["BUG","反馈","报错","问题","提交","报告","缺陷","漏洞"], a: "加入 QQ 群 3934107969 反馈 BUG，或 B站私信 @Never155。描述问题时请附上截图和设备信息，帮助我们更快定位。" },
+    { q: "有没有英文版？", k: ["英文","English","语言设置","翻译","国际化","i18n"], a: "官方网站支持英文界面，可在侧边栏底部切换语言。但 AI 助手目前仅支持中文，英文回答功能开发中。" },
+    { q: "网站多久更新一次？", k: ["网站更新","维护","更新频率","升级","改版","新内容"], a: "官方网站随 YhBBKX 版本更新而更新。最新网站版本为 26.7，发布于 2026 年 4 月 18 日。" },
+    { q: "可以离线玩吗？", k: ["离线","断网","飞行模式","无网络","单机"], a: "YhBBKX 完全支持离线游玩。单人游戏无需网络连接，只有联机和市场功能需要网络。" }
+];
+    
+    function findMatches(input) {
+        if (!input.trim()) return [];
+        const lower = input.toLowerCase();
+        const results = [];
+        qaDatabase.forEach(qa => {
+            let score = 0;
+            qa.k.forEach(keyword => {
+                if (lower.includes(keyword.toLowerCase())) score += 10;
+                if (keyword.toLowerCase().includes(lower)) score += 5;
+            });
+            if (qa.q.toLowerCase().includes(lower)) score += 15;
+            if (score > 0) results.push({ ...qa, score });
+        });
+        return results.sort((a, b) => b.score - a.score);
+    }
+    
+    function showTopMatches() {
+        allMatchResults = allMatchResults.slice(0, 60);
+        const toShow = allMatchResults.slice(displayedCount, displayedCount + DISPLAY_INCREMENT);
+        toShow.forEach((qa, index) => {
+            const item = document.createElement('div');
+            item.className = 'ai-guess-item';
+            item.textContent = qa.q;
+            item.style.animationDelay = (index * 0.05) + 's';
+            item.addEventListener('click', () => showAnswer(qa));
+            aiGuessList.appendChild(item);
+        });
+        displayedCount += toShow.length;
+        if (displayedCount < allMatchResults.length) {
+            aiGuessList.addEventListener('scroll', handleScroll);
+        }
+    }
+    
+    function handleScroll() {
+        const list = aiGuessList;
+        if (list.scrollHeight - list.scrollTop - list.clientHeight < 30) {
+            list.removeEventListener('scroll', handleScroll);
+            showTopMatches();
+        }
+    }
+    
+    function showAnswer(qa) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'ai-chat-message ai-user';
+        msgDiv.textContent = qa.q;
+        aiChatBody.appendChild(msgDiv);
+        setTimeout(() => {
+            const replyDiv = document.createElement('div');
+            replyDiv.className = 'ai-chat-message ai-bot';
+            replyDiv.textContent = qa.a;
+            aiChatBody.appendChild(replyDiv);
+            aiChatBody.scrollTop = aiChatBody.scrollHeight;
+        }, 300);
+        aiChatBody.scrollTop = aiChatBody.scrollHeight;
+    }
+    
+    function updateSuggestions() {
+        const input = aiChatInput.value;
+        aiGuessList.innerHTML = '';
+        displayedCount = 0;
+        allMatchResults = input.trim() ? findMatches(input) : qaDatabase.slice(0, 60).map(q => ({...q, score: 1}));
+        if (allMatchResults.length === 0 && input.trim()) {
+            allMatchResults = qaDatabase.slice(0, 20).map(q => ({...q, score: 1}));
+        }
+        showTopMatches();
+    }
+    
+    function openChat() {
+        aiChatOverlay.classList.add('active');
+        document.body.classList.add('no-scroll');
+        updateSuggestions();
+        aiChatInput.setAttribute('placeholder', '输入关键词...');
+    }
+    
+    function closeChat() {
+        aiChatOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        aiChatInput.value = '';
+        aiChatInput.setAttribute('placeholder', '输入关键词...');
+        aiGuessList.innerHTML = '';
+        displayedCount = 0;
+        allMatchResults = [];
+    }
+    
+    aiFab.addEventListener('click', openChat);
+    aiChatClose.addEventListener('click', closeChat);
+    
+    aiChatOverlay.addEventListener('click', function(e) {
+        if (e.target === aiChatOverlay) closeChat();
+    });
+    
+    const aiChatPanel = aiChatOverlay.querySelector('.ai-chat-panel');
+    if (aiChatPanel) {
+        aiChatPanel.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        aiChatPanel.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+        });
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && aiChatOverlay.classList.contains('active')) {
+            closeChat();
+        }
+    });
+    
+    aiChatInput.addEventListener('input', updateSuggestions);
+    aiChatInput.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    aiChatInput.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+    });
+    
+    aiChatSend.addEventListener('click', function() {
+        const input = aiChatInput.value.trim();
+        if (!input) return;
+        const matches = findMatches(input);
+        if (matches.length > 0) {
+            showAnswer(matches[0]);
+            aiChatInput.value = '';
+            updateSuggestions();
+        } else {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'ai-chat-message ai-user';
+            msgDiv.textContent = input;
+            aiChatBody.appendChild(msgDiv);
+            setTimeout(() => {
+                const replyDiv = document.createElement('div');
+                replyDiv.className = 'ai-chat-message ai-bot';
+                replyDiv.textContent = '🤔 没有找到相关问题，请尝试其他关键词。';
+                aiChatBody.appendChild(replyDiv);
+                aiChatBody.scrollTop = aiChatBody.scrollHeight;
+            }, 300);
+            aiChatInput.value = '';
+            updateSuggestions();
+        }
+    });
+    
+    aiChatInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') aiChatSend.click();
+    });
+})();
+<!--by Never155-->
+<!--by Never Studio-->
+<!--by Molo4981-->
+<!--by Molo 4981 Studios-->
+<!--威胁警告！ Google正在改变安装未知来源.apk的方式，这 会导致第三方.apk无法安装，YhBBKX和其他第三方应用正在 面临威胁！请通过 𝓱𝓽𝓽𝓹𝓼://𝓴𝓮𝓮𝓹𝓪𝓷𝓭𝓻𝓸𝓲𝓭𝓸𝓹𝓮𝓷.𝓸𝓻𝓰/ 提供帮助-->
+<!--𝚃𝚑𝚛𝚎𝚊𝚝 𝚠𝚊𝚛𝚗𝚒𝚗𝚐! 𝙶𝚘𝚘𝚐𝚕𝚎 𝚒𝚜 𝚌𝚑𝚊𝚗𝚐𝚒𝚗𝚐 𝚝𝚑𝚎 𝚠𝚊𝚢 𝚘𝚏 𝚒𝚗𝚜𝚝𝚊𝚕𝚕𝚒𝚗𝚐 𝚞𝚗𝚔𝚗𝚘𝚠𝚗 𝚜𝚘𝚞𝚛𝚌𝚎 .𝚊𝚙𝚔 𝚏𝚒𝚕𝚎𝚜, 𝚠𝚑𝚒𝚌𝚑 𝚠𝚒𝚕𝚕 𝚌𝚊𝚞𝚜𝚎 𝚝𝚑𝚒𝚛𝚍-𝚙𝚊𝚛𝚝𝚢 .𝚊𝚙𝚔 𝚏𝚒𝚕𝚎𝚜 𝚝𝚘 𝚋𝚎 𝚞𝚗𝚊𝚋𝚕𝚎 𝚝𝚘 𝚒𝚗𝚜𝚝𝚊𝚕𝚕. 𝚈𝚑𝙱𝙱𝙺𝚇 𝚊𝚗𝚍 𝚘𝚝𝚑𝚎𝚛 𝚝𝚑𝚒𝚛𝚍-𝚙𝚊𝚛𝚝𝚢 𝚊𝚙𝚙𝚕𝚒𝚌𝚊𝚝𝚒𝚘𝚗𝚜 𝚊𝚛𝚎 𝚏𝚊𝚌𝚒𝚗𝚐 𝚝𝚑𝚛𝚎𝚊𝚝𝚜! 𝙿𝚕𝚎𝚊𝚜𝚎 𝚙𝚛𝚘𝚟𝚒𝚍𝚎 𝚑𝚎𝚕𝚙 𝚝𝚑𝚛𝚘𝚞𝚐𝚑 𝓱𝓽𝓽𝓹𝓼://𝓴𝓮𝓮𝓹𝓪𝓷𝓭𝓻𝓸𝓲𝓭𝓸𝓹𝓮𝓷.𝓸𝓻𝓰/-->
+</script>
 
 </body>
 
